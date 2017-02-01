@@ -3,13 +3,15 @@
 #include <deque>
 #include <set>
 #include <map>
+#include <algorithm>
 #include <cstring>
 #include <cstdlib>
 #include <iostream>
+#include <cfloat>
 using namespace std;
 bool directionalGraph = true;
-float Fvp = 0.1;
-float Fvh = 0.1;
+float Fvp = 0.1f;
+float Fvh = 0.1f;
 unsigned int maxNodeCapacity = 10;
 class NODE{
 public:
@@ -17,11 +19,11 @@ public:
 	unsigned int ID;
 	unsigned int nodeCapacity;
 	unsigned int nodeOccupancy;
-	unsigned int occupancyHistory;
-	unsigned int minDistance;
+	float occupancyHistory;
+	float minDistance;
 	unsigned int prevNode;
 	map<unsigned int , unsigned int> neighbors; // neighbor ID <-> neighbor weight
-	NODE() : used(false) , minDistance(0xFFFFFFFF), nodeOccupancy(0), nodeCapacity(maxNodeCapacity), prevNode(0) {}
+	NODE() : used(false) , minDistance(FLT_MAX), nodeOccupancy(0), nodeCapacity(maxNodeCapacity), prevNode(0) {}
 	void setId(unsigned int Id){
 		ID = Id;
 	}
@@ -33,7 +35,7 @@ public:
 		{
 			return occupancyHistory = 1;
 		}else{
-			return occupancyHistory + Fvh * nodeOccupancy;
+			return occupancyHistory = occupancyHistory + Fvh * nodeOccupancy;
 		}
 	}
 };
@@ -50,11 +52,11 @@ void initGraph(NODE* emptyGraph , const unsigned int initTable[][3] , const size
 		}
 	}
 }
-void buildPath(const NODE* finalGraph , const unsigned int& srcNode , const unsigned int& dstNode , deque<unsigned int>& outPath){
+void buildPath(const NODE* finalGraph , const unsigned int& srcNode , const unsigned int& dstNode , set<unsigned int>& outPath){
 	unsigned int tempId = dstNode;
 	while (tempId != srcNode)
 	{
-		outPath.push_front(tempId);
+		outPath.insert(tempId);
 		tempId = finalGraph[tempId].prevNode;
 		if (tempId == 0)
 		{
@@ -62,9 +64,9 @@ void buildPath(const NODE* finalGraph , const unsigned int& srcNode , const unsi
 			break;
 		}
 	}
-	outPath.push_front(srcNode);
+	outPath.insert(srcNode);
 }
-void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, const vector<int>& connections, const unsigned int& iterN ){
+void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vector<unsigned int> >::const_iterator connections, const unsigned int& iterN, set<unsigned int>& outPath ){
 
 // Init temp graph
 	NODE* tempGraph = (NODE*)malloc(sizeof(NODE) * ( graphSize + 1 ));
@@ -74,7 +76,7 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, const vect
 	}
 	memcpy(tempGraph , nodesGraph , sizeof(NODE) * ( graphSize + 1 ));
 
-	unsigned int initNode = connections[0]; // Source node = connections[0]
+	unsigned int initNode = connections->at(0); // Source node = connections[0]
 	queue<unsigned int> queueOfNodes;
 	
 	tempGraph[initNode].prevNode = initNode;
@@ -105,32 +107,50 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, const vect
 		queueOfNodes.pop();
 	} while (queueOfNodes.size() != 0);
 
-// Build path
-	deque<unsigned int> outPath;
-	buildPath(tempGraph , 1 , 9 , outPath);
-	for (auto it = outPath.begin() ; it != outPath.end() ; ++it)
+// Add nodes to wire(subgraph or path of source node and destination nodes)
+	for (size_t i = 1 ; i < connections->size() ; ++i)
 	{
-		cout << *it << " ";
-	}	cout << endl;
+		buildPath(tempGraph , connections->at(0) , connections->at(i) , outPath);
+	}
+	for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
+	cout << endl;
 	free(tempGraph);
 }
-void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned int& graphSize, const vector<vector<int> >& connectionsList){
+void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned int& graphSize, const vector<vector<unsigned int> >* connectionsList){
 	for (size_t i = 0 ; i < maxIter ; ++i)
 	{
 
+// Clear nodeOccupancy in all nodes 
+		if (i > 0){
+			for (NODE* graphIt = nodesGraph ; graphIt < graphSize + nodesGraph; ++graphIt){ graphIt->nodeOccupancy = 0; }
+		}
+
+// Loop over all multi terminal wires(connections)
+		vector<unsigned int> usedNodes; 
+		for (auto cListIt = (*(connectionsList)).begin() ; cListIt != (*(connectionsList)).end() ; ++cListIt)
+		{
+			set<unsigned int> outPath;
+			dijkstra(nodesGraph,graphSize,cListIt,i,outPath);
+			//copy(outPath.begin() , outPath.end() , usedNodes.end() - 1); // Copy nodes from path to collections of used nodes
+			usedNodes.insert(usedNodes.end() , outPath.begin() , outPath.end()); // Copy nodes from path to collections of used nodes
+		}
+
+// Loop over all used nodes to increase nodeOccupancy in each node
+		for_each(usedNodes.begin() , usedNodes.end() , [nodesGraph](unsigned int uNode){ nodesGraph[uNode].nodeOccupancy++; });
+
+// Loop over all used nodes to update occupancyHustory in each node
+		for_each(usedNodes.begin() , usedNodes.end() , [nodesGraph , i](unsigned int uNode){ nodesGraph[uNode].Hv(i); });
 	}
 }
 int main(int argc , char* argv[]){
 
-	unsigned int fstNode = 1;
-	unsigned int lstNode = 5;
 	size_t tableSize = 10;
 	size_t graphSize = 9;
 	NODE* nodesGraph = new NODE[graphSize + 1];
 	unsigned int** initTable;
 	initTable = (unsigned int **)malloc(tableSize * sizeof(unsigned int *));
 	if(initTable == nullptr){
-		cout << "Inital table memory allocation error" << endl;
+		cout << "Initial table memory allocation error" << endl;
 		exit(1);
 	}
 
@@ -150,7 +170,7 @@ int main(int argc , char* argv[]){
 	unsigned int connections[3][2] = { {1 , 7},
 									{2 , 8},
 									{3 , 9} };
-	vector<vector<int> > connectionsList;
+	vector<vector<unsigned int> > connectionsList;
 
 	// connectionsList init
 	connectionsList.resize(3);
@@ -164,6 +184,6 @@ int main(int argc , char* argv[]){
 	}
 
 	initGraph(nodesGraph , testTable , tableSize);
-	dijkstra(nodesGraph , fstNode, graphSize);
+	pathfinder(nodesGraph , 1 , graphSize , &connectionsList);
 	return 0;
 }
