@@ -10,8 +10,8 @@
 #include <cfloat>
 using namespace std;
 bool directionalGraph = true;
-float Fvp = 0.1f;
-float Fvh = 0.1f;
+float Fvp = 0.5f;
+float Fvh = 0.5f;
 unsigned int maxNodeCapacity = 10;
 class NODE{
 public:
@@ -31,7 +31,7 @@ public:
 		return 1 + (Niter - 1) * Fvp * nodeOccupancy;
 	}
 	inline float Hv(unsigned int Niter){
-		if (Niter == 1)
+		if (Niter == 0)
 		{
 			return occupancyHistory = 1;
 		}else{
@@ -81,7 +81,6 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vec
 	
 	tempGraph[initNode].prevNode = initNode;
 	tempGraph[initNode].minDistance = 0;
-	int Niter = 1;
 	do 
 	{
 		if (queueOfNodes.size() >= 1)
@@ -94,12 +93,11 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vec
 		for (auto neighborsIt = tempGraph[initNode].neighbors.begin() ; neighborsIt != tempGraph[initNode].neighbors.end() ; ++neighborsIt)
 		{
 			unsigned int currentNeighborId = neighborsIt->first;
-			cout << currentNeighborId;
 			if(!tempGraph[currentNeighborId].used){
 				queueOfNodes.push(currentNeighborId);
 				unsigned int bn = neighborsIt->second; // base graph weight(edge weight)
-				float Pv = tempGraph[currentNeighborId].Pv(Niter);
-				float Hv = tempGraph[currentNeighborId].Hv(Niter);
+				float Pv = tempGraph[currentNeighborId].Pv(iterN);
+				float Hv = tempGraph[currentNeighborId].Hv(iterN);
 				float Cn = Pv * (bn + Hv);
 				if (tempGraph[currentNeighborId].minDistance > tempGraph[initNode].minDistance + Cn)
 				{
@@ -110,24 +108,19 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vec
 		}
 
 	} while (queueOfNodes.size() != 0);
-	cout << endl;
 
 // Add nodes to wire(subgraph or path of source node and destination nodes)
 	for (size_t i = 1 ; i < connections->size() ; ++i)
 	{
 		buildPath(tempGraph , connections->at(0) , connections->at(i) , outPath);
 	}
-	//for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
+	for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
+	cout << endl;
 	free(tempGraph);
 }
 void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned int& graphSize, const vector<vector<unsigned int> >* connectionsList){
 	for (size_t i = 0 ; i < maxIter ; ++i)
 	{
-
-// Clear nodeOccupancy in all nodes 
-		if (i > 0){
-			for (NODE* graphIt = nodesGraph ; graphIt < graphSize + nodesGraph; ++graphIt){ graphIt->nodeOccupancy = 0; }
-		}
 
 // Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes; 
@@ -138,17 +131,23 @@ void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned i
 			usedNodes.insert(usedNodes.end() , outPath.begin() , outPath.end()); // Copy nodes from path to collections of used nodes
 		}
 
+// Clear nodeOccupancy in all nodes 
+		if (i > 0){
+			for (NODE* graphIt = nodesGraph ; graphIt < graphSize + nodesGraph; ++graphIt){ graphIt->nodeOccupancy = 0; }
+		}
+
 // Loop over all used nodes to increase nodeOccupancy in each node
-		for_each(usedNodes.begin() , usedNodes.end() , [nodesGraph](unsigned int uNode){ nodesGraph[uNode].nodeOccupancy++; });
+		for_each(usedNodes.begin() , usedNodes.end() , [&nodesGraph](unsigned int uNode){ (nodesGraph+uNode)->nodeOccupancy++; });
 
 // Loop over all used nodes to update occupancyHustory in each node
-		for_each(usedNodes.begin() , usedNodes.end() , [nodesGraph , i](unsigned int uNode){ nodesGraph[uNode].Hv(i); });
+		for_each(usedNodes.begin() , usedNodes.end() , [&nodesGraph , i](unsigned int uNode){ (nodesGraph+uNode)->Hv(i); });
 	}
 }
 int main(int argc , char* argv[]){
 
 	size_t tableSize = 10;
 	size_t graphSize = 9;
+	size_t maxIter = 3;
 	NODE* nodesGraph = new NODE[graphSize + 1];
 	unsigned int** initTable;
 	initTable = (unsigned int **)malloc(tableSize * sizeof(unsigned int *));
@@ -187,6 +186,6 @@ int main(int argc , char* argv[]){
 	}
 
 	initGraph(nodesGraph , testTable , tableSize);
-	pathfinder(nodesGraph , 1 , graphSize , &connectionsList);
+	pathfinder(nodesGraph , maxIter , graphSize , &connectionsList);
 	return 0;
 }
