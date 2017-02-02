@@ -84,11 +84,17 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vec
 	int Niter = 1;
 	do 
 	{
+		if (queueOfNodes.size() >= 1)
+		{
+			initNode = queueOfNodes.front();
+			queueOfNodes.pop();
+		}
 		tempGraph[initNode].used = true;
 
 		for (auto neighborsIt = tempGraph[initNode].neighbors.begin() ; neighborsIt != tempGraph[initNode].neighbors.end() ; ++neighborsIt)
 		{
 			unsigned int currentNeighborId = neighborsIt->first;
+			cout << currentNeighborId;
 			if(!tempGraph[currentNeighborId].used){
 				queueOfNodes.push(currentNeighborId);
 				unsigned int bn = neighborsIt->second; // base graph weight(edge weight)
@@ -103,17 +109,15 @@ void dijkstra(const NODE* nodesGraph , const unsigned int& graphSize, vector<vec
 			}
 		}
 
-		initNode = queueOfNodes.front();
-		queueOfNodes.pop();
 	} while (queueOfNodes.size() != 0);
+	cout << endl;
 
 // Add nodes to wire(subgraph or path of source node and destination nodes)
 	for (size_t i = 1 ; i < connections->size() ; ++i)
 	{
 		buildPath(tempGraph , connections->at(0) , connections->at(i) , outPath);
 	}
-	for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
-	cout << endl;
+	//for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
 	free(tempGraph);
 }
 void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned int& graphSize, const vector<vector<unsigned int> >* connectionsList){
@@ -131,7 +135,6 @@ void pathfinder(NODE* nodesGraph, const unsigned int& maxIter , const unsigned i
 		{
 			set<unsigned int> outPath;
 			dijkstra(nodesGraph,graphSize,cListIt,i,outPath);
-			//copy(outPath.begin() , outPath.end() , usedNodes.end() - 1); // Copy nodes from path to collections of used nodes
 			usedNodes.insert(usedNodes.end() , outPath.begin() , outPath.end()); // Copy nodes from path to collections of used nodes
 		}
 
