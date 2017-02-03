@@ -97,7 +97,7 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath , const string&
 		catch (const std::invalid_argument& ia)
 		{
 			cerr << "Initialization graph: " << ia.what() << '\n';
-			exit(0);
+			exit(1);
 		}
 
 		nodesGraph[fstID].ID = fstID;
@@ -135,7 +135,7 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath , const string&
 			catch (const std::invalid_argument& ia)
 			{
 				cerr << "Initialization connections: " << ia.what() << '\n';
-				exit(0);
+				exit(1);
 			}
 			tmpIDList.push_back(ID);
 		} while ( tmpStringSize != 0 );
@@ -163,7 +163,7 @@ void PATHFINDER::dijkstra( const vector<unsigned int>* connections, const unsign
 /* Initialization temp graph */
 	NODE* tempGraph = (NODE*)malloc(sizeof(NODE) * ( graphSize + 1 ));
 	if(tempGraph == nullptr){
-		cout << "Temporary graph memory allocation error" << endl;
+		cerr << "Temporary graph memory allocation error" << endl;
 		exit(1);
 	}
 	memcpy(tempGraph , nodesGraph , sizeof(NODE) * ( graphSize + 1 ));
@@ -206,8 +206,8 @@ void PATHFINDER::dijkstra( const vector<unsigned int>* connections, const unsign
 	{
 		buildPath(tempGraph , connections->at(0) , connections->at(i) , outPath);
 	}
-	for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
-	cout << endl;
+	//for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
+	//cout << endl;
 	free(tempGraph);
 }
 
@@ -219,7 +219,10 @@ void PATHFINDER::pathfinder(const float& FvhP, const float& FvpP, const size_t& 
 
 		// Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes;
-		for (size_t cListIt = 0 ; cListIt < connectionsList.size() ; ++cListIt)
+#ifdef _OPENMP
+	#pragma omp parallel for shared(usedNodes)
+#endif
+		for (int cListIt = 0 ; cListIt < connectionsList.size() ; ++cListIt)
 		{
 			set<unsigned int> outPath;
 			dijkstra(&(connectionsList[cListIt]) , i , outPath);
@@ -227,7 +230,6 @@ void PATHFINDER::pathfinder(const float& FvhP, const float& FvpP, const size_t& 
 			//system("cls");
 			//cout << cListIt << "/" << connectionsList.size();
 		}
-
 		// Clear nodeOccupancy in all nodes 
 		if (i > 0){
 			for (NODE* graphIt = nodesGraph ; graphIt < graphSize + nodesGraph; ++graphIt){ graphIt->nodeOccupancy = 0; }
