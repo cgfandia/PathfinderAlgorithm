@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <cstdlib>
+#include <omp.h>
 #include "pathfinder.h"
 using namespace std;
 
@@ -11,19 +12,23 @@ static float Fvp;
 static float Fvh;
 const size_t BUFF_SIZE = 2048;
 
-NODE::NODE() : used(false) , minDistance(FLT_MAX), nodeOccupancy(0), nodeCapacity(INT_MAX), prevNode(0) {}
+NODE::NODE() : used(false) , minWeight(FLT_MAX), nodeOccupancy(0), occupancyHistory(1) , occupancyMult(1) , nodeCapacity(INT_MAX), prevNode(0) {}
 
-inline float NODE::Pv(unsigned int Niter){
-	return 1 + (Niter - 1) * Fvp * nodeOccupancy;
+inline void NODE::setPv(const size_t& Niter){
+	occupancyMult = 1 + (Niter - 1) * Fvp * nodeOccupancy;
 }
 
-inline float NODE::Hv(unsigned int Niter){
-	if (Niter == 0)
+inline void NODE::setHv(const size_t& Niter){
+	if (Niter <= 1)
 	{
-		return occupancyHistory = 1;
+		occupancyHistory = 1;
 	}else{
-		return occupancyHistory = occupancyHistory + Fvh * nodeOccupancy;
+		occupancyHistory = occupancyHistory + Fvh * nodeOccupancy;
 	}
+}
+
+inline float NODE::getWeightToThisNode(const float& baseWeightToNode){
+	return occupancyMult * (baseWeightToNode + occupancyHistory);
 }
 
 void PATHFINDER::initGraphAndConnections(const string& graphPath , const string& connectionsPath , bool directionalGraphFlag){
@@ -65,14 +70,22 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath , const string&
 		}
 	}
 	graphSize = maxID;
-	nodesGraph = new NODE[graphSize + 1];
+	try
+	{
+		nodesGraph = new NODE[graphSize + 1];
+	}
+	catch (std::bad_alloc& ba){
+		cerr << "Graph memory allocation error: " << ba.what() << '\n';
+		exit(1);
+	}
 
 /* Initialization graph with data from file (fromID toID nodeWeight nodeCapacity)*/
 	graphFile.clear();
 	graphFile.seekg (0, graphFile.beg);
 	while (!graphFile.eof())
 	{
-		unsigned int fstID , secID , nodeWeight , nodeCapacity;
+		unsigned int fstID , secID , nodeCapacity;
+		float nodeWeight;
 		char buffChar[BUFF_SIZE];
 		graphFile.getline(buffChar , BUFF_SIZE);
 		string fileString = string(buffChar);
@@ -88,7 +101,7 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath , const string&
 			secID = stoi(tmpString);
 
 			IDsString >> tmpString;
-			nodeWeight = stoi(tmpString);
+			nodeWeight = stof(tmpString);
 
 			IDsString >> tmpString;
 			nodeCapacity = stoi(tmpString);
@@ -102,11 +115,11 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath , const string&
 
 		nodesGraph[fstID].ID = fstID;
 		nodesGraph[fstID].nodeCapacity = nodeCapacity;
-		nodesGraph[fstID].neighbors.insert(pair<unsigned int , unsigned int>(secID , nodeWeight)); // Insert to node its neighbor and neighbor's weight
+		nodesGraph[fstID].neighbors.insert(pair<unsigned int , float>(secID , nodeWeight)); // Insert to node its neighbor and neighbor's weight
 		if (!directionalGraph)
 		{
 			nodesGraph[secID].ID = secID;
-			nodesGraph[secID].neighbors.insert(pair<unsigned int , unsigned int>(fstID , nodeWeight));
+			nodesGraph[secID].neighbors.insert(pair<unsigned int , float>(fstID , nodeWeight));
 		}
 	}
 	graphFile.close();
@@ -172,7 +185,7 @@ void PATHFINDER::dijkstra( const vector<unsigned int>* connections, const unsign
 	queue<unsigned int> queueOfNodes;
 
 	tempGraph[initNode].prevNode = initNode;
-	tempGraph[initNode].minDistance = 0;
+	tempGraph[initNode].minWeight = 0;
 	do 
 	{
 		if (queueOfNodes.size() >= 1)
@@ -186,14 +199,11 @@ void PATHFINDER::dijkstra( const vector<unsigned int>* connections, const unsign
 		{
 			unsigned int currentNeighborId = neighborsIt->first;
 			if(!tempGraph[currentNeighborId].used){
-				queueOfNodes.push(currentNeighborId);
-				unsigned int bn = neighborsIt->second; // base graph weight(edge weight)
-				float Pv = tempGraph[currentNeighborId].Pv(iterN);
-				float Hv = tempGraph[currentNeighborId].Hv(iterN);
-				float Cn = Pv * (bn + Hv);
-				if (tempGraph[currentNeighborId].minDistance > tempGraph[initNode].minDistance + Cn)
+				queueOfNodes.push(currentNeighborId); 
+				float Cn = tempGraph[currentNeighborId].getWeightToThisNode(neighborsIt->second); // neighborsIt->second : base graph weight(edge weight)
+				if (tempGraph[currentNeighborId].minWeight > tempGraph[initNode].minWeight + Cn)
 				{
-					tempGraph[currentNeighborId].minDistance = tempGraph[initNode].minDistance + Cn;
+					tempGraph[currentNeighborId].minWeight = tempGraph[initNode].minWeight + Cn;
 					tempGraph[currentNeighborId].prevNode = initNode;
 				}
 			}
@@ -206,40 +216,47 @@ void PATHFINDER::dijkstra( const vector<unsigned int>* connections, const unsign
 	{
 		buildPath(tempGraph , connections->at(0) , connections->at(i) , outPath);
 	}
-	//for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
-	//cout << endl;
+/*#pragma omp critical
+	{
+		for_each(outPath.begin() , outPath.end() , [](unsigned int i){cout << i << " ";});
+		cout << endl;
+	}*/
 	free(tempGraph);
 }
 
-void PATHFINDER::pathfinder(const float& FvhP, const float& FvpP, const size_t& maxIter){
-	Fvh = FvhP;
-	Fvp = FvpP;
-	for (size_t i = 0 ; i < maxIter ; ++i)
+void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter){
+	Fvh = FvhParam;
+	Fvp = FvpParam;
+	for (size_t i = 1 ; i <= maxIter ; ++i)
 	{
-
 		// Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes;
+		double A = omp_get_wtime();
 #ifdef _OPENMP
-	#pragma omp parallel for shared(usedNodes)
+	#pragma omp parallel shared(usedNodes)
+	#pragma omp for nowait
 #endif
 		for (int cListIt = 0 ; cListIt < connectionsList.size() ; ++cListIt)
-		{
+		{			
 			set<unsigned int> outPath;
 			dijkstra(&(connectionsList[cListIt]) , i , outPath);
+	#ifdef _OPENMP
+		#pragma omp critical
+	#endif
 			usedNodes.insert(usedNodes.end() , outPath.begin() , outPath.end()); // Copy nodes from path to collections of used nodes
-			//system("cls");
-			//cout << cListIt << "/" << connectionsList.size();
 		}
+		cout << omp_get_wtime() - A << endl;
+
 		// Clear nodeOccupancy in all nodes 
-		if (i > 0){
-			for (NODE* graphIt = nodesGraph ; graphIt < graphSize + nodesGraph; ++graphIt){ graphIt->nodeOccupancy = 0; }
+		if (i > 1){
+			for (NODE* graphIt = nodesGraph ; graphIt < nodesGraph + graphSize; ++graphIt){ graphIt->nodeOccupancy = 0; }
 		}
 
 		// Loop over all used nodes to increase nodeOccupancy in each node
 		NODE* graphPtr = nodesGraph;
 		for_each(usedNodes.begin() , usedNodes.end() , [graphPtr](unsigned int uNode){ graphPtr[uNode].nodeOccupancy++; });
 
-		// Loop over all used nodes to update occupancyHustory in each node
-		for_each(usedNodes.begin() , usedNodes.end() , [graphPtr , i](unsigned int uNode){ graphPtr[uNode].Hv(i); });
+		// Loop over all used nodes to update occupancyHustory and occupancyMult in each node
+		for_each(usedNodes.begin() , usedNodes.end() , [graphPtr , i](unsigned int uNode){ graphPtr[uNode].setHv(i); graphPtr[uNode].setPv(i); });
 	}
 }

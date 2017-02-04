@@ -4,7 +4,6 @@
 #include <map>
 #include <vector>
 #include <set>
-#include <cfloat>
 using namespace std;
 
 class NODE{
@@ -14,12 +13,14 @@ public:
 	unsigned int nodeCapacity;
 	unsigned int nodeOccupancy;
 	float occupancyHistory;
-	float minDistance;
+	float occupancyMult;
+	float minWeight;
 	unsigned int prevNode;
-	map<unsigned int , unsigned int> neighbors; // neighbor ID <-> neighbor weight
+	map<unsigned int , float> neighbors; // neighbor ID <-> neighbor weight
 	NODE();
-	inline float Pv(unsigned int);
-	inline float Hv(unsigned int);
+	inline void setPv(const size_t&);
+	inline void setHv(const size_t&);
+	inline float getWeightToThisNode(const float& );
 };
 
 class PATHFINDER
@@ -30,9 +31,9 @@ public:
 	size_t maxIter; // Max iterations of pathfinder algorithm
 	NODE* nodesGraph;
 	vector<vector<unsigned int> > connectionsList;
-	void initGraphAndConnections( const string& , const string& , bool);
+	void initGraphAndConnections( const string& graphPath, const string& connectionsPath, bool directionalGraphFlag);
 	void buildPath( const NODE* , const unsigned int& , const unsigned int& , set<unsigned int>& );
 	void dijkstra( const vector<unsigned int>* , const unsigned int& , set<unsigned int>& );
-	void pathfinder(const float& , const float& , const size_t&);
+	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
 };
 #endif
