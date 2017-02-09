@@ -8,8 +8,8 @@ using namespace std;
 
 class NODE{
 public:
-	bool used;
-	bool itsDestination;
+	unsigned int itsDestination;
+	unsigned int used;
 	unsigned int ID;
 	unsigned int nodeCapacity;
 	unsigned int nodeOccupancy;
@@ -17,7 +17,7 @@ public:
 	float occupancyMult;
 	float minWeight;
 	unsigned int prevNode;
-	map<unsigned int , float> neighbors; // neighbor ID <-> neighbor weight
+	vector<pair<unsigned int , float> > neighbors; // neighbor ID <-> neighbor weight
 	NODE();
 	inline void setPv(const size_t&);
 	inline void setHv(const size_t&);

@@ -15,7 +15,7 @@ static float Fvp;
 static float Fvh;
 const size_t BUFF_SIZE = 2048;
 
-NODE::NODE() : used(false), itsDestination(false), minWeight(FLT_MAX), nodeOccupancy(0), occupancyHistory(1), occupancyMult(1), nodeCapacity(INT_MAX), prevNode(0) {}
+NODE::NODE() : used(0), itsDestination(0), minWeight(FLT_MAX), nodeOccupancy(0), occupancyHistory(1), occupancyMult(1), nodeCapacity(INT_MAX), prevNode(0) {}
 
 inline void NODE::setPv(const size_t& Niter){
 	occupancyMult = 1 + (Niter - 1) * Fvp * nodeOccupancy;
@@ -118,11 +118,11 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath, const string& 
 
 		nodesGraph[fstID].ID = fstID;
 		nodesGraph[fstID].nodeCapacity = nodeCapacity;
-		nodesGraph[fstID].neighbors.insert(pair<unsigned int, float>(secID, nodeWeight)); // Insert to node its neighbor and neighbor's weight
+		nodesGraph[fstID].neighbors.push_back(pair<unsigned int, float>(secID, nodeWeight)); // Insert to node its neighbor and neighbor's weight
 		if (!directionalGraph)
 		{
 			nodesGraph[secID].ID = secID;
-			nodesGraph[secID].neighbors.insert(pair<unsigned int, float>(fstID, nodeWeight));
+			nodesGraph[secID].neighbors.push_back(pair<unsigned int, float>(fstID, nodeWeight));
 		}
 	}
 	graphFile.close();
@@ -200,7 +200,7 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 	unsigned int initNode = currentConnectionsList->at(0); // Source node = connections[0]
 
 	// Set destinations in graph by connections[1...end()]
-	for (size_t i = 1; i < currentConnectionsList->size(); ++i) tempGraph[currentConnectionsList->at(i)].itsDestination = true;
+	for (size_t i = 1; i < currentConnectionsList->size(); ++i) tempGraph[currentConnectionsList->at(i)].itsDestination = 1;
 
 	unsigned int destinationsCount = currentConnectionsList->size() - 1;
 	queue<unsigned int> queueOfNodes;
@@ -215,18 +215,18 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 			queueOfNodes.pop();
 			if (tempGraph[initNode].itsDestination){
 				destinationsCount--;
-				tempGraph[initNode].itsDestination = false;
+				tempGraph[initNode].itsDestination = 1;
 				if (destinationsCount == 0) break;
 			}
 		}
-		tempGraph[initNode].used = true;
+		tempGraph[initNode].used = 1;
 
-		for (auto neighborsIt = tempGraph[initNode].neighbors.begin(); neighborsIt != tempGraph[initNode].neighbors.end(); ++neighborsIt)
+		for (size_t i = 0; i < tempGraph[initNode].neighbors.size(); ++i)
 		{
-			unsigned int currentNeighborId = neighborsIt->first;
-			if (!tempGraph[currentNeighborId].used){
+			unsigned int currentNeighborId = tempGraph[initNode].neighbors[i].first;
+			if (tempGraph[currentNeighborId].used == 0){
 				queueOfNodes.push(currentNeighborId);
-				float Cn = tempGraph[currentNeighborId].getWeightToThisNode(neighborsIt->second); // neighborsIt->second : base graph weight(edge weight)
+				float Cn = tempGraph[currentNeighborId].getWeightToThisNode(tempGraph[initNode].neighbors[i].second); // tempGraph[initNode].neighbors[i].second : base graph weight(edge weight)
 				if (tempGraph[currentNeighborId].minWeight > tempGraph[initNode].minWeight + Cn)
 				{
 					tempGraph[currentNeighborId].minWeight = tempGraph[initNode].minWeight + Cn;
@@ -277,32 +277,54 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	{
 		// Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes;
-		double A = omp_get_wtime();
-#ifdef _OPENMP
-#pragma omp parallel shared(usedNodes)
-#pragma omp for nowait
-#endif
+#ifndef _OPENMP
 		for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
 		{
 			set<unsigned int> usedNodesSet;
 			dijkstra(i, cListIt, &usedNodesSet);
-#ifdef _OPENMP
-#pragma omp critical
-#endif
-			usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end()); // Copy nodes from path to collections of used nodes
+			usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end());// Copy nodes from path to collections of used nodes
 		}
-		cout << omp_get_wtime() - A << endl;
-
-		// Clear nodeOccupancy in all nodes 
 		if (i > 1){
-			for (NODE* graphIt = nodesGraph; graphIt < nodesGraph + graphSize; ++graphIt){ graphIt->nodeOccupancy = 0; }
+			for (size_t i = 0; i < graphSize; ++i){ nodesGraph[i].nodeOccupancy = 0; }
 		}
-
 		// Loop over all used nodes to increase nodeOccupancy in each node
-		NODE* graphPtr = nodesGraph;
-		for_each(usedNodes.begin(), usedNodes.end(), [graphPtr](unsigned int uNode){ graphPtr[uNode].nodeOccupancy++; });
-
+		for (size_t i = 0; i < usedNodes.size(); ++i){ nodesGraph[i].nodeOccupancy++; }
 		// Loop over all used nodes to update occupancyHustory and occupancyMult in each node
-		for_each(usedNodes.begin(), usedNodes.end(), [graphPtr, i](unsigned int uNode){ graphPtr[uNode].setHv(i); graphPtr[uNode].setPv(i); });
+		for (size_t i = 0; i < usedNodes.size(); ++i){ nodesGraph[i].setHv(i); nodesGraph[i].setPv(i); }
+	}
+#endif
+#ifdef _OPENMP
+			double A = omp_get_wtime();
+#pragma omp parallel shared(usedNodes)
+		{
+#pragma omp for
+			for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
+			{
+				set<unsigned int> usedNodesSet;
+				dijkstra(i, cListIt, &usedNodesSet);
+#pragma omp critical
+				usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end());
+			}
+			if (i > 1){
+#pragma omp for
+				for (int i = 0; i < graphSize; ++i){ nodesGraph[i].nodeOccupancy = 0; }
+			}
+#pragma omp for
+			for (int i = 0; i < usedNodes.size(); ++i){
+#pragma omp atomic
+				nodesGraph[usedNodes[i]].nodeOccupancy++;
+			}
+#pragma omp for
+			for (int i = 0; i < usedNodes.size(); ++i){
+#pragma omp critical
+				{
+					nodesGraph[usedNodes[i]].setHv(i);
+					nodesGraph[usedNodes[i]].setPv(i);
+				}
+			}
+#pragma omp single
+			cout << omp_get_wtime() - A << endl;
+		}
+#endif
 	}
 }
