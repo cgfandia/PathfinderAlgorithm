@@ -9,6 +9,7 @@ using namespace std;
 class NODE{
 public:
 	bool used;
+	bool itsDestination;
 	unsigned int ID;
 	unsigned int nodeCapacity;
 	unsigned int nodeOccupancy;
@@ -31,9 +32,10 @@ public:
 	size_t maxIter; // Max iterations of pathfinder algorithm
 	NODE* nodesGraph;
 	vector<vector<unsigned int> > connectionsList;
+	vector<vector<unsigned int> >* routedPaths;
 	void initGraphAndConnections( const string& graphPath, const string& connectionsPath, bool directionalGraphFlag);
-	void buildPath( const NODE* , const unsigned int& , const unsigned int& , set<unsigned int>& );
-	void dijkstra( const vector<unsigned int>* , const unsigned int& , set<unsigned int>& );
+	void buildPath( const NODE* , const unsigned int& , const unsigned int& , vector<unsigned int>* );
+	void dijkstra(const unsigned int&, const int&, set<unsigned int>*);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
 };
 #endif
