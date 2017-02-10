@@ -6,18 +6,19 @@
 #include <set>
 using namespace std;
 
-class NODE{
+__declspec(align(64)) class NODE{
 public:
 	unsigned int itsDestination;
-	unsigned int used;
 	unsigned int ID;
 	unsigned int nodeCapacity;
 	unsigned int nodeOccupancy;
+	unsigned int used;
 	float occupancyHistory;
 	float occupancyMult;
 	float minWeight;
 	unsigned int prevNode;
-	vector<pair<unsigned int , float> > neighbors; // neighbor ID <-> neighbor weight
+	//unsigned int padding[4];
+	vector<pair<unsigned int , float> > baseNeighboursWeights; // neighbor ID <-> base neighbor weight
 	NODE();
 	inline void setPv(const size_t&);
 	inline void setHv(const size_t&);
