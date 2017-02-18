@@ -3,7 +3,7 @@
 
 #include <map>
 #include <vector>
-#include <set>
+#include <unordered_set>
 using namespace std;
 
 __declspec(align(64)) class NODE{
@@ -17,7 +17,7 @@ public:
 	float occupancyMult;
 	float minWeight;
 	unsigned int prevNode;
-	//unsigned int padding[4];
+	unsigned int padding[4];
 	vector<pair<unsigned int , float> > baseNeighboursWeights; // neighbor ID <-> base neighbor weight
 	NODE();
 	inline void setPv(const size_t&);
@@ -28,15 +28,18 @@ public:
 class PATHFINDER
 {
 public:
-	bool directionalGraph;
 	size_t graphSize; // Max ID of nodes
-	size_t maxIter; // Max iterations of pathfinder algorithm
-	NODE* nodesGraph;
 	vector<vector<unsigned int> > connectionsList;
 	vector<vector<unsigned int> >* routedPaths;
 	void initGraphAndConnections( const string& graphPath, const string& connectionsPath, bool directionalGraphFlag);
-	void buildPath( const NODE* , const unsigned int& , const unsigned int& , vector<unsigned int>* );
-	void dijkstra(const unsigned int&, const int&, set<unsigned int>*);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
+	/*~PATHFINDER(){
+		free(nodesGraph);
+	}*/
+private:
+	NODE* nodesGraph;
+	bool directionalGraph;
+	void buildPath(const NODE*, const unsigned int&, const unsigned int&, vector<unsigned int>*);
+	void dijkstra(const unsigned int&, const int&, unordered_set<unsigned int>*);
 };
 #endif

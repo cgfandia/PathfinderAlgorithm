@@ -1,6 +1,5 @@
 #include <cstring>
 #include <algorithm>
-#include <functional>
 #include <queue>
 #include <fstream>
 #include <iostream>
@@ -37,6 +36,15 @@ inline float NODE::getWeightToThisNode(const float& baseWeightToNode){
 }
 
 void PATHFINDER::initGraphAndConnections(const string& graphPath, const string& connectionsPath, bool directionalGraphFlag){
+
+	// Clear previous curcuits informations
+
+	delete []nodesGraph;
+	nodesGraph = nullptr;
+	delete []routedPaths;
+	routedPaths = nullptr;
+	connectionsList.clear();
+
 	directionalGraph = directionalGraphFlag;
 	ifstream graphFile(graphPath, ifstream::in);
 	ifstream connectionsFile(connectionsPath, ifstream::in);
@@ -186,7 +194,7 @@ void PATHFINDER::buildPath(const NODE* finalGraph, const unsigned int& srcNode, 
 	outPath->push_back(srcNode);
 }
 
-void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectionsListIt, set<unsigned int>* usedNodesSet){
+void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectionsListIt, unordered_set<unsigned int>* usedNodesSet){
 
 	/* Initialization temp graph */
 	NODE* tempGraph = (NODE*)malloc(sizeof(NODE) * (graphSize + 1));
@@ -215,16 +223,17 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 			queueOfNodes.pop();
 			if (tempGraph[initNode].itsDestination){
 				destinationsCount--;
-				tempGraph[initNode].itsDestination = 1;
+				tempGraph[initNode].itsDestination = 0;
+				tempGraph[initNode].minWeight = 0;
 				if (destinationsCount == 0) break;
 			}
 		}
 		tempGraph[initNode].used = 1;
 
-		for (size_t i = 0; i < tempGraph[initNode].baseNeighboursWeights.size(); ++i)
+		for (int i = 0; i < tempGraph[initNode].baseNeighboursWeights.size(); ++i)
 		{
 			unsigned int currentNeighborId = tempGraph[initNode].baseNeighboursWeights[i].first;
-			if (tempGraph[currentNeighborId].used == 0){
+			if (tempGraph[ tempGraph[initNode].baseNeighboursWeights[i].first].used == 0){
 				queueOfNodes.push(currentNeighborId);
 				float Cn = tempGraph[currentNeighborId].getWeightToThisNode(tempGraph[initNode].baseNeighboursWeights[i].second); // tempGraph[initNode].baseNeighboursWeights[i].second : base graph weight(edge weight)
 				if (tempGraph[currentNeighborId].minWeight > tempGraph[initNode].minWeight + Cn)
@@ -257,8 +266,8 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 				}*/
 				currentRoutedPaths->push_back(tempPath);
 				usedNodesSet->insert(tempPath.begin(), tempPath.end());
-				/*
-				for_each(tempPath.begin(), tempPath.end(), [](unsigned int i){cout << i << " "; });
+				
+				/*for_each(tempPath.begin(), tempPath.end(), [](unsigned int i){cout << i << " "; });
 				cout << endl;*/
 			}
 			/*if (destExist)
@@ -277,6 +286,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	{
 		// Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes;
+		usedNodes.reserve(graphSize);
 #ifndef _OPENMP
 		for (size_t i = 0; i <= graphSize; ++i){
 			for (size_t nIt = 0; nIt < nodesGraph[i].baseNeighboursWeights.size(); ++nIt){
@@ -286,7 +296,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 
 		for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
 		{
-			set<unsigned int> usedNodesSet;
+			unordered_set<unsigned int> usedNodesSet;
 			dijkstra(i, cListIt, &usedNodesSet);
 			usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end());// Copy nodes from path to collections of used nodes
 		}
@@ -305,7 +315,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 #pragma omp for
 			for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
 			{
-				set<unsigned int> usedNodesSet;
+				unordered_set<unsigned int> usedNodesSet;
 				dijkstra(i, cListIt, &usedNodesSet);
 #pragma omp critical
 				usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end());
