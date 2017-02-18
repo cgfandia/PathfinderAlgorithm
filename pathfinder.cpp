@@ -35,6 +35,13 @@ inline float NODE::getWeightToThisNode(const float& baseWeightToNode){
 	return occupancyMult * (baseWeightToNode + occupancyHistory);
 }
 
+PATHFINDER::~PATHFINDER(){
+	delete[]nodesGraph;
+	nodesGraph = nullptr;
+	delete[]routedPaths;
+	routedPaths = nullptr;
+};
+
 void PATHFINDER::initGraphAndConnections(const string& graphPath, const string& connectionsPath, bool directionalGraphFlag){
 
 	// Clear previous curcuits informations

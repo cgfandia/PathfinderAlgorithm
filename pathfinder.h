@@ -33,9 +33,7 @@ public:
 	vector<vector<unsigned int> >* routedPaths;
 	void initGraphAndConnections( const string& graphPath, const string& connectionsPath, bool directionalGraphFlag);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
-	/*~PATHFINDER(){
-		free(nodesGraph);
-	}*/
+	~PATHFINDER();
 private:
 	NODE* nodesGraph;
 	bool directionalGraph;
