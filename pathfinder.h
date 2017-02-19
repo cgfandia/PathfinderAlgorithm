@@ -37,7 +37,7 @@ public:
 private:
 	NODE* nodesGraph;
 	bool directionalGraph;
-	void buildPath(const NODE*, const unsigned int&, const unsigned int&, vector<unsigned int>*);
+	bool buildPath(const NODE*, const unsigned int&, const unsigned int&, vector<unsigned int>*);
 	void dijkstra(const unsigned int&, const int&, unordered_set<unsigned int>*);
 };
 #endif

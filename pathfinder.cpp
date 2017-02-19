@@ -15,7 +15,7 @@ static float Fvp;
 static float Fvh;
 const size_t BUFF_SIZE = 2048;
 
-NODE::NODE() : used(0), itsDestination(0), minWeight(FLT_MAX), nodeOccupancy(0), occupancyHistory(1), occupancyMult(1), nodeCapacity(INT_MAX), prevNode(0) {}
+NODE::NODE() : ID(0), used(0), itsDestination(0), minWeight(FLT_MAX), nodeOccupancy(0), occupancyHistory(1), occupancyMult(1), nodeCapacity(INT_MAX), prevNode(0) {}
 
 inline void NODE::setPv(const size_t& Niter){
 	occupancyMult = 1 + (Niter - 1) * Fvp * nodeOccupancy;
@@ -89,10 +89,10 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath, const string& 
 			exit(0);
 		}
 	}
-	graphSize = maxID;
+	graphSize = maxID + 1;
 	try
 	{
-		nodesGraph = new NODE[graphSize + 1];
+		nodesGraph = new NODE[graphSize];
 	}
 	catch (bad_alloc& ba){
 		cerr << "Graph memory allocation error: " << ba.what() << '\n';
@@ -186,19 +186,21 @@ void PATHFINDER::initGraphAndConnections(const string& graphPath, const string& 
 	}
 }
 
-void PATHFINDER::buildPath(const NODE* finalGraph, const unsigned int& srcNode, const unsigned int& dstNode, vector<unsigned int>* outPath){
-	unsigned int tempId = dstNode;
-	while (tempId != srcNode)
+bool PATHFINDER::buildPath(const NODE* finalGraph, const unsigned int& srcNode, const unsigned int& dstNode, vector<unsigned int>* outPath){
+	auto currentID = dstNode;
+	while (currentID != srcNode)
 	{
-		outPath->push_back(tempId);
-		tempId = finalGraph[tempId].prevNode;
-		if (tempId == 0)
+		auto prevNodeID = finalGraph[currentID].prevNode;
+		if (prevNodeID == 0)
 		{
 			//std::cerr << "Cant find path\n";
-			break;
+			return false;
 		}
+		outPath->push_back(currentID);
+		currentID = prevNodeID;
 	}
 	outPath->push_back(srcNode);
+	return true;
 }
 
 void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectionsListIt, unordered_set<unsigned int>* usedNodesSet){
@@ -209,7 +211,7 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 		cerr << "Temporary graph memory allocation error" << endl;
 		exit(1);
 	}
-	memcpy(tempGraph, nodesGraph, sizeof(NODE) * (graphSize + 1));
+	memcpy(tempGraph, nodesGraph, sizeof(NODE) * (graphSize + 1));;
 
 	const vector<unsigned int>* currentConnectionsList = &connectionsList[currentConnectionsListIt];
 	vector<vector<unsigned int> >* currentRoutedPaths = &routedPaths[currentConnectionsListIt];
@@ -253,37 +255,20 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const int& currentConnectio
 
 	} while (queueOfNodes.size() != 0);
 
-		/* Add nodes to wire(subgraph or path of source node and destination nodes) */
-		//#ifdef _OPENMP
-		//#pragma omp critical
-		//#endif
+	/* Add nodes to wire(subgraph or path of source node and destination nodes) */
+
+	for (size_t i = 1; i < currentConnectionsList->size(); ++i)
+	{
+		vector<unsigned int> tempPath;
+		if (buildPath(tempGraph, currentConnectionsList->at(0), currentConnectionsList->at(i), &tempPath)) // If path to destination node exist
 		{
-			/*ofstream connecctionsOutF("newSlashdotConn.txt", ofstream::app);
-			string tempS = to_string(currentConnectionsList->at(0));
-			bool destExist = false;*/
-			for (size_t i = 1; i < currentConnectionsList->size(); ++i)
-			{
-				vector<unsigned int> tempPath;
-				buildPath(tempGraph, currentConnectionsList->at(0), currentConnectionsList->at(i), &tempPath);
-				/*if (tempPath.size() > 1)
-				{
-				tempS += " ";
-				tempS += to_string(tempPath.front());
-				destExist = true;
-				}*/
-				currentRoutedPaths->push_back(tempPath);
-				usedNodesSet->insert(tempPath.begin(), tempPath.end());
-				
-				/*for_each(tempPath.begin(), tempPath.end(), [](unsigned int i){cout << i << " "; });
-				cout << endl;*/
-			}
-			/*if (destExist)
-			{
-			connecctionsOutF << tempS << endl;
-			}
-			connecctionsOutF.close();*/
+			currentRoutedPaths->push_back(tempPath);
+			usedNodesSet->insert(tempPath.begin(), tempPath.end());
+			/*for_each(tempPath.begin(), tempPath.end(), [](unsigned int i){cout << i << " "; });
+			cout << endl;*/
 		}
-		free(tempGraph);
+	}
+	free(tempGraph);
 }
 
 void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter){
@@ -291,15 +276,11 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	Fvp = FvpParam;
 	for (size_t i = 1; i <= maxIter; ++i)
 	{
-		// Loop over all multi terminal wires(connections)
 		vector<unsigned int> usedNodes;
 		usedNodes.reserve(graphSize);
 #ifndef _OPENMP
-		for (size_t i = 0; i <= graphSize; ++i){
-			for (size_t nIt = 0; nIt < nodesGraph[i].baseNeighboursWeights.size(); ++nIt){
-				nodesGraph[i].nodeOccupancy++;
-			}
-		}
+
+		// Loop over all multi terminal wires(connections)
 
 		for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
 		{
@@ -307,18 +288,25 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			dijkstra(i, cListIt, &usedNodesSet);
 			usedNodes.insert(usedNodes.end(), usedNodesSet.begin(), usedNodesSet.end());// Copy nodes from path to collections of used nodes
 		}
+
+		// Clear nodeOccupancy in each node after first iteration
+
 		if (i > 1){
 			for (size_t i = 0; i <= graphSize; ++i){ nodesGraph[i].nodeOccupancy = 0; }
 		}
+
 		// Loop over all used nodes to increase nodeOccupancy in each node
+
 		for (size_t i = 0; i < usedNodes.size(); ++i){ nodesGraph[i].nodeOccupancy++; }
+
 		// Loop over all used nodes to update occupancyHustory and occupancyMult in each node
+
 		for (size_t i = 0; i < usedNodes.size(); ++i){ nodesGraph[usedNodes[i]].setHv(i); nodesGraph[usedNodes[i]].setPv(i); }
 #endif
 #ifdef _OPENMP
-			double A = omp_get_wtime();
 #pragma omp parallel shared(usedNodes)
-		{
+		{			
+			double A = omp_get_wtime();
 #pragma omp for
 			for (int cListIt = 0; cListIt < connectionsList.size(); ++cListIt)
 			{
