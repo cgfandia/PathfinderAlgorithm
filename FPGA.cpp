@@ -27,7 +27,7 @@ LUT_IO_BLOCK::LUT_IO_BLOCK(){
 }
 
 void FPGA::parsePlaceFile(const string& filename){
-	size_t logicBlockArraySize = 0;
+	blockArrayWH = 0;
 	ifstream file(filename, ifstream::in);
 	checkFileOpening(file, filename);
 	regex arraySizeRegEx("Array size: (\\d+) x (\\d+) logic blocks"); // Array size: 33 x 33 logic blocks
@@ -43,15 +43,16 @@ void FPGA::parsePlaceFile(const string& filename){
 			unsigned int X = stoi(matches[2]);
 			unsigned int Y = stoi(matches[3]);
 			unsigned int ID = stoi(matches[5]);
-			LUTsAndIO.insert(pair<string, LUT_IO_BLOCK>(name, LUT_IO_BLOCK(name, X, Y, ID)));
+			LUTsAndIO.emplace(pair<string, LUT_IO_BLOCK>(name, LUT_IO_BLOCK(name, X, Y, ID)));
 			blocksCount = max(blocksCount, ID); // find biggest ID
 		}
 		else if (regex_match(lineString, matches, arraySizeRegEx)){
-			logicBlockArraySize = stoi(matches[1]);
+			blockArrayWH = stoi(matches[1]);
 		}
 	}
 	file.close();
-	if (logicBlockArraySize == 0){
+	blocksCount++;
+	if (blockArrayWH == 0){
 		throw logic_error("Can't define logic blocks array size");
 	}
 }
@@ -104,6 +105,22 @@ void FPGA::parseNetsFile(const string& filename){
 		}
 	}
 	file.close();
+
+	// Init blocksArray from LUTsAndIO unordered_map
+	blocksArray = new LUT_IO_BLOCK[blocksCount];
+	for (auto blockIt = LUTsAndIO.begin(); blockIt != LUTsAndIO.end(); blockIt++)
+	{
+		//cout << blockIt->first << endl;
+		blocksArray[blockIt->second.ID] = blockIt->second;
+	}
+	for (size_t blockIt = 0; blockIt < blocksCount; blockIt++)
+	{
+		for (size_t destIt = 0; destIt < blocksArray[blockIt].destBlocks.size(); destIt++)
+		{
+			cout << blocksArray[blockIt].destBlocks[destIt] << " ";
+		}
+		cout << endl;
+	}
 }
 
 void FPGA::initFPGA(const string& placeFile, const string& netsFile){

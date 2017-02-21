@@ -19,7 +19,10 @@ public:
 class FPGA{
 public:
 	size_t blocksCount;
+	size_t blockArrayWH;
 	unordered_map<string, LUT_IO_BLOCK> LUTsAndIO; // name of LUT or I/O block <-> LUT or I/O block
+	LUT_IO_BLOCK* blocksArray;
+	~FPGA();
 	void initFPGA(const string& placeFile, const string& netsFile);
 private:
 	void parsePlaceFile(const string& filename);
