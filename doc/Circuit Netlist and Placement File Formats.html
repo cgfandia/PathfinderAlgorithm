@@ -1,0 +1,184 @@
+
+<!-- saved from url=(0058)http://www.eecg.toronto.edu/~vaughn/challenge/netlist.html -->
+<html><script data-x-lastpass="">(function(){var c=0;if("undefined"!==typeof CustomEvent&&"function"===typeof window.dispatchEvent){var a=function(a){try{if("object"===typeof a&&(a=JSON.stringify(a)),"string"===typeof a)return window.dispatchEvent(new CustomEvent("lprequeststart",{detail:{data:a,requestID:++c}})),c}catch(f){}},b=function(a){try{window.dispatchEvent(new CustomEvent("lprequestend",{detail:a}))}catch(f){}};"undefined"!==typeof XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.send&&(XMLHttpRequest.prototype.send=
+function(c){return function(f){var d=this,e=a(f);e&&d.addEventListener("loadend",function(){b({requestID:e,statusCode:d.status})});return c.apply(d,arguments)}}(XMLHttpRequest.prototype.send));"function"===typeof fetch&&(fetch=function(c){return function(f,d){var e=a(d),g=c.apply(this,arguments);if(e){var h=function(a){b({requestID:e,statusCode:a&&a.status})};g.then(h)["catch"](h)}return g}}(fetch))}})();
+(function(){if("undefined"!==typeof CustomEvent){var c=function(a){if(a.lpsubmit)return a;var b=function(){try{this.dispatchEvent(new CustomEvent("lpsubmit"))}catch(k){}return a.apply(this,arguments)};b.lpsubmit=!0;return b};window.addEventListener("DOMContentLoaded",function(){if(document&&document.forms&&0<document.forms.length)for(var a=0;a<document.forms.length;++a)document.forms[a].submit=c(document.forms[a].submit)},!0);document.createElement=function(a){return function(){var b=a.apply(this,
+arguments);b&&"FORM"===b.nodeName&&b.submit&&(b.submit=c(b.submit));return b}}(document.createElement)}})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Circuit Netlist and Placement File Formats</title>
+<link rev="made" href="mailto:vaughn@eecg.toronto.edu">
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<h1>Circuit Netlist and Placement File Formats</h1>
+</center>
+
+In either a netlist or a placement file, a sharp (#) sign indicates that the
+remainder of the line is a comment.  A backslash (/) at the end of a line 
+means the line is continued on the line below.
+<p>
+
+</p><hr>
+<h2>Circuit Netlist (.net) Format</h2>
+Three different circuit elements exist:  input pads, output pads, and logic
+blocks.  In addition, the netlist file can also declare that a signal is 
+<em>global</em>; that is, that a signal will be routed via a special, 
+dedicated resource and should therefore be ignored during routing.
+<p>
+
+</p><h3>Input Pads</h3>
+Input pads are declared via <b>.input</b> lines:
+<p>
+
+<code></code></p><pre><code>.input my_pad
+    pinlist: my_net
+</code></pre>
+<p>
+
+The lines above indicate that there is an input pad named my_pad which drives
+a net called my_net.  Pads can have the same name as signal nets with no
+conflicts.
+</p><p>
+
+<code></code></p><pre><code>.input alpha
+   pinlist: alpha    # No conflict between pad and net name.
+</code></pre>
+<p>
+
+</p><h3>Output Pads</h3>
+Output pads are declared via <b>.output</b> lines:
+<p>
+
+<code></code></p><pre><code>.output my_opad
+    pinlist: some_net
+</code></pre>
+<p>
+
+The lines above declare a pad named my_opad.  It is connected to net some_net.
+</p><p>
+
+</p><h3>FPGA Logic Blocks</h3>
+Logic blocks are declared via the <b>.clb</b> keyword:
+<p>
+
+<code></code></p><pre><code>.clb my_logic_block
+    pinlist:  in_a in_b in_c in_d out_net clk
+    subblock: sb_one 0 1 2 3 4 5              # Ignore this line.
+</code></pre>
+<p>
+
+Recall that the logic block contains a 4-input LUT and a flip flop.
+The lines above declare a logic block named my_logic_block.  The pinlist
+line lists the nets connected to this logic block.  The nets connected to
+the four LUT inputs are listed first, followed by the net connected to the
+logic block output and then the net connected to the logic block clock pin.
+The subblock line gives information that is useful for timing analysis --
+for the purposes of the place-and-route challenge it is irrelevant and should 
+be completely ignored.
+</p><p>
+
+A logic block may not need signals connected to all of its LUT inputs or to 
+its clock pin.  In this case the unconnected pins are marked as <b>open</b>.
+</p><p>
+
+<code></code></p><pre><code>.clb my_logic_block
+    pinlist:  in_a open open in_d out_net open 
+    # Only 2 LUT inputs, no clock 
+
+    subblock: sb_one 0 1 2 3 4 5          # Ignore this line.
+</code></pre>
+<p>
+
+</p><h3>Global Signals</h3>
+
+Some signals in FPGAs are normally routed via dedicated, special-purpose
+networks, rather than the general routing resources.  For the place-and-route
+challenge, clocks are assumed to be routed on a dedicated network so they
+<em>should not be routed by your tools or included in your track count
+numbers.</em>
+<p>
+
+Global signals are indicated in the netlist file by <b>.global</b> lines:
+</p><p>
+
+<code>
+.global clk    # Don't route clk net.
+</code>
+</p><p>
+
+For the place-and-route challenge, the only net marked as global is the
+clock net.
+</p><p>
+
+</p><hr>
+<h2>Placement File Format</h2>
+
+The first line of the placement file lists the netlist file and the 
+architecture description file used by VPR when it created the placement.  
+The second line of the placement file gives the size of the logic block 
+array (e.g. 20 x 20 logic blocks).
+<p>
+
+All the following lines have the format:</p><p>
+</p><pre>block_name    x        y   subblock_number
+</pre>
+<p>
+
+The block name is the name of this block, as given in the input netlist.  
+X and y are the row and column in which the block is placed, respectively.  
+The subblock number is meaningful only for pads. Since we can place two 
+pads in a row or column (see the 
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/fpga_arch.html">FPGA 
+architecture description</a>) the subblock number specifies which of the 
+possible pad locations (either location 0 or location 1) in row x and column 
+y contains this pad. Note that the first pad occupied at some (x, y) 
+location is always that with subblock number 0.
+For logic blocks (.clbs), the subblock number is always zero.
+</p><p>
+
+The placement files output by VPR also include a fifth field as a comment.
+You can ignore this field.
+</p><p>
+
+The figure below shows the coordinate system used by VPR via a small 2 x 2 
+(logic block array) FPGA.  Logic blocks all go in the area with x between 1 
+and 2 and y between 1 and 2, inclusive. All pads either have x equal to 0 or 3
+or y equal to 0 or 3.  Notice that there are no pads in the chip corners,
+so no I/O pins can be placed there.
+</p><p>
+
+</p><center><b>
+Placement Coordinate System
+</b>
+<p>
+<img src="./Circuit Netlist and Placement File Formats_files/place_coords.gif" alt="[Placement Coordinate System]">
+</p></center>
+<p>
+
+A sample placement file is given below.  The first six blocks are I/O pads,
+while the last two blocks are logic blocks.
+</p><p>
+
+<code></code></p><pre><code>Netlist file: xor5.net   Architecture file: sample.arch
+Array size: 2 x 2 logic blocks
+
+#block name		x	y	subblk		block number
+#----------		--	--	------		------------
+a			0	1	0		#0  NB: block number
+b			1	0	0		#1  is a comment.
+c			0	2	1		#2  Ignore it.
+d			1	3	0		#3
+e			1	3	1		#4
+out:xor5		0	2	0		#5
+xor5			1	2	0		#6
+[1]			1	1	0		#7
+</code></pre>
+
+<hr>
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/challenge.html">Back to 
+the FPGA challenge main page.</a>
+
+
+
+</body></html>

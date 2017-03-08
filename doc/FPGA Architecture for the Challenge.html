@@ -1,0 +1,182 @@
+
+<!-- saved from url=(0060)http://www.eecg.toronto.edu/~vaughn/challenge/fpga_arch.html -->
+<html><script data-x-lastpass="">(function(){var c=0;if("undefined"!==typeof CustomEvent&&"function"===typeof window.dispatchEvent){var a=function(a){try{if("object"===typeof a&&(a=JSON.stringify(a)),"string"===typeof a)return window.dispatchEvent(new CustomEvent("lprequeststart",{detail:{data:a,requestID:++c}})),c}catch(f){}},b=function(a){try{window.dispatchEvent(new CustomEvent("lprequestend",{detail:a}))}catch(f){}};"undefined"!==typeof XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.send&&(XMLHttpRequest.prototype.send=
+function(c){return function(f){var d=this,e=a(f);e&&d.addEventListener("loadend",function(){b({requestID:e,statusCode:d.status})});return c.apply(d,arguments)}}(XMLHttpRequest.prototype.send));"function"===typeof fetch&&(fetch=function(c){return function(f,d){var e=a(d),g=c.apply(this,arguments);if(e){var h=function(a){b({requestID:e,statusCode:a&&a.status})};g.then(h)["catch"](h)}return g}}(fetch))}})();
+(function(){if("undefined"!==typeof CustomEvent){var c=function(a){if(a.lpsubmit)return a;var b=function(){try{this.dispatchEvent(new CustomEvent("lpsubmit"))}catch(k){}return a.apply(this,arguments)};b.lpsubmit=!0;return b};window.addEventListener("DOMContentLoaded",function(){if(document&&document.forms&&0<document.forms.length)for(var a=0;a<document.forms.length;++a)document.forms[a].submit=c(document.forms[a].submit)},!0);document.createElement=function(a){return function(){var b=a.apply(this,
+arguments);b&&"FORM"===b.nodeName&&b.submit&&(b.submit=c(b.submit));return b}}(document.createElement)}})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>FPGA Architecture for the Challenge</title>
+<link rev="made" href="mailto:vaughn@eecg.toronto.edu">
+</head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<h1>FPGA Architecture for the Challenge</h1>
+</center>
+
+The FPGA is an array or island-style FPGA.  It consists of an array of 
+logic blocks and routing channels.  Two I/O pads fit into the height of
+one row or the width of one column, as shown below.  All the routing channels
+have the same width (number of wires).  
+<p>
+
+</p><center><b>
+FPGA structure
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/fpga_structure.gif" align="CENTER" alt="[FPGA Structure]">
+</p></center>
+<p>
+
+Each circuit must be mapped into the smallest square FPGA that can accomodate
+it.  For example, a circuit containing 14 logic blocks and 10 I/O pads
+would be mapped into an FPGA consisting of a 4x4 array of logic blocks.
+Note that three of the twenty benchmark circuits used in the FPGA challenge
+(bigkey, des, and dsip) are pad-limited in this FPGA architecture.
+
+</p><p>
+The FPGA logic block consists of a 4-input look-up table (LUT), and a flip
+flop, as shown below.  There is only one output, which can be either the 
+registered or the unregistered LUT output.  The logic block has four inputs
+for the LUT and a clock input.  <em>Since the clock is normally routed via
+a special-purpose dedicated routing network in commercial FPGAs, do NOT
+route it or include it in your track count results.</em>  That is, you can
+completely ignore the clock net, since it is assumed to be routed on a special
+global network.
+</p><p>
+
+</p><center><b>
+Logic Block Strucuture
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/logic_block.gif" alt="[Logic Block]">
+</p></center>
+<p>
+
+The locations of the FPGA logic block pins are shown below.  Each input is
+accessible from one side of the logic block, while the output pin can connect
+to routing wires in both the channel to the right and the channel below the
+logic block.
+</p><p>
+
+</p><center><b>
+Logic Block Pin Locations
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/logic_block_pins.gif" align="TOP" alt="[Logic Block Pin Locations]">
+</p></center>
+<p>
+
+Each logic block input pin can connect to any one of the wiring segments
+in the channel adjacent to it.  Each logic block output pin can connect to 
+any of the wiring segments in the channels adjacent to it.  (In the usual
+FPGA terminology, then, Fc = the number of tracks per channel, W).  The 
+figure below should make the situation clear.
+</p><p>
+
+</p><center><b>
+Logic Block Pin to Routing Channel Interconnect
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/Fc.gif" align="TOP" alt="[Logic Block Pin to Routing Channel Interconnect]">
+</p></center>
+<p>
+
+Similarly, an I/O pad can connect to any one of the wiring segments in
+the channel adjacent to it.  For example, an I/O pad at the top of
+the chip can connect to any of the W wires (where W is the channel width)
+in the horizontal channel immediately below it.
+</p><p>
+
+The FPGA routing is unsegmented.  That is, each wiring segment spans only one
+logic block before it terminates in a switch box.  By turning on some of the
+programmable switches within a switch box, longer paths can be constructed.
+</p><p>
+
+</p><center><b>
+Unsegmented FPGA Routing
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/segmentation.gif" align="TOP" alt="[Unsegmented FPGA Routing]">
+</p></center>
+<p>
+
+Whenever a vertical and a horizontal channel intersect there is a <em>switch
+box</em>.  In this architecture, when a wire enters a switch box, there are 
+three programmable switches that allow it to connect to three other wires
+in adjacent channel segments.  (In terms of the usual FPGA terminology then,
+Fs = 3.)  The pattern, or topology, of switches used in this architecture
+is the planar or domain-based switch box topology.  In this switch box 
+topology, a wire in track number one connects only to wires in track number
+one in adjacent channel segments, wires in track number 2 connect only
+to other wires in track number 2 and so on.  The figure below illustrates
+the connections in a switch box.
+</p><p>
+
+</p><center><b>
+Switch Box Topology
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/switch_box.gif" align="TOP" alt="[Switch Box Topology]">
+</p></center>
+<p>
+
+</p><hr>
+<h2>
+Input Pin Doglegs are Not Allowed!
+</h2>
+
+Much of the prior research on FPGA routing architectures has assumed that
+<em>input pin doglegs</em> are possible.  An input pin dogleg occurs when
+one connects more than one routing wire segment to the same logic block
+input pin.  The input pin dogleg then, allows one to change tracks by
+connecting two wiring segments to a logic block input pin.  <em>Input pin
+doglegs are not allowed in the FPGA architecture to be used in the challenge;
+i.e. only one wire segment may be connected to a logic block input pin.</em>
+<p>
+
+The figure below shows the architecture implicitly assumed when input pin
+doglegs are allowed.  It assumes that connections between logic block pins
+and routing wire segments are made via independent pass transistors.  In
+this architecture, then, it would be possible to turn on two pass transistors
+to connect two wire segments via a logic block input pin.
+</p><p>
+
+</p><center><b>
+Routing Architecture Required for Input Pin Doglegs (Unrealistic Architecture)
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/dogleg1.gif" align="TOP" alt="[Input Pin Dogleg]">
+</p></center>
+<p>
+
+However, the routing architecture above <em>is not</em> the routing 
+architecture that is actually implemented by SRAM-based FPGAs.  As shown
+below, commercial SRAM-based FPGAs normally place a buffer between routing 
+tracks and the input pins to which they can connect to enhance speed.  As well,
+to save area, the connection from routing wire segment to input pin is made
+via a multiplexer, not via a set of independent pass transistors.  Accordingly,
+it is not possible to connect two wire segments together via an input pin,
+and input pin doglegs are not possible.
+</p><p>
+
+</p><center><b>
+SRAM-based FPGAs do not Allow Input Pin Doglegs (More Realistic Architecture)
+</b>
+<p>
+<img src="./FPGA Architecture for the Challenge_files/dogleg2.gif" align="TOP" alt="[Realistic Routing Architecture]">
+</p></center>
+<p>
+
+Note that it is possible to connect a logic block <em>output</em> pin to
+multiple wire segments in commercial FPGAs.  Accordingly, such connections
+are allowed in the FPGA challenge.
+</p><p>
+
+</p><hr>
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/challenge.html">Back to 
+the FPGA challenge main page.</a>
+
+
+
+</body></html>

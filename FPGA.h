@@ -64,14 +64,16 @@ private:
 class PATHFINDER : public FPGA
 {
 public:
+	unsigned int currentMaxOccupancy;
+	size_t channels2DArrayWH;
+	CHANNEL*** channels2DArray;
 	void init(const string& placeFile, const string& netsFile);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
+	PATHFINDER();
 	virtual ~PATHFINDER();
 private:
 	size_t graphSize; // Max ID of channels
-	size_t channels2DArrayWH;
 	CHANNEL* channelsGraph;
-	CHANNEL*** channels2DArray;
 	vector<vector<vector<unsigned int> > > routedChannels;
 	bool directionalGraph;
 	vector<unsigned int> buildPath(const CHANNEL*, const vector<unsigned int>&, const unsigned int&);

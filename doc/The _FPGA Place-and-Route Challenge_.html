@@ -1,0 +1,187 @@
+
+<!-- saved from url=(0060)http://www.eecg.toronto.edu/~vaughn/challenge/challenge.html -->
+<html><script data-x-lastpass="">(function(){var c=0;if("undefined"!==typeof CustomEvent&&"function"===typeof window.dispatchEvent){var a=function(a){try{if("object"===typeof a&&(a=JSON.stringify(a)),"string"===typeof a)return window.dispatchEvent(new CustomEvent("lprequeststart",{detail:{data:a,requestID:++c}})),c}catch(f){}},b=function(a){try{window.dispatchEvent(new CustomEvent("lprequestend",{detail:a}))}catch(f){}};"undefined"!==typeof XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.send&&(XMLHttpRequest.prototype.send=
+function(c){return function(f){var d=this,e=a(f);e&&d.addEventListener("loadend",function(){b({requestID:e,statusCode:d.status})});return c.apply(d,arguments)}}(XMLHttpRequest.prototype.send));"function"===typeof fetch&&(fetch=function(c){return function(f,d){var e=a(d),g=c.apply(this,arguments);if(e){var h=function(a){b({requestID:e,statusCode:a&&a.status})};g.then(h)["catch"](h)}return g}}(fetch))}})();
+(function(){if("undefined"!==typeof CustomEvent){var c=function(a){if(a.lpsubmit)return a;var b=function(){try{this.dispatchEvent(new CustomEvent("lpsubmit"))}catch(k){}return a.apply(this,arguments)};b.lpsubmit=!0;return b};window.addEventListener("DOMContentLoaded",function(){if(document&&document.forms&&0<document.forms.length)for(var a=0;a<document.forms.length;++a)document.forms[a].submit=c(document.forms[a].submit)},!0);document.createElement=function(a){return function(){var b=a.apply(this,
+arguments);b&&"FORM"===b.nodeName&&b.submit&&(b.submit=c(b.submit));return b}}(document.createElement)}})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>The "FPGA Place-and-Route Challenge"</title>
+<link rev="made" href="mailto:vaughn@eecg.toronto.edu">
+<script type="text/javascript" src="http://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/main.js" charset="UTF-8"></script></head>
+<body bgcolor="#FFFFFF">
+
+<center>
+<h1>The "FPGA Place-and-Route Challenge"</h1>
+</center>
+
+<form action="http://www.eecg.toronto.edu/cgi-bin/cgiwrap/vaughn/download.cgi">
+
+Current best routing track total: <b>177 tracks</b>.
+<hr>
+<p>
+
+To encourage FPGA researchers to benchmark their CAD tools on large
+circuits, we have created an "FPGA Place-and-Route Challenge."  
+For every track by which a researcher 
+reduces the total number of tracks required to route these circuits (from the
+previously best total number of 177) we will pay him/her <b>$1</b>!  
+(Sorry, $1 Cdn, not $1 U.S.)
+
+</p><p>
+The number of tracks in a routing channel is simply the number of wires that
+may be used in that channel (i.e. the "width" of the channel).  The total 
+number of tracks required to route the 20 benchmark circuits is simply the 
+sum over all 20 circuits of the minimum channel width required to 
+successfully route each circuit.
+</p><p>
+</p><hr>
+<h2>Current and Historical Champions</h2>
+The current lowest track count (total <b>177 tracks</b>) is VPR version 4.30, with the following 
+options:
+<p>
+<em>-place_algorithm bounding_box -max_router_iterations 100 -pres_fac_mult 1.5 -router_algorithm breadth_first</em>
+</p><p>
+This makes VPR use its wirelength-driven placement and routing algorithm, and 
+makes the router work somewhat harder than usual.  The sum of the track count
+needed to route each circuit is <b>177 tracks</b>.
+The CPU times are still quite reasonable; the time to place and 
+repeatedly route each circuit averages about
+3 hours on a fairly obselete 300 MHz Ultrasparc processor.
+</p><p>
+Past record holders are the combination of VPR to place 
+a circuit and <a href="http://www.cse.ucsc.edu/~pak/">SC-Pathfinder</a> to 
+route the circuit (total <b>188 tracks</b>) and VPR version 3.99 with default placement and routing effort (total <b>194 tracks</b>).  
+</p><p>
+</p><p>
+</p><hr>
+<h2>The FPGA Architecture</h2>
+<p>
+Click <a href="http://www.eecg.toronto.edu/~vaughn/challenge/fpga_arch.html">
+here</a> to see all the details of the FPGA architecture your tools must 
+target.  <em>Read these rules carefully and make sure your tools are targetting
+the architecture exactly!</em>  Otherwise, your results won't be comparable to 
+those of other researchers and we won't be able to accept them.
+</p><p>
+If you want to run VPR on this architecture, click 
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/arch_files.html">
+here</a> to get the .arch file describing this architecture in VPR format.
+</p><p>
+</p><hr>
+<h2>The Benchmark Circuits</h2>
+
+<p>
+Press the green button to download the specified item.
+</p><p>
+
+<input type="image" border="none" name="net" value="net" src="./The _FPGA Place-and-Route Challenge__files/green-ball.gif" hspace="10">
+Download the .net format netlists of the twenty large MCNC circuits used 
+as benchmarks for the place-and-route challenge. 
+</p><p>
+
+<input type="image" border="none" name="placed" value="placed" src="./The _FPGA Place-and-Route Challenge__files/green-ball.gif" hspace="10">
+Download the placements produced by VPR 4.30, wirelength-driven placement 
+algorithm with default effort, for the twenty large circuits above.  
+(You only need these placements if your CAD tool does only routing,
+rather than both placement and routing.)
+</p><p>
+
+Click <a href="http://www.eecg.toronto.edu/~vaughn/challenge/netlist.html">
+here</a> to read a description of the circuit netlist format and the placement
+file format.
+</p><p>
+</p><hr>
+
+<h2>Other Documentation, Rules, and Reporting Results</h2>
+
+Click <a href="http://www.eecg.toronto.edu/~vaughn/papers/fpl97.pdf">here</a>
+to download a paper which describes in detail the FPGA architecture you must
+target when placing and routing these circuits (see Section 5 of the paper).
+<p>
+
+To send in valid results for the challenge, you must:
+</p><ul>
+<li>Send us a table listing the track count your CAD tool achieves for each
+benchmark circuit.
+</li>
+<li>Send us at least an executable copy of the program used to generate the 
+results.  We can run Solaris or Windows NT executables.
+</li>
+<li>Your program must use the same command-line options to place and route
+all the circuits (no command line or algorithm tweaking on a 
+circuit-specific basis).
+</li>
+<li>Your program must output the final placement (if it is a placement tool)
+and/or routing (if it is a routing tool) of each circuit.  We will use this
+output to make sure the targetted FPGA architecture is exactly correct,
+and that the placement and routing is fully legal.  Ideally, the output 
+would mimic the 
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/netlist.html">
+.p (placement)</a> 
+and 
+<a href="http://www.eecg.toronto.edu/~vaughn/challenge/routing_format.html">
+.r (routing) </a>
+formats used by VPR, but if
+that's too hard, any ASCII output format (accompanied by proper documentation)
+will do.
+</li><li>We haven't put a hard CPU limit on the contest, but your CPU time should be reasonable.  If it takes weeks for me to reproduce your results, you have 
+probably gone off the deep end on CPU time.  I won't accept results that
+involve simply turning up the optimization parameters on VPR. Anyone can reduce
+track count slightly just by burning a lot more CPU time in VPR, but that just
+turns into a competition to see who is willing to burn the most CPU.
+</li>
+</ul>
+
+<a href="mailto:vaughn@eecg.toronto.edu">Mail us</a> to report a new
+best routing track total or if you have any questions about the challenge.
+
+<p>
+
+</p><hr>
+<h2>Results</h2>
+<p>
+The table below shows the size of the 20 benchmark circuits, in terms of
+a 4-LUT + flip flop logic block, and the number of tracks required to 
+successfully place and route each by CAD tools for which we have results.
+</p><p>
+
+<table border="1">
+<caption><b>Benchmark circuits and track counts</b></caption>
+<tbody><tr align="center"><th>Circuit</th><th>Size (Logic Blocks)</th><th>VPR 3.99 Tracks</th><th>SEGA Tracks*</th><th>SC-Pathfinder Tracks**</th><th>VPR 4.30 Tracks***</th></tr>
+<tr align="center"><td>alu4</td><td>1522</td><td>10</td><td>16</td><td>9</td><td>9</td></tr>
+<tr align="center"><td>apex2</td><td>1878</td><td>11</td><td>20</td><td>11</td><td>10</td></tr>
+<tr align="center"><td>apex4</td><td>1262</td><td>12</td><td>19</td><td>11</td><td>11</td></tr>
+<tr align="center"><td>bigkey</td><td>1707</td><td>7</td><td>9</td><td>6</td><td>6</td></tr>
+<tr align="center"><td>clma</td><td>8383</td><td>12</td><td>25</td><td>12</td><td>10</td></tr>
+<tr align="center"><td>des</td><td>1591</td><td>7</td><td>11</td><td>7</td><td>7</td></tr>
+<tr align="center"><td>diffeq</td><td>1497</td><td>7</td><td>10</td><td>7</td><td>7</td></tr>
+<tr align="center"><td>dsip</td><td>1370</td><td>7</td><td>9</td><td>6</td><td>5</td></tr>
+<tr align="center"><td>elliptic</td><td>3604</td><td>10</td><td>16</td><td>9</td><td>9</td></tr>
+<tr align="center"><td>ex1010</td><td>4598</td><td>10</td><td>22</td><td>10</td><td>9</td></tr>
+<tr align="center"><td>ex5p</td><td>1064</td><td>13</td><td>16</td><td>12</td><td>11</td></tr>
+<tr align="center"><td>frisc</td><td>3556</td><td>11</td><td>18</td><td>11</td><td>11</td></tr>
+<tr align="center"><td>misex3</td><td>1397</td><td>10</td><td>17</td><td>10</td><td>10</td></tr>
+<tr align="center"><td>pdc</td><td>4575</td><td>16</td><td>33</td><td>16</td><td>15</td></tr>
+<tr align="center"><td>s298</td><td>1931</td><td>7</td><td>18</td><td>7</td><td>6</td></tr>
+<tr align="center"><td>s38417</td><td>6406</td><td>8</td><td>10</td><td>7</td><td>6</td></tr>
+<tr align="center"><td>s38584.1</td><td>6447</td><td>9</td><td>12</td><td>8</td><td>7</td></tr>
+<tr align="center"><td>seq</td><td>1750</td><td>11</td><td>18</td><td>11</td><td>10</td></tr>
+<tr align="center"><td>spla</td><td>3690</td><td>13</td><td>26</td><td>12</td><td>12</td></tr>
+<tr align="center"><td>tseng</td><td>1407</td><td>6</td><td>9</td><td>6</td><td>6</td></tr>
+<tr align="center"><th>Total:</th><th>--</th><th>197</th><th>334</th><th>188</th><th>177</th></tr>
+</tbody></table>
+<em>*SEGA performs detailed routing only, so VPR was used to place and globally
+route the circuits.  SEGA was then used for detailed routing.</em>
+</p><p>
+<em>**SC-Pathfinder is a routing tool only, so VPR was used to generate the placement for each circuit.  SC-Pathfinder was then used to perform a combined global-detailed routing.
+</em></p><p><em>
+<em>***VPR 4.30 run in wirelength-driven mode for placement and routing, with 
+increased routing effort.  Command line:  
+-place_algorithm bounding_box -max_router_iterations 100 -pres_fac_mult 1.5 -router_algorithm breadth_first</em>
+
+
+</em></p><hr><em>
+<a href="http://www.eecg.toronto.edu/~vaughn">Back to my home page.</a>
+
+
+
+</em></form><script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script></body></html>

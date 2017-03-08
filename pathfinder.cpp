@@ -37,6 +37,8 @@ inline float CHANNEL::getWeightToThisChannel(const float& baseWeightToChannel){
 	return occupancyMult * (baseWeightToChannel + occupancyHistory);
 }
 
+PATHFINDER::PATHFINDER() : currentMaxOccupancy(0) {};
+
 PATHFINDER::~PATHFINDER(){
 	delete[]channelsGraph;
 	channelsGraph = nullptr;
@@ -55,7 +57,7 @@ void PATHFINDER::init(const string& placeFile, const string& netsFile){
 	initFPGA(placeFile, netsFile);
 
 	float edgeWeight = 1.0f;
-	unsigned int channelCapacity = 7;
+	unsigned int channelCapacity = 300;
 	
 	channels2DArrayWH = blocks2DArrayWH - 2;
 	graphSize = channels2DArrayWH * channels2DArrayWH;
@@ -67,9 +69,9 @@ void PATHFINDER::init(const string& placeFile, const string& netsFile){
 		channels2DArray[yIt] = new CHANNEL*[blocks2DArrayWH];
 	}
 
-	for (size_t yIt = 1; yIt < blocks2DArrayWH - 1; yIt++)
+	for (size_t yIt = 0; yIt < blocks2DArrayWH; yIt++)
 	{
-		for (size_t xIt = 1; xIt < blocks2DArrayWH - 1; xIt++)
+		for (size_t xIt = 0; xIt < blocks2DArrayWH; xIt++)
 		{
 			channels2DArray[yIt][xIt] = nullptr;
 		}
@@ -323,8 +325,10 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter){
 	Fvh = FvhParam;
 	Fvp = FvpParam;
+	double fullTime = 0;
 	for (size_t i = 1; i <= maxIter; ++i)
 	{
+		currentMaxOccupancy = 0;
 		routedChannels.reserve(blocksCount);
 		routedChannels.resize(blocksCount);
 
@@ -391,6 +395,8 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 					for (int k = 0; k < routedChannels[i][j].size(); ++k){
 #pragma omp atomic
 						channelsGraph[routedChannels[i][j][k]].channelOccupancy++;
+#pragma omp critical
+						currentMaxOccupancy = max(currentMaxOccupancy, channelsGraph[routedChannels[i][j][k]].channelOccupancy);
 					}
 				}
 			}
@@ -406,7 +412,10 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			}
 
 #pragma omp single
-			cout << omp_get_wtime() - A << endl;
+			{
+				fullTime += omp_get_wtime() - A;
+				cout << fullTime << " " << currentMaxOccupancy << endl;
+			}
 		}
 #endif
 		routedChannels.clear();

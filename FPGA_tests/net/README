@@ -1,0 +1,15 @@
+The circuits in this archive are the twenty largest MCNC LGSynth93 
+logic synthesis circuits.  Each circuit was logic optimized in SIS using
+both script.rugged and script.algebraic -- whichever script produced the
+smaller output circuit was used in each case.  The circuits were then 
+technology-mapped to 4-input look-up tables (LUTs) via Flowmap.
+
+The VPACK program was then used to pack a flip flop and a LUT together into
+one basic logic element (BLE) where possible.  The final netlist is in 
+terms of these BLEs.  For details on the structure of a BLE and the .net
+netlist format, see the VPR User's Manual.
+
+The clocks were not routed in any of these circuits -- it is assumed 
+the clock would be routed via a dedicated global resource.  The .global clk
+line in these circuits tells a .net file parser that the clock is not
+to be routed.

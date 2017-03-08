@@ -1,0 +1,4712 @@
+.global pclk
+
+.input tin_pv10_4_4_
+pinlist: tin_pv10_4_4_ 
+
+.input tin_pv11_4_4_
+pinlist: tin_pv11_4_4_ 
+
+.input tin_pv6_7_7_
+pinlist: tin_pv6_7_7_ 
+
+.input tin_pv2_0_0_
+pinlist: tin_pv2_0_0_ 
+
+.input tin_pv10_3_3_
+pinlist: tin_pv10_3_3_ 
+
+.input tin_pv1_2_2_
+pinlist: tin_pv1_2_2_ 
+
+.input tin_pv11_3_3_
+pinlist: tin_pv11_3_3_ 
+
+.input tin_pv4_3_3_
+pinlist: tin_pv4_3_3_ 
+
+.input tin_pv10_2_2_
+pinlist: tin_pv10_2_2_ 
+
+.input tin_pv11_2_2_
+pinlist: tin_pv11_2_2_ 
+
+.input tin_pv6_0_0_
+pinlist: tin_pv6_0_0_ 
+
+.input tin_pv2_1_1_
+pinlist: tin_pv2_1_1_ 
+
+.input tin_pv10_1_1_
+pinlist: tin_pv10_1_1_ 
+
+.input tin_pv1_3_3_
+pinlist: tin_pv1_3_3_ 
+
+.input preset_0_0_
+pinlist: preset_0_0_ 
+
+.input tin_pv11_1_1_
+pinlist: tin_pv11_1_1_ 
+
+.input tin_pv4_4_4_
+pinlist: tin_pv4_4_4_ 
+
+.input tin_pready_0_0_
+pinlist: tin_pready_0_0_ 
+
+.input tin_pv10_0_0_
+pinlist: tin_pv10_0_0_ 
+
+.input tin_pv11_0_0_
+pinlist: tin_pv11_0_0_ 
+
+.input tin_pv6_1_1_
+pinlist: tin_pv6_1_1_ 
+
+.input tin_pv2_2_2_
+pinlist: tin_pv2_2_2_ 
+
+.input tin_pv1_4_4_
+pinlist: tin_pv1_4_4_ 
+
+.input tin_pv4_5_5_
+pinlist: tin_pv4_5_5_ 
+
+.input tin_pv6_2_2_
+pinlist: tin_pv6_2_2_ 
+
+.input tin_pv2_3_3_
+pinlist: tin_pv2_3_3_ 
+
+.input tin_pv1_5_5_
+pinlist: tin_pv1_5_5_ 
+
+.input tin_pv4_6_6_
+pinlist: tin_pv4_6_6_ 
+
+.input tin_pv6_3_3_
+pinlist: tin_pv6_3_3_ 
+
+.input tin_pv2_4_4_
+pinlist: tin_pv2_4_4_ 
+
+.input tin_pv1_6_6_
+pinlist: tin_pv1_6_6_ 
+
+.input pclk
+pinlist: pclk 
+
+.input tin_pv4_7_7_
+pinlist: tin_pv4_7_7_ 
+
+.input tin_pv6_4_4_
+pinlist: tin_pv6_4_4_ 
+
+.input tin_pv2_5_5_
+pinlist: tin_pv2_5_5_ 
+
+.input tin_pv1_7_7_
+pinlist: tin_pv1_7_7_ 
+
+.input tin_pv4_0_0_
+pinlist: tin_pv4_0_0_ 
+
+.input tin_pv6_5_5_
+pinlist: tin_pv6_5_5_ 
+
+.input tin_pv2_6_6_
+pinlist: tin_pv2_6_6_ 
+
+.input tin_pv10_7_7_
+pinlist: tin_pv10_7_7_ 
+
+.input tin_pv1_0_0_
+pinlist: tin_pv1_0_0_ 
+
+.input tin_pv11_7_7_
+pinlist: tin_pv11_7_7_ 
+
+.input tin_pv4_1_1_
+pinlist: tin_pv4_1_1_ 
+
+.input tin_pv10_6_6_
+pinlist: tin_pv10_6_6_ 
+
+.input tin_pv11_6_6_
+pinlist: tin_pv11_6_6_ 
+
+.input tin_pv6_6_6_
+pinlist: tin_pv6_6_6_ 
+
+.input tin_pv2_7_7_
+pinlist: tin_pv2_7_7_ 
+
+.input preset
+pinlist: preset 
+
+.input tin_pv10_5_5_
+pinlist: tin_pv10_5_5_ 
+
+.input tin_pv1_1_1_
+pinlist: tin_pv1_1_1_ 
+
+.input tin_pv11_5_5_
+pinlist: tin_pv11_5_5_ 
+
+.input tin_pv4_2_2_
+pinlist: tin_pv4_2_2_ 
+
+.output out:pv14_2_2_
+pinlist: pv14_2_2_ 
+
+.output out:pv12_3_3_
+pinlist: pv12_3_3_ 
+
+.output out:pv10_4_4_
+pinlist: pv10_4_4_ 
+
+.output out:pv7_5_5_
+pinlist: pv7_5_5_ 
+
+.output out:pv3_6_6_
+pinlist: pv3_6_6_ 
+
+.output out:pv15_2_2_
+pinlist: pv15_2_2_ 
+
+.output out:pv13_3_3_
+pinlist: pv13_3_3_ 
+
+.output out:pv11_4_4_
+pinlist: pv11_4_4_ 
+
+.output out:pv6_7_7_
+pinlist: pv6_7_7_ 
+
+.output out:pv2_0_0_
+pinlist: pv2_0_0_ 
+
+.output out:pv14_1_1_
+pinlist: pv14_1_1_ 
+
+.output out:pv12_2_2_
+pinlist: pv12_2_2_ 
+
+.output out:pv10_3_3_
+pinlist: pv10_3_3_ 
+
+.output out:pv9_0_0_
+pinlist: pv9_0_0_ 
+
+.output out:pv5_1_1_
+pinlist: pv5_1_1_ 
+
+.output out:pv1_2_2_
+pinlist: pv1_2_2_ 
+
+.output out:pv15_1_1_
+pinlist: pv15_1_1_ 
+
+.output out:pv13_2_2_
+pinlist: pv13_2_2_ 
+
+.output out:pv11_3_3_
+pinlist: pv11_3_3_ 
+
+.output out:pv8_2_2_
+pinlist: pv8_2_2_ 
+
+.output out:pv4_3_3_
+pinlist: pv4_3_3_ 
+
+.output out:pv14_0_0_
+pinlist: pv14_0_0_ 
+
+.output out:pv12_1_1_
+pinlist: pv12_1_1_ 
+
+.output out:pv10_2_2_
+pinlist: pv10_2_2_ 
+
+.output out:pv7_6_6_
+pinlist: pv7_6_6_ 
+
+.output out:pv3_7_7_
+pinlist: pv3_7_7_ 
+
+.output out:pv15_0_0_
+pinlist: pv15_0_0_ 
+
+.output out:pv13_1_1_
+pinlist: pv13_1_1_ 
+
+.output out:pv11_2_2_
+pinlist: pv11_2_2_ 
+
+.output out:pv6_0_0_
+pinlist: pv6_0_0_ 
+
+.output out:pv2_1_1_
+pinlist: pv2_1_1_ 
+
+.output out:pv12_0_0_
+pinlist: pv12_0_0_ 
+
+.output out:pv10_1_1_
+pinlist: pv10_1_1_ 
+
+.output out:pv9_1_1_
+pinlist: pv9_1_1_ 
+
+.output out:pv5_2_2_
+pinlist: pv5_2_2_ 
+
+.output out:pv1_3_3_
+pinlist: pv1_3_3_ 
+
+.output out:pv13_0_0_
+pinlist: pv13_0_0_ 
+
+.output out:pv11_1_1_
+pinlist: pv11_1_1_ 
+
+.output out:pv8_3_3_
+pinlist: pv8_3_3_ 
+
+.output out:pv4_4_4_
+pinlist: pv4_4_4_ 
+
+.output out:pready_0_0_
+pinlist: pready_0_0_ 
+
+.output out:pv10_0_0_
+pinlist: pv10_0_0_ 
+
+.output out:pv7_7_7_
+pinlist: pv7_7_7_ 
+
+.output out:pv3_0_0_
+pinlist: pv3_0_0_ 
+
+.output out:pv11_0_0_
+pinlist: pv11_0_0_ 
+
+.output out:pv6_1_1_
+pinlist: pv6_1_1_ 
+
+.output out:pv2_2_2_
+pinlist: pv2_2_2_ 
+
+.output out:pv9_2_2_
+pinlist: pv9_2_2_ 
+
+.output out:pv5_3_3_
+pinlist: pv5_3_3_ 
+
+.output out:pv1_4_4_
+pinlist: pv1_4_4_ 
+
+.output out:pv8_4_4_
+pinlist: pv8_4_4_ 
+
+.output out:pv4_5_5_
+pinlist: pv4_5_5_ 
+
+.output out:pv7_0_0_
+pinlist: pv7_0_0_ 
+
+.output out:pv3_1_1_
+pinlist: pv3_1_1_ 
+
+.output out:pv6_2_2_
+pinlist: pv6_2_2_ 
+
+.output out:pv2_3_3_
+pinlist: pv2_3_3_ 
+
+.output out:pv9_3_3_
+pinlist: pv9_3_3_ 
+
+.output out:pv5_4_4_
+pinlist: pv5_4_4_ 
+
+.output out:pv1_5_5_
+pinlist: pv1_5_5_ 
+
+.output out:pv8_5_5_
+pinlist: pv8_5_5_ 
+
+.output out:pv4_6_6_
+pinlist: pv4_6_6_ 
+
+.output out:pv7_1_1_
+pinlist: pv7_1_1_ 
+
+.output out:pv3_2_2_
+pinlist: pv3_2_2_ 
+
+.output out:pv6_3_3_
+pinlist: pv6_3_3_ 
+
+.output out:pv2_4_4_
+pinlist: pv2_4_4_ 
+
+.output out:pv9_4_4_
+pinlist: pv9_4_4_ 
+
+.output out:pv5_5_5_
+pinlist: pv5_5_5_ 
+
+.output out:pv1_6_6_
+pinlist: pv1_6_6_ 
+
+.output out:pv8_6_6_
+pinlist: pv8_6_6_ 
+
+.output out:pv4_7_7_
+pinlist: pv4_7_7_ 
+
+.output out:pv7_2_2_
+pinlist: pv7_2_2_ 
+
+.output out:pv3_3_3_
+pinlist: pv3_3_3_ 
+
+.output out:pv6_4_4_
+pinlist: pv6_4_4_ 
+
+.output out:pv2_5_5_
+pinlist: pv2_5_5_ 
+
+.output out:pv14_7_7_
+pinlist: pv14_7_7_ 
+
+.output out:pv9_5_5_
+pinlist: pv9_5_5_ 
+
+.output out:pv5_6_6_
+pinlist: pv5_6_6_ 
+
+.output out:pv1_7_7_
+pinlist: pv1_7_7_ 
+
+.output out:pv15_7_7_
+pinlist: pv15_7_7_ 
+
+.output out:pv8_7_7_
+pinlist: pv8_7_7_ 
+
+.output out:pv4_0_0_
+pinlist: pv4_0_0_ 
+
+.output out:pv14_6_6_
+pinlist: pv14_6_6_ 
+
+.output out:pv12_7_7_
+pinlist: pv12_7_7_ 
+
+.output out:pv7_3_3_
+pinlist: pv7_3_3_ 
+
+.output out:pv3_4_4_
+pinlist: pv3_4_4_ 
+
+.output out:pv15_6_6_
+pinlist: pv15_6_6_ 
+
+.output out:pv13_7_7_
+pinlist: pv13_7_7_ 
+
+.output out:pv6_5_5_
+pinlist: pv6_5_5_ 
+
+.output out:pv2_6_6_
+pinlist: pv2_6_6_ 
+
+.output out:pdn
+pinlist: pdn 
+
+.output out:pv14_5_5_
+pinlist: pv14_5_5_ 
+
+.output out:pv12_6_6_
+pinlist: pv12_6_6_ 
+
+.output out:pv10_7_7_
+pinlist: pv10_7_7_ 
+
+.output out:pv9_6_6_
+pinlist: pv9_6_6_ 
+
+.output out:pv5_7_7_
+pinlist: pv5_7_7_ 
+
+.output out:pv1_0_0_
+pinlist: pv1_0_0_ 
+
+.output out:pv15_5_5_
+pinlist: pv15_5_5_ 
+
+.output out:pv13_6_6_
+pinlist: pv13_6_6_ 
+
+.output out:pv11_7_7_
+pinlist: pv11_7_7_ 
+
+.output out:pv8_0_0_
+pinlist: pv8_0_0_ 
+
+.output out:pv4_1_1_
+pinlist: pv4_1_1_ 
+
+.output out:pv14_4_4_
+pinlist: pv14_4_4_ 
+
+.output out:pv12_5_5_
+pinlist: pv12_5_5_ 
+
+.output out:pv10_6_6_
+pinlist: pv10_6_6_ 
+
+.output out:pv7_4_4_
+pinlist: pv7_4_4_ 
+
+.output out:pv3_5_5_
+pinlist: pv3_5_5_ 
+
+.output out:pv15_4_4_
+pinlist: pv15_4_4_ 
+
+.output out:pv13_5_5_
+pinlist: pv13_5_5_ 
+
+.output out:pv11_6_6_
+pinlist: pv11_6_6_ 
+
+.output out:pv6_6_6_
+pinlist: pv6_6_6_ 
+
+.output out:pv2_7_7_
+pinlist: pv2_7_7_ 
+
+.output out:pv14_3_3_
+pinlist: pv14_3_3_ 
+
+.output out:pv12_4_4_
+pinlist: pv12_4_4_ 
+
+.output out:pv10_5_5_
+pinlist: pv10_5_5_ 
+
+.output out:pv9_7_7_
+pinlist: pv9_7_7_ 
+
+.output out:pv5_0_0_
+pinlist: pv5_0_0_ 
+
+.output out:pv1_1_1_
+pinlist: pv1_1_1_ 
+
+.output out:pv15_3_3_
+pinlist: pv15_3_3_ 
+
+.output out:pv13_4_4_
+pinlist: pv13_4_4_ 
+
+.output out:pv11_5_5_
+pinlist: pv11_5_5_ 
+
+.output out:pv8_1_1_
+pinlist: pv8_1_1_ 
+
+.output out:pv4_2_2_
+pinlist: pv4_2_2_ 
+
+.clb ngfdn_3  # Only LATCH used.
+pinlist: n_n3810 open open open ngfdn_3 pclk 
+subblock: ngfdn_3 0 open open open 4 5 
+
+.clb pv14_2_2_  # Only LUT used.
+pinlist: n_n3358 n_n4153 open open pv14_2_2_ open 
+subblock: pv14_2_2_ 0 1 open open 4 open 
+
+.clb pv12_3_3_  # Only LUT used.
+pinlist: n_n3631 n_n3367 open open pv12_3_3_ open 
+subblock: pv12_3_3_ 0 1 open open 4 open 
+
+.clb pv10_4_4_  # Only LUT used.
+pinlist: tin_pv10_4_4_ n_n4136 n_n3042 open pv10_4_4_ open 
+subblock: pv10_4_4_ 0 1 2 open 4 open 
+
+.clb pv7_5_5_  # Only LUT used.
+pinlist: n_n3130 n_n3679 open open pv7_5_5_ open 
+subblock: pv7_5_5_ 0 1 open open 4 open 
+
+.clb pv3_6_6_  # Only LUT used.
+pinlist: n_n3252 n_n3057 open open pv3_6_6_ open 
+subblock: pv3_6_6_ 0 1 open open 4 open 
+
+.clb pv15_2_2_  # Only LUT used.
+pinlist: n_n3113 n_n4037 open open pv15_2_2_ open 
+subblock: pv15_2_2_ 0 1 open open 4 open 
+
+.clb pv13_3_3_  # Only LUT used.
+pinlist: n_n3600 n_n3404 open open pv13_3_3_ open 
+subblock: pv13_3_3_ 0 1 open open 4 open 
+
+.clb pv11_4_4_  # Only LUT used.
+pinlist: tin_pv11_4_4_ n_n4120 n_n3966 open pv11_4_4_ open 
+subblock: pv11_4_4_ 0 1 2 open 4 open 
+
+.clb pv6_7_7_  # Only LUT used.
+pinlist: tin_pv6_7_7_ n_n4164 n_n3370 open pv6_7_7_ open 
+subblock: pv6_7_7_ 0 1 2 open 4 open 
+
+.clb pv2_0_0_  # Only LUT used.
+pinlist: tin_pv2_0_0_ n_n3211 n_n3910 open pv2_0_0_ open 
+subblock: pv2_0_0_ 0 1 2 open 4 open 
+
+.clb pv14_1_1_  # Only LUT used.
+pinlist: n_n3012 n_n3038 open open pv14_1_1_ open 
+subblock: pv14_1_1_ 0 1 open open 4 open 
+
+.clb pv12_2_2_  # Only LUT used.
+pinlist: n_n3067 n_n3576 open open pv12_2_2_ open 
+subblock: pv12_2_2_ 0 1 open open 4 open 
+
+.clb pv10_3_3_  # Only LUT used.
+pinlist: tin_pv10_3_3_ n_n4129 n_n3213 open pv10_3_3_ open 
+subblock: pv10_3_3_ 0 1 2 open 4 open 
+
+.clb pv9_0_0_  # Only LUT used.
+pinlist: n_n3128 n_n3890 open open pv9_0_0_ open 
+subblock: pv9_0_0_ 0 1 open open 4 open 
+
+.clb pv5_1_1_  # Only LUT used.
+pinlist: n_n3443 n_n3287 open open pv5_1_1_ open 
+subblock: pv5_1_1_ 0 1 open open 4 open 
+
+.clb pv1_2_2_  # Only LUT used.
+pinlist: tin_pv1_2_2_ n_n3470 n_n3537 open pv1_2_2_ open 
+subblock: pv1_2_2_ 0 1 2 open 4 open 
+
+.clb pv15_1_1_  # Only LUT used.
+pinlist: n_n3606 n_n3108 open open pv15_1_1_ open 
+subblock: pv15_1_1_ 0 1 open open 4 open 
+
+.clb pv13_2_2_  # Only LUT used.
+pinlist: n_n3379 n_n3463 open open pv13_2_2_ open 
+subblock: pv13_2_2_ 0 1 open open 4 open 
+
+.clb pv11_3_3_  # Only LUT used.
+pinlist: tin_pv11_3_3_ n_n3432 n_n3583 open pv11_3_3_ open 
+subblock: pv11_3_3_ 0 1 2 open 4 open 
+
+.clb pv8_2_2_  # Only LUT used.
+pinlist: n_n3456 n_n3055 open open pv8_2_2_ open 
+subblock: pv8_2_2_ 0 1 open open 4 open 
+
+.clb pv4_3_3_  # Only LUT used.
+pinlist: tin_pv4_3_3_ n_n3489 n_n4309 open pv4_3_3_ open 
+subblock: pv4_3_3_ 0 1 2 open 4 open 
+
+.clb pv14_0_0_  # Only LUT used.
+pinlist: n_n3761 n_n3903 open open pv14_0_0_ open 
+subblock: pv14_0_0_ 0 1 open open 4 open 
+
+.clb pv12_1_1_  # Only LUT used.
+pinlist: n_n3264 n_n4390 open open pv12_1_1_ open 
+subblock: pv12_1_1_ 0 1 open open 4 open 
+
+.clb pv10_2_2_  # Only LUT used.
+pinlist: tin_pv10_2_2_ n_n3549 n_n3065 open pv10_2_2_ open 
+subblock: pv10_2_2_ 0 1 2 open 4 open 
+
+.clb pv7_6_6_  # Only LUT used.
+pinlist: n_n3670 n_n3617 open open pv7_6_6_ open 
+subblock: pv7_6_6_ 0 1 open open 4 open 
+
+.clb pv3_7_7_  # Only LUT used.
+pinlist: n_n3590 n_n4102 open open pv3_7_7_ open 
+subblock: pv3_7_7_ 0 1 open open 4 open 
+
+.clb pv15_0_0_  # Only LUT used.
+pinlist: n_n4003 n_n3188 open open pv15_0_0_ open 
+subblock: pv15_0_0_ 0 1 open open 4 open 
+
+.clb pv13_1_1_  # Only LUT used.
+pinlist: n_n3221 n_n3150 open open pv13_1_1_ open 
+subblock: pv13_1_1_ 0 1 open open 4 open 
+
+.clb pv11_2_2_  # Only LUT used.
+pinlist: tin_pv11_2_2_ n_n3152 n_n3823 open pv11_2_2_ open 
+subblock: pv11_2_2_ 0 1 2 open 4 open 
+
+.clb pv6_0_0_  # Only LUT used.
+pinlist: tin_pv6_0_0_ n_n3029 n_n3506 open pv6_0_0_ open 
+subblock: pv6_0_0_ 0 1 2 open 4 open 
+
+.clb pv2_1_1_  # Only LUT used.
+pinlist: tin_pv2_1_1_ n_n3999 n_n3646 open pv2_1_1_ open 
+subblock: pv2_1_1_ 0 1 2 open 4 open 
+
+.clb pv12_0_0_  # Only LUT used.
+pinlist: n_n3098 n_n3339 open open pv12_0_0_ open 
+subblock: pv12_0_0_ 0 1 open open 4 open 
+
+.clb pv10_1_1_  # Only LUT used.
+pinlist: tin_pv10_1_1_ n_n3270 n_n3872 open pv10_1_1_ open 
+subblock: pv10_1_1_ 0 1 2 open 4 open 
+
+.clb pv9_1_1_  # Only LUT used.
+pinlist: n_n3024 n_n3044 open open pv9_1_1_ open 
+subblock: pv9_1_1_ 0 1 open open 4 open 
+
+.clb pv5_2_2_  # Only LUT used.
+pinlist: n_n4286 n_n3350 open open pv5_2_2_ open 
+subblock: pv5_2_2_ 0 1 open open 4 open 
+
+.clb pv1_3_3_  # Only LUT used.
+pinlist: tin_pv1_3_3_ n_n3441 n_n4180 open pv1_3_3_ open 
+subblock: pv1_3_3_ 0 1 2 open 4 open 
+
+.clb pv13_0_0_  # Only LUT used.
+pinlist: n_n3061 n_n3434 open open pv13_0_0_ open 
+subblock: pv13_0_0_ 0 1 open open 4 open 
+
+.clb pv11_1_1_  # Only LUT used.
+pinlist: tin_pv11_1_1_ n_n4142 n_n4185 open pv11_1_1_ open 
+subblock: pv11_1_1_ 0 1 2 open 4 open 
+
+.clb pv8_3_3_  # Only LUT used.
+pinlist: n_n3146 n_n3091 open open pv8_3_3_ open 
+subblock: pv8_3_3_ 0 1 open open 4 open 
+
+.clb pv4_4_4_  # Only LUT used.
+pinlist: tin_pv4_4_4_ n_n3627 n_n4110 open pv4_4_4_ open 
+subblock: pv4_4_4_ 0 1 2 open 4 open 
+
+.clb pready_0_0_  # Only LUT used.
+pinlist: tin_pready_0_0_ n_n4108 n_n3354 open pready_0_0_ open 
+subblock: pready_0_0_ 0 1 2 open 4 open 
+
+.clb pv10_0_0_  # Only LUT used.
+pinlist: tin_pv10_0_0_ n_n4282 n_n4209 open pv10_0_0_ open 
+subblock: pv10_0_0_ 0 1 2 open 4 open 
+
+.clb pv7_7_7_  # Only LUT used.
+pinlist: n_n3136 n_n4077 open open pv7_7_7_ open 
+subblock: pv7_7_7_ 0 1 open open 4 open 
+
+.clb pv3_0_0_  # Only LUT used.
+pinlist: n_n3173 n_n3828 open open pv3_0_0_ open 
+subblock: pv3_0_0_ 0 1 open open 4 open 
+
+.clb pv11_0_0_  # Only LUT used.
+pinlist: tin_pv11_0_0_ n_n3514 n_n3233 open pv11_0_0_ open 
+subblock: pv11_0_0_ 0 1 2 open 4 open 
+
+.clb pv6_1_1_  # Only LUT used.
+pinlist: tin_pv6_1_1_ n_n3144 n_n3952 open pv6_1_1_ open 
+subblock: pv6_1_1_ 0 1 2 open 4 open 
+
+.clb pv2_2_2_  # Only LUT used.
+pinlist: tin_pv2_2_2_ n_n3202 n_n4354 open pv2_2_2_ open 
+subblock: pv2_2_2_ 0 1 2 open 4 open 
+
+.clb pv9_2_2_  # Only LUT used.
+pinlist: n_n3736 n_n3157 open open pv9_2_2_ open 
+subblock: pv9_2_2_ 0 1 open open 4 open 
+
+.clb pv5_3_3_  # Only LUT used.
+pinlist: n_n3321 n_n4236 open open pv5_3_3_ open 
+subblock: pv5_3_3_ 0 1 open open 4 open 
+
+.clb pv1_4_4_  # Only LUT used.
+pinlist: tin_pv1_4_4_ n_n3863 n_n3806 open pv1_4_4_ open 
+subblock: pv1_4_4_ 0 1 2 open 4 open 
+
+.clb pv8_4_4_  # Only LUT used.
+pinlist: n_n3344 n_n3095 open open pv8_4_4_ open 
+subblock: pv8_4_4_ 0 1 open open 4 open 
+
+.clb pv4_5_5_  # Only LUT used.
+pinlist: tin_pv4_5_5_ n_n3733 n_n3087 open pv4_5_5_ open 
+subblock: pv4_5_5_ 0 1 2 open 4 open 
+
+.clb pv7_0_0_  # Only LUT used.
+pinlist: n_n3161 n_n3069 open open pv7_0_0_ open 
+subblock: pv7_0_0_ 0 1 open open 4 open 
+
+.clb pv3_1_1_  # Only LUT used.
+pinlist: n_n3048 n_n3461 open open pv3_1_1_ open 
+subblock: pv3_1_1_ 0 1 open open 4 open 
+
+.clb pv6_2_2_  # Only LUT used.
+pinlist: tin_pv6_2_2_ n_n3307 n_n3138 open pv6_2_2_ open 
+subblock: pv6_2_2_ 0 1 2 open 4 open 
+
+.clb pv2_3_3_  # Only LUT used.
+pinlist: tin_pv2_3_3_ n_n3465 n_n3874 open pv2_3_3_ open 
+subblock: pv2_3_3_ 0 1 2 open 4 open 
+
+.clb pv9_3_3_  # Only LUT used.
+pinlist: n_n3906 n_n3749 open open pv9_3_3_ open 
+subblock: pv9_3_3_ 0 1 open open 4 open 
+
+.clb pv5_4_4_  # Only LUT used.
+pinlist: n_n3793 n_n4213 open open pv5_4_4_ open 
+subblock: pv5_4_4_ 0 1 open open 4 open 
+
+.clb pv1_5_5_  # Only LUT used.
+pinlist: tin_pv1_5_5_ n_n3313 n_n3101 open pv1_5_5_ open 
+subblock: pv1_5_5_ 0 1 2 open 4 open 
+
+.clb pv8_5_5_  # Only LUT used.
+pinlist: n_n3116 n_n3331 open open pv8_5_5_ open 
+subblock: pv8_5_5_ 0 1 open open 4 open 
+
+.clb pv4_6_6_  # Only LUT used.
+pinlist: tin_pv4_6_6_ n_n3774 n_n3413 open pv4_6_6_ open 
+subblock: pv4_6_6_ 0 1 2 open 4 open 
+
+.clb pv7_1_1_  # Only LUT used.
+pinlist: n_n3415 n_n3971 open open pv7_1_1_ open 
+subblock: pv7_1_1_ 0 1 open open 4 open 
+
+.clb pv3_2_2_  # Only LUT used.
+pinlist: n_n3190 n_n3739 open open pv3_2_2_ open 
+subblock: pv3_2_2_ 0 1 open open 4 open 
+
+.clb pv6_3_3_  # Only LUT used.
+pinlist: tin_pv6_3_3_ n_n3204 n_n3486 open pv6_3_3_ open 
+subblock: pv6_3_3_ 0 1 2 open 4 open 
+
+.clb pv2_4_4_  # Only LUT used.
+pinlist: tin_pv2_4_4_ n_n3133 n_n3643 open pv2_4_4_ open 
+subblock: pv2_4_4_ 0 1 2 open 4 open 
+
+.clb pv9_4_4_  # Only LUT used.
+pinlist: n_n3687 n_n3650 open open pv9_4_4_ open 
+subblock: pv9_4_4_ 0 1 open open 4 open 
+
+.clb pv5_5_5_  # Only LUT used.
+pinlist: n_n3266 n_n3408 open open pv5_5_5_ open 
+subblock: pv5_5_5_ 0 1 open open 4 open 
+
+.clb pv1_6_6_  # Only LUT used.
+pinlist: tin_pv1_6_6_ n_n3118 n_n4018 open pv1_6_6_ open 
+subblock: pv1_6_6_ 0 1 2 open 4 open 
+
+.clb pv8_6_6_  # Only LUT used.
+pinlist: n_n3180 n_n3223 open open pv8_6_6_ open 
+subblock: pv8_6_6_ 0 1 open open 4 open 
+
+.clb pv4_7_7_  # Only LUT used.
+pinlist: tin_pv4_7_7_ n_n4114 n_n4166 open pv4_7_7_ open 
+subblock: pv4_7_7_ 0 1 2 open 4 open 
+
+.clb pv7_2_2_  # Only LUT used.
+pinlist: n_n3497 n_n4105 open open pv7_2_2_ open 
+subblock: pv7_2_2_ 0 1 open open 4 open 
+
+.clb pv3_3_3_  # Only LUT used.
+pinlist: n_n3274 n_n4342 open open pv3_3_3_ open 
+subblock: pv3_3_3_ 0 1 open open 4 open 
+
+.clb pv6_4_4_  # Only LUT used.
+pinlist: tin_pv6_4_4_ n_n3093 n_n4065 open pv6_4_4_ open 
+subblock: pv6_4_4_ 0 1 2 open 4 open 
+
+.clb pv2_5_5_  # Only LUT used.
+pinlist: tin_pv2_5_5_ n_n3780 n_n4059 open pv2_5_5_ open 
+subblock: pv2_5_5_ 0 1 2 open 4 open 
+
+.clb pv14_7_7_  # Only LUT used.
+pinlist: n_n3449 n_n4241 open open pv14_7_7_ open 
+subblock: pv14_7_7_ 0 1 open open 4 open 
+
+.clb pv9_5_5_  # Only LUT used.
+pinlist: n_n3985 n_n4290 open open pv9_5_5_ open 
+subblock: pv9_5_5_ 0 1 open open 4 open 
+
+.clb pv5_6_6_  # Only LUT used.
+pinlist: n_n3567 n_n3237 open open pv5_6_6_ open 
+subblock: pv5_6_6_ 0 1 open open 4 open 
+
+.clb pv1_7_7_  # Only LUT used.
+pinlist: tin_pv1_7_7_ n_n3544 n_n4199 open pv1_7_7_ open 
+subblock: pv1_7_7_ 0 1 2 open 4 open 
+
+.clb pv15_7_7_  # Only LUT used.
+pinlist: n_n3079 n_n3648 open open pv15_7_7_ open 
+subblock: pv15_7_7_ 0 1 open open 4 open 
+
+.clb pv8_7_7_  # Only LUT used.
+pinlist: n_n3525 n_n3529 open open pv8_7_7_ open 
+subblock: pv8_7_7_ 0 1 open open 4 open 
+
+.clb pv4_0_0_  # Only LUT used.
+pinlist: tin_pv4_0_0_ n_n3517 n_n3826 open pv4_0_0_ open 
+subblock: pv4_0_0_ 0 1 2 open 4 open 
+
+.clb pv14_6_6_  # Only LUT used.
+pinlist: n_n3713 n_n3262 open open pv14_6_6_ open 
+subblock: pv14_6_6_ 0 1 open open 4 open 
+
+.clb pv12_7_7_  # Only LUT used.
+pinlist: n_n3764 n_n3720 open open pv12_7_7_ open 
+subblock: pv12_7_7_ 0 1 open open 4 open 
+
+.clb pv7_3_3_  # Only LUT used.
+pinlist: n_n3411 n_n4303 open open pv7_3_3_ open 
+subblock: pv7_3_3_ 0 1 open open 4 open 
+
+.clb pv3_4_4_  # Only LUT used.
+pinlist: n_n3729 n_n4162 open open pv3_4_4_ open 
+subblock: pv3_4_4_ 0 1 open open 4 open 
+
+.clb pv15_6_6_  # Only LUT used.
+pinlist: n_n4375 n_n3020 open open pv15_6_6_ open 
+subblock: pv15_6_6_ 0 1 open open 4 open 
+
+.clb pv13_7_7_  # Only LUT used.
+pinlist: n_n3372 n_n3394 open open pv13_7_7_ open 
+subblock: pv13_7_7_ 0 1 open open 4 open 
+
+.clb pv6_5_5_  # Only LUT used.
+pinlist: tin_pv6_5_5_ n_n4189 n_n3348 open pv6_5_5_ open 
+subblock: pv6_5_5_ 0 1 2 open 4 open 
+
+.clb pv2_6_6_  # Only LUT used.
+pinlist: tin_pv2_6_6_ n_n3120 n_n3385 open pv2_6_6_ open 
+subblock: pv2_6_6_ 0 1 2 open 4 open 
+
+.clb pv14_5_5_  # Only LUT used.
+pinlist: n_n3008 n_n3663 open open pv14_5_5_ open 
+subblock: pv14_5_5_ 0 1 open open 4 open 
+
+.clb pv12_6_6_  # Only LUT used.
+pinlist: n_n3782 n_n3896 open open pv12_6_6_ open 
+subblock: pv12_6_6_ 0 1 open open 4 open 
+
+.clb pv10_7_7_  # Only LUT used.
+pinlist: tin_pv10_7_7_ n_n3225 n_n3521 open pv10_7_7_ open 
+subblock: pv10_7_7_ 0 1 2 open 4 open 
+
+.clb pv9_6_6_  # Only LUT used.
+pinlist: n_n4243 n_n3239 open open pv9_6_6_ open 
+subblock: pv9_6_6_ 0 1 open open 4 open 
+
+.clb pv5_7_7_  # Only LUT used.
+pinlist: n_n3111 n_n4005 open open pv5_7_7_ open 
+subblock: pv5_7_7_ 0 1 open open 4 open 
+
+.clb pv1_0_0_  # Only LUT used.
+pinlist: tin_pv1_0_0_ n_n3551 n_n4192 open pv1_0_0_ open 
+subblock: pv1_0_0_ 0 1 2 open 4 open 
+
+.clb pv15_5_5_  # Only LUT used.
+pinlist: n_n3277 n_n3674 open open pv15_5_5_ open 
+subblock: pv15_5_5_ 0 1 open open 4 open 
+
+.clb pv13_6_6_  # Only LUT used.
+pinlist: n_n3155 n_n3797 open open pv13_6_6_ open 
+subblock: pv13_6_6_ 0 1 open open 4 open 
+
+.clb pv11_7_7_  # Only LUT used.
+pinlist: tin_pv11_7_7_ n_n3376 n_n3360 open pv11_7_7_ open 
+subblock: pv11_7_7_ 0 1 2 open 4 open 
+
+.clb pv8_0_0_  # Only LUT used.
+pinlist: n_n3014 n_n4320 open open pv8_0_0_ open 
+subblock: pv8_0_0_ 0 1 open open 4 open 
+
+.clb pv4_1_1_  # Only LUT used.
+pinlist: tin_pv4_1_1_ n_n4089 n_n3722 open pv4_1_1_ open 
+subblock: pv4_1_1_ 0 1 2 open 4 open 
+
+.clb pv14_4_4_  # Only LUT used.
+pinlist: n_n3326 n_n3089 open open pv14_4_4_ open 
+subblock: pv14_4_4_ 0 1 open open 4 open 
+
+.clb pv12_5_5_  # Only LUT used.
+pinlist: n_n3619 n_n3337 open open pv12_5_5_ open 
+subblock: pv12_5_5_ 0 1 open open 4 open 
+
+.clb pv10_6_6_  # Only LUT used.
+pinlist: tin_pv10_6_6_ n_n3570 n_n3342 open pv10_6_6_ open 
+subblock: pv10_6_6_ 0 1 2 open 4 open 
+
+.clb pv7_4_4_  # Only LUT used.
+pinlist: n_n3073 n_n3053 open open pv7_4_4_ open 
+subblock: pv7_4_4_ 0 1 open open 4 open 
+
+.clb pv3_5_5_  # Only LUT used.
+pinlist: n_n3436 n_n3142 open open pv3_5_5_ open 
+subblock: pv3_5_5_ 0 1 open open 4 open 
+
+.clb pv15_4_4_  # Only LUT used.
+pinlist: n_n3305 n_n3667 open open pv15_4_4_ open 
+subblock: pv15_4_4_ 0 1 open open 4 open 
+
+.clb pv13_5_5_  # Only LUT used.
+pinlist: n_n4139 n_n3777 open open pv13_5_5_ open 
+subblock: pv13_5_5_ 0 1 open open 4 open 
+
+.clb pv11_6_6_  # Only LUT used.
+pinlist: tin_pv11_6_6_ n_n4279 n_n3504 open pv11_6_6_ open 
+subblock: pv11_6_6_ 0 1 2 open 4 open 
+
+.clb pv6_6_6_  # Only LUT used.
+pinlist: tin_pv6_6_6_ n_n3429 n_n3836 open pv6_6_6_ open 
+subblock: pv6_6_6_ 0 1 2 open 4 open 
+
+.clb pv2_7_7_  # Only LUT used.
+pinlist: tin_pv2_7_7_ n_n4131 n_n3126 open pv2_7_7_ open 
+subblock: pv2_7_7_ 0 1 2 open 4 open 
+
+.clb pv14_3_3_  # Only LUT used.
+pinlist: n_n3396 n_n3316 open open pv14_3_3_ open 
+subblock: pv14_3_3_ 0 1 open open 4 open 
+
+.clb pv12_4_4_  # Only LUT used.
+pinlist: n_n3231 n_n3175 open open pv12_4_4_ open 
+subblock: pv12_4_4_ 0 1 open open 4 open 
+
+.clb pv10_5_5_  # Only LUT used.
+pinlist: tin_pv10_5_5_ n_n3381 n_n4247 open pv10_5_5_ open 
+subblock: pv10_5_5_ 0 1 2 open 4 open 
+
+.clb pv9_7_7_  # Only LUT used.
+pinlist: n_n3319 n_n3040 open open pv9_7_7_ open 
+subblock: pv9_7_7_ 0 1 open open 4 open 
+
+.clb pv5_0_0_  # Only LUT used.
+pinlist: n_n3195 n_n3572 open open pv5_0_0_ open 
+subblock: pv5_0_0_ 0 1 open open 4 open 
+
+.clb pv1_1_1_  # Only LUT used.
+pinlist: tin_pv1_1_1_ n_n3215 n_n3183 open pv1_1_1_ open 
+subblock: pv1_1_1_ 0 1 2 open 4 open 
+
+.clb pv15_3_3_  # Only LUT used.
+pinlist: n_n4172 n_n3051 open open pv15_3_3_ open 
+subblock: pv15_3_3_ 0 1 open open 4 open 
+
+.clb pv13_4_4_  # Only LUT used.
+pinlist: n_n3075 n_n3758 open open pv13_4_4_ open 
+subblock: pv13_4_4_ 0 1 open open 4 open 
+
+.clb pv11_5_5_  # Only LUT used.
+pinlist: tin_pv11_5_5_ n_n3081 n_n3207 open pv11_5_5_ open 
+subblock: pv11_5_5_ 0 1 2 open 4 open 
+
+.clb pv8_1_1_  # Only LUT used.
+pinlist: n_n3938 n_n3883 open open pv8_1_1_ open 
+subblock: pv8_1_1_ 0 1 open open 4 open 
+
+.clb pv4_2_2_  # Only LUT used.
+pinlist: tin_pv4_2_2_ n_n4347 n_n4372 open pv4_2_2_ open 
+subblock: pv4_2_2_ 0 1 2 open 4 open 
+
+.clb n_n4142  # Both LUT and LATCH used.
+pinlist: n_n3724 n_n3830 [2275] [6252] n_n4142 pclk 
+subblock: n_n4142 0 1 2 3 4 5 
+
+.clb n_n3936  # Both LUT and LATCH used.
+pinlist: pv11_1_1_ [988] [2270] open n_n3936 pclk 
+subblock: n_n3936 0 1 2 open 4 5 
+
+.clb n_n3574  # Both LUT and LATCH used.
+pinlist: [2261] [2262] [2263] open n_n3574 pclk 
+subblock: n_n3574 0 1 2 open 4 5 
+
+.clb n_n3008  # Both LUT and LATCH used.
+pinlist: n_n3035 n_n4157 [894] [2259] n_n3008 pclk 
+subblock: n_n3008 0 1 2 3 4 5 
+
+.clb n_n3726  # Both LUT and LATCH used.
+pinlist: [2240] [2241] [2242] open n_n3726 pclk 
+subblock: n_n3726 0 1 2 open 4 5 
+
+.clb n_n3604  # Both LUT and LATCH used.
+pinlist: preset [1016] open open n_n3604 pclk 
+subblock: n_n3604 0 1 open open 4 5 
+
+.clb n_n3144  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3144 nrq1_3 n_n3144 pclk 
+subblock: n_n3144 0 1 2 3 4 5 
+
+.clb n_n3782  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3782 nrq1_3 n_n3782 pclk 
+subblock: n_n3782 0 1 2 3 4 5 
+
+.clb n_n3067  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3067 nrq1_3 n_n3067 pclk 
+subblock: n_n3067 0 1 2 3 4 5 
+
+.clb n_n4258  # Both LUT and LATCH used.
+pinlist: pv10_3_3_ [992] [2226] open n_n4258 pclk 
+subblock: n_n4258 0 1 2 open 4 5 
+
+.clb n_n3225  # Both LUT and LATCH used.
+pinlist: n_n4360 [894] [2224] open n_n3225 pclk 
+subblock: n_n3225 0 1 2 open 4 5 
+
+.clb n_n3180  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3180 nrq1_3 n_n3180 pclk 
+subblock: n_n3180 0 1 2 3 4 5 
+
+.clb n_n3274  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3274 nrq1_3 n_n3274 pclk 
+subblock: n_n3274 0 1 2 3 4 5 
+
+.clb n_n3475  # Both LUT and LATCH used.
+pinlist: n_n3475 [916] [934] [1019] n_n3475 pclk 
+subblock: n_n3475 0 1 2 3 4 5 
+
+.clb n_n3687  # Both LUT and LATCH used.
+pinlist: n_n3458 [894] [2202] open n_n3687 pclk 
+subblock: n_n3687 0 1 2 open 4 5 
+
+.clb n_n3381  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3381 nrq1_3 n_n3381 pclk 
+subblock: n_n3381 0 1 2 3 4 5 
+
+.clb n_n3098  # Both LUT and LATCH used.
+pinlist: n_n3688 n_n3624 [894] [2198] n_n3098 pclk 
+subblock: n_n3098 0 1 2 3 4 5 
+
+.clb n_n4108  # Both LUT and LATCH used.
+pinlist: preset [1020] open open n_n4108 pclk 
+subblock: n_n4108 0 1 open open 4 5 
+
+.clb n_n3497  # Both LUT and LATCH used.
+pinlist: n_n3901 [894] n_n4367 [2195] n_n3497 pclk 
+subblock: n_n3497 0 1 2 3 4 5 
+
+.clb n_n3793  # Both LUT and LATCH used.
+pinlist: n_n3916 [894] [1096] [2192] n_n3793 pclk 
+subblock: n_n3793 0 1 2 3 4 5 
+
+.clb n_n4316  # Both LUT and LATCH used.
+pinlist: n_n4015 [1004] [2166] open n_n4316 pclk 
+subblock: n_n4316 0 1 2 open 4 5 
+
+.clb n_n4349  # Both LUT and LATCH used.
+pinlist: pv6_0_0_ [990] [2162] open n_n4349 pclk 
+subblock: n_n4349 0 1 2 open 4 5 
+
+.clb n_n3029  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3029 nrq1_3 n_n3029 pclk 
+subblock: n_n3029 0 1 2 3 4 5 
+
+.clb n_n3619  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3619 nrq1_3 n_n3619 pclk 
+subblock: n_n3619 0 1 2 3 4 5 
+
+.clb n_n3264  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3264 nrq1_3 n_n3264 pclk 
+subblock: n_n3264 0 1 2 3 4 5 
+
+.clb n_n3780  # Both LUT and LATCH used.
+pinlist: n_n4288 [894] [2153] [6259] n_n3780 pclk 
+subblock: n_n3780 0 1 2 3 4 5 
+
+.clb ndn3_4  # Both LUT and LATCH used.
+pinlist: preset ngfdn_3 [1021] open ndn3_4 pclk 
+subblock: ndn3_4 0 1 2 open 4 5 
+
+.clb n_n4114  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4114 nrq1_3 n_n4114 pclk 
+subblock: n_n4114 0 1 2 3 4 5 
+
+.clb n_n3146  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3146 nrq1_3 n_n3146 pclk 
+subblock: n_n3146 0 1 2 3 4 5 
+
+.clb n_n3511  # Both LUT and LATCH used.
+pinlist: pv1_5_5_ [994] [2141] open n_n3511 pclk 
+subblock: n_n3511 0 1 2 open 4 5 
+
+.clb n_n3152  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3152 nrq1_3 n_n3152 pclk 
+subblock: n_n3152 0 1 2 3 4 5 
+
+.clb n_n3833  # Both LUT and LATCH used.
+pinlist: preset n_n3833 n_n3563 [1022] n_n3833 pclk 
+subblock: n_n3833 0 1 2 3 4 5 
+
+.clb n_n4282  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4282 nrq1_3 n_n4282 pclk 
+subblock: n_n4282 0 1 2 3 4 5 
+
+.clb n_n3305  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3305 nrq1_3 n_n3305 pclk 
+subblock: n_n3305 0 1 2 3 4 5 
+
+.clb n_n4392  # Both LUT and LATCH used.
+pinlist: [1002] n_n3363 [1128] [2126] n_n4392 pclk 
+subblock: n_n4392 0 1 2 3 4 5 
+
+.clb n_n4224  # Both LUT and LATCH used.
+pinlist: pv4_5_5_ [997] [2122] open n_n4224 pclk 
+subblock: n_n4224 0 1 2 open 4 5 
+
+.clb n_n3198  # Both LUT and LATCH used.
+pinlist: preset [1137] [1136] [6290] n_n3198 pclk 
+subblock: n_n3198 0 1 2 3 4 5 
+
+.clb n_n3204  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3204 nrq1_3 n_n3204 pclk 
+subblock: n_n3204 0 1 2 3 4 5 
+
+.clb n_n3024  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3024 nrq1_3 n_n3024 pclk 
+subblock: n_n3024 0 1 2 3 4 5 
+
+.clb n_n4139  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4139 nrq1_3 n_n4139 pclk 
+subblock: n_n4139 0 1 2 3 4 5 
+
+.clb ndn3_15  # Both LUT and LATCH used.
+pinlist: preset ndn3_15 ngfdn_3 open ndn3_15 pclk 
+subblock: ndn3_15 0 1 2 open 4 5 
+
+.clb n_n3133  # Both LUT and LATCH used.
+pinlist: n_n3458 [894] [2051] [6291] n_n3133 pclk 
+subblock: n_n3133 0 1 2 3 4 5 
+
+.clb n_n4074  # Both LUT and LATCH used.
+pinlist: n_n3810 n_n4345 [1122] [2029] n_n4074 pclk 
+subblock: n_n4074 0 1 2 3 4 5 
+
+.clb n_n3270  # Both LUT and LATCH used.
+pinlist: n_n3743 [894] [2027] open n_n3270 pclk 
+subblock: n_n3270 0 1 2 open 4 5 
+
+.clb n_n3858  # Both LUT and LATCH used.
+pinlist: pv1_2_2_ [994] [2023] open n_n3858 pclk 
+subblock: n_n3858 0 1 2 open 4 5 
+
+.clb n_n3456  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3456 nrq1_3 n_n3456 pclk 
+subblock: n_n3456 0 1 2 3 4 5 
+
+.clb n_n3521  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3521 nrq1_3 n_n3521 pclk 
+subblock: n_n3521 0 1 2 3 4 5 
+
+.clb n_n3081  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3081 nrq1_3 n_n3081 pclk 
+subblock: n_n3081 0 1 2 3 4 5 
+
+.clb n_n4381  # Both LUT and LATCH used.
+pinlist: [1006] [2007] [2009] [6300] n_n4381 pclk 
+subblock: n_n4381 0 1 2 3 4 5 
+
+.clb n_n3670  # Both LUT and LATCH used.
+pinlist: n_n3475 [894] n_n4367 [2005] n_n3670 pclk 
+subblock: n_n3670 0 1 2 3 4 5 
+
+.clb n_n4211  # Both LUT and LATCH used.
+pinlist: pv11_2_2_ [988] [2000] open n_n4211 pclk 
+subblock: n_n4211 0 1 2 open 4 5 
+
+.clb n_n3493  # Both LUT and LATCH used.
+pinlist: n_n4045 n_n4367 [6299] [6302] n_n3493 pclk 
+subblock: n_n3493 0 1 2 3 4 5 
+
+.clb n_n3495  # Both LUT and LATCH used.
+pinlist: n_n4015 [1002] [1998] open n_n3495 pclk 
+subblock: n_n3495 0 1 2 open 4 5 
+
+.clb n_n3916  # Both LUT and LATCH used.
+pinlist: [1004] n_n4345 [1122] [1996] n_n3916 pclk 
+subblock: n_n3916 0 1 2 3 4 5 
+
+.clb n_n3195  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3195 nrq1_3 n_n3195 pclk 
+subblock: n_n3195 0 1 2 3 4 5 
+
+.clb n_n3525  # Both LUT and LATCH used.
+pinlist: n_n3242 [894] [1992] open n_n3525 pclk 
+subblock: n_n3525 0 1 2 open 4 5 
+
+.clb n_n3729  # Both LUT and LATCH used.
+pinlist: n_n3916 [894] [1990] open n_n3729 pclk 
+subblock: n_n3729 0 1 2 open 4 5 
+
+.clb n_n3876  # Both LUT and LATCH used.
+pinlist: pv10_4_4_ [992] [1986] open n_n3876 pclk 
+subblock: n_n3876 0 1 2 open 4 5 
+
+.clb ndn3_5  # Both LUT and LATCH used.
+pinlist: preset ndn3_4 ndn3_5 ngfdn_3 ndn3_5 pclk 
+subblock: ndn3_5 0 1 2 3 4 5 
+
+.clb n_n3549  # Both LUT and LATCH used.
+pinlist: n_n3946 [894] [1984] open n_n3549 pclk 
+subblock: n_n3549 0 1 2 open 4 5 
+
+.clb n_n3489  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3489 nrq1_3 n_n3489 pclk 
+subblock: n_n3489 0 1 2 3 4 5 
+
+.clb n_n3764  # Both LUT and LATCH used.
+pinlist: n_n3242 n_n3170 [894] [1980] n_n3764 pclk 
+subblock: n_n3764 0 1 2 3 4 5 
+
+.clb n_n3281  # Both LUT and LATCH used.
+pinlist: pv2_3_3_ [999] [1976] open n_n3281 pclk 
+subblock: n_n3281 0 1 2 open 4 5 
+
+.clb n_n3707  # Both LUT and LATCH used.
+pinlist: preset nak3_17 [1971] open n_n3707 pclk 
+subblock: n_n3707 0 1 2 open 4 5 
+
+.clb n_n3517  # Both LUT and LATCH used.
+pinlist: n_n4159 [894] [1969] open n_n3517 pclk 
+subblock: n_n3517 0 1 2 open 4 5 
+
+.clb n_n4160  # Both LUT and LATCH used.
+pinlist: pv4_1_1_ [997] [1965] open n_n4160 pclk 
+subblock: n_n4160 0 1 2 open 4 5 
+
+.clb n_n4222  # Both LUT and LATCH used.
+pinlist: [1004] n_n3363 [1128] [1963] n_n4222 pclk 
+subblock: n_n4222 0 1 2 3 4 5 
+
+.clb n_n3012  # Both LUT and LATCH used.
+pinlist: n_n3936 n_n3099 [894] [1961] n_n3012 pclk 
+subblock: n_n3012 0 1 2 3 4 5 
+
+.clb n_n4071  # Both LUT and LATCH used.
+pinlist: pv6_5_5_ [990] [1957] open n_n4071 pclk 
+subblock: n_n4071 0 1 2 open 4 5 
+
+.clb n_n3372  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3372 nrq1_3 n_n3372 pclk 
+subblock: n_n3372 0 1 2 3 4 5 
+
+.clb n_n3344  # Both LUT and LATCH used.
+pinlist: n_n4074 [894] [1953] open n_n3344 pclk 
+subblock: n_n3344 0 1 2 open 4 5 
+
+.clb n_n3688  # Both LUT and LATCH used.
+pinlist: n_n3810 n_n3975 n_n3974 [1949] n_n3688 pclk 
+subblock: n_n3688 0 1 2 3 4 5 
+
+.clb n_n3079  # Both LUT and LATCH used.
+pinlist: n_n4233 [894] [1946] [6303] n_n3079 pclk 
+subblock: n_n3079 0 1 2 3 4 5 
+
+.clb n_n3313  # Both LUT and LATCH used.
+pinlist: n_n3035 n_n4157 [894] [1944] n_n3313 pclk 
+subblock: n_n3313 0 1 2 3 4 5 
+
+.clb n_n3411  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3411 nrq1_3 n_n3411 pclk 
+subblock: n_n3411 0 1 2 3 4 5 
+
+.clb n_n3231  # Both LUT and LATCH used.
+pinlist: n_n4074 n_n3578 [894] [1940] n_n3231 pclk 
+subblock: n_n3231 0 1 2 3 4 5 
+
+.clb n_n3396  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3396 nrq1_3 n_n3396 pclk 
+subblock: n_n3396 0 1 2 3 4 5 
+
+.clb n_n3432  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3432 nrq1_3 n_n3432 pclk 
+subblock: n_n3432 0 1 2 3 4 5 
+
+.clb n_n3606  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3606 nrq1_3 n_n3606 pclk 
+subblock: n_n3606 0 1 2 3 4 5 
+
+.clb n_n3733  # Both LUT and LATCH used.
+pinlist: n_n4224 [894] [1932] open n_n3733 pclk 
+subblock: n_n3733 0 1 2 open 4 5 
+
+.clb n_n3556  # Both LUT and LATCH used.
+pinlist: pv11_6_6_ [988] [1928] open n_n3556 pclk 
+subblock: n_n3556 0 1 2 open 4 5 
+
+.clb n_n4040  # Both LUT and LATCH used.
+pinlist: [1925] [1926] [1927] open n_n4040 pclk 
+subblock: n_n4040 0 1 2 open 4 5 
+
+.clb n_n3120  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3120 nrq1_3 n_n3120 pclk 
+subblock: n_n3120 0 1 2 3 4 5 
+
+.clb n_n3221  # Both LUT and LATCH used.
+pinlist: n_n4222 [894] [1921] open n_n3221 pclk 
+subblock: n_n3221 0 1 2 open 4 5 
+
+.clb n_n3173  # Both LUT and LATCH used.
+pinlist: n_n3976 [894] [1919] open n_n3173 pclk 
+subblock: n_n3173 0 1 2 open 4 5 
+
+.clb n_n3851  # Both LUT and LATCH used.
+pinlist: preset n_n3851 n_n3852 [936] n_n3851 pclk 
+subblock: n_n3851 0 1 2 3 4 5 
+
+.clb n_n3113  # Both LUT and LATCH used.
+pinlist: n_n3495 [894] [1914] [6310] n_n3113 pclk 
+subblock: n_n3113 0 1 2 3 4 5 
+
+.clb n_n3242  # Both LUT and LATCH used.
+pinlist: [1884] [1885] open open n_n3242 pclk 
+subblock: n_n3242 0 1 open open 4 5 
+
+.clb n_n3118  # Both LUT and LATCH used.
+pinlist: n_n3556 n_n4122 [894] [1882] n_n3118 pclk 
+subblock: n_n3118 0 1 2 3 4 5 
+
+.clb n_n3376  # Both LUT and LATCH used.
+pinlist: n_n3483 n_n3830 [1881] [6252] n_n3376 pclk 
+subblock: n_n3376 0 1 2 3 4 5 
+
+.clb n_n4089  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4089 nrq1_3 n_n4089 pclk 
+subblock: n_n4089 0 1 2 3 4 5 
+
+.clb n_n3044  # Both LUT and LATCH used.
+pinlist: n_n4392 [894] [1876] open n_n3044 pclk 
+subblock: n_n3044 0 1 2 open 4 5 
+
+.clb n_n3627  # Both LUT and LATCH used.
+pinlist: n_n4330 [894] [1874] open n_n3627 pclk 
+subblock: n_n3627 0 1 2 open 4 5 
+
+.clb n_n3035  # Both LUT and LATCH used.
+pinlist: pv11_5_5_ [988] [1870] open n_n3035 pclk 
+subblock: n_n3035 0 1 2 open 4 5 
+
+.clb n_n3111  # Both LUT and LATCH used.
+pinlist: n_n3841 [894] [1078] [1868] n_n3111 pclk 
+subblock: n_n3111 0 1 2 3 4 5 
+
+.clb n_n3321  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3321 nrq1_3 n_n3321 pclk 
+subblock: n_n3321 0 1 2 3 4 5 
+
+.clb n_n3443  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3443 nrq1_3 n_n3443 pclk 
+subblock: n_n3443 0 1 2 3 4 5 
+
+.clb n_n3215  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3215 nrq1_3 n_n3215 pclk 
+subblock: n_n3215 0 1 2 3 4 5 
+
+.clb ndn3_10  # Both LUT and LATCH used.
+pinlist: preset ndn3_10 nen3_10 ngfdn_3 ndn3_10 pclk 
+subblock: ndn3_10 0 1 2 3 4 5 
+
+.clb n_n4172  # Both LUT and LATCH used.
+pinlist: n_n4351 [894] [1859] [6322] n_n4172 pclk 
+subblock: n_n4172 0 1 2 3 4 5 
+
+.clb nlc1_2  # Both LUT and LATCH used.
+pinlist: preset pdn [1028] open nlc1_2 pclk 
+subblock: nlc1_2 0 1 2 open 4 5 
+
+.clb n_n3590  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3590 nrq1_3 n_n3590 pclk 
+subblock: n_n3590 0 1 2 3 4 5 
+
+.clb n_n4110  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4110 nrq1_3 n_n4110 pclk 
+subblock: n_n4110 0 1 2 3 4 5 
+
+.clb nlc3_3  # Both LUT and LATCH used.
+pinlist: nlc3_3 [944] nrq3_2 [6324] nlc3_3 pclk 
+subblock: nlc3_3 0 1 2 3 4 5 
+
+.clb n_n3576  # Both LUT and LATCH used.
+pinlist: n_n4211 n_n3657 [894] [1853] n_n3576 pclk 
+subblock: n_n3576 0 1 2 3 4 5 
+
+.clb n_n4129  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4129 nrq1_3 n_n4129 pclk 
+subblock: n_n4129 0 1 2 3 4 5 
+
+.clb n_n4189  # Both LUT and LATCH used.
+pinlist: n_n4071 [894] [1849] open n_n4189 pclk 
+subblock: n_n4189 0 1 2 open 4 5 
+
+.clb n_n4286  # Both LUT and LATCH used.
+pinlist: [894] n_n4116 [1847] open n_n4286 pclk 
+subblock: n_n4286 0 1 2 open 4 5 
+
+.clb n_n4383  # Both LUT and LATCH used.
+pinlist: pv4_2_2_ [997] [1843] open n_n4383 pclk 
+subblock: n_n4383 0 1 2 open 4 5 
+
+.clb pdn  # Both LUT and LATCH used.
+pinlist: preset pdn nrq1_3 open pdn pclk 
+subblock: pdn 0 1 2 open 4 5 
+
+.clb n_n3567  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3567 nrq1_3 n_n3567 pclk 
+subblock: n_n3567 0 1 2 3 4 5 
+
+.clb n_n3892  # Both LUT and LATCH used.
+pinlist: pv6_6_6_ [990] [1837] open n_n3892 pclk 
+subblock: n_n3892 0 1 2 open 4 5 
+
+.clb n_n3075  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3075 nrq1_3 n_n3075 pclk 
+subblock: n_n3075 0 1 2 3 4 5 
+
+.clb n_n3354  # Both LUT and LATCH used.
+pinlist: preset pdn nrq1_3 [1833] n_n3354 pclk 
+subblock: n_n3354 0 1 2 3 4 5 
+
+.clb n_n3465  # Both LUT and LATCH used.
+pinlist: n_n4351 [894] [1830] [6322] n_n3465 pclk 
+subblock: n_n3465 0 1 2 3 4 5 
+
+.clb ndn3_6  # Both LUT and LATCH used.
+pinlist: preset ndn3_5 ndn3_6 ngfdn_3 ndn3_6 pclk 
+subblock: ndn3_6 0 1 2 3 4 5 
+
+.clb n_n3617  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3617 nrq1_3 n_n3617 pclk 
+subblock: n_n3617 0 1 2 3 4 5 
+
+.clb n_n4162  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4162 nrq1_3 n_n4162 pclk 
+subblock: n_n4162 0 1 2 3 4 5 
+
+.clb n_n3207  # Both LUT and LATCH used.
+pinlist: n_n4012 n_n3830 [1825] [6252] n_n3207 pclk 
+subblock: n_n3207 0 1 2 3 4 5 
+
+.clb n_n4120  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4120 nrq1_3 n_n4120 pclk 
+subblock: n_n4120 0 1 2 3 4 5 
+
+.clb n_n3065  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3065 nrq1_3 n_n3065 pclk 
+subblock: n_n3065 0 1 2 3 4 5 
+
+.clb n_n4005  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4005 nrq1_3 n_n4005 pclk 
+subblock: n_n4005 0 1 2 3 4 5 
+
+.clb n_n3266  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3266 nrq1_3 n_n3266 pclk 
+subblock: n_n3266 0 1 2 3 4 5 
+
+.clb n_n4337  # Both LUT and LATCH used.
+pinlist: pv6_7_7_ [990] [1812] open n_n4337 pclk 
+subblock: n_n4337 0 1 2 open 4 5 
+
+.clb n_n3600  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3600 nrq1_3 n_n3600 pclk 
+subblock: n_n3600 0 1 2 3 4 5 
+
+.clb n_n3415  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3415 nrq1_3 n_n3415 pclk 
+subblock: n_n3415 0 1 2 3 4 5 
+
+.clb n_n4243  # Both LUT and LATCH used.
+pinlist: n_n4095 [894] [1806] open n_n4243 pclk 
+subblock: n_n4243 0 1 2 open 4 5 
+
+.clb n_n3872  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3872 nrq1_3 n_n3872 pclk 
+subblock: n_n3872 0 1 2 3 4 5 
+
+.clb n_n3648  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3648 nrq1_3 n_n3648 pclk 
+subblock: n_n3648 0 1 2 3 4 5 
+
+.clb n_n3358  # Both LUT and LATCH used.
+pinlist: n_n4211 n_n3657 [894] [1800] n_n3358 pclk 
+subblock: n_n3358 0 1 2 3 4 5 
+
+.clb n_n3350  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3350 nrq1_3 n_n3350 pclk 
+subblock: n_n3350 0 1 2 3 4 5 
+
+.clb ndn3_7  # Both LUT and LATCH used.
+pinlist: preset ndn3_6 ndn3_7 ngfdn_3 ndn3_7 pclk 
+subblock: ndn3_7 0 1 2 3 4 5 
+
+.clb n_n3116  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3116 nrq1_3 n_n3116 pclk 
+subblock: n_n3116 0 1 2 3 4 5 
+
+.clb n_n3583  # Both LUT and LATCH used.
+pinlist: n_n3766 n_n3830 [1795] [6252] n_n3583 pclk 
+subblock: n_n3583 0 1 2 3 4 5 
+
+.clb n_n3906  # Both LUT and LATCH used.
+pinlist: n_n4351 [894] [1792] open n_n3906 pclk 
+subblock: n_n3906 0 1 2 open 4 5 
+
+.clb n_n4131  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4131 nrq1_3 n_n4131 pclk 
+subblock: n_n4131 0 1 2 3 4 5 
+
+.clb n_n3316  # Both LUT and LATCH used.
+pinlist: n_n3085 n_n3250 [894] [1788] n_n3316 pclk 
+subblock: n_n3316 0 1 2 3 4 5 
+
+.clb n_n3061  # Both LUT and LATCH used.
+pinlist: n_n3976 [894] [1786] open n_n3061 pclk 
+subblock: n_n3061 0 1 2 open 4 5 
+
+.clb n_n3048  # Both LUT and LATCH used.
+pinlist: n_n4222 [894] [1784] open n_n3048 pclk 
+subblock: n_n3048 0 1 2 open 4 5 
+
+.clb n_n3886  # Both LUT and LATCH used.
+pinlist: pv1_4_4_ [994] [1780] open n_n3886 pclk 
+subblock: n_n3886 0 1 2 open 4 5 
+
+.clb n_n3919  # Both LUT and LATCH used.
+pinlist: pv1_6_6_ [994] [1776] open n_n3919 pclk 
+subblock: n_n3919 0 1 2 open 4 5 
+
+.clb n_n3128  # Both LUT and LATCH used.
+pinlist: n_n3608 [894] [1774] open n_n3128 pclk 
+subblock: n_n3128 0 1 2 open 4 5 
+
+.clb n_n3995  # Both LUT and LATCH used.
+pinlist: [1771] [1772] [1773] open n_n3995 pclk 
+subblock: n_n3995 0 1 2 open 4 5 
+
+.clb n_n4213  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4213 nrq1_3 n_n4213 pclk 
+subblock: n_n4213 0 1 2 3 4 5 
+
+.clb n_n3761  # Both LUT and LATCH used.
+pinlist: n_n3688 n_n3624 [894] [1767] n_n3761 pclk 
+subblock: n_n3761 0 1 2 3 4 5 
+
+.clb ndn3_8  # Both LUT and LATCH used.
+pinlist: preset ndn3_7 ndn3_8 ngfdn_3 ndn3_8 pclk 
+subblock: ndn3_8 0 1 2 3 4 5 
+
+.clb n_n3252  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3252 nrq1_3 n_n3252 pclk 
+subblock: n_n3252 0 1 2 3 4 5 
+
+.clb n_n4366  # Both LUT and LATCH used.
+pinlist: n_n4366 [916] [934] [1034] n_n4366 pclk 
+subblock: n_n4366 0 1 2 3 4 5 
+
+.clb n_n3328  # Both LUT and LATCH used.
+pinlist: pv2_1_1_ [999] [1755] open n_n3328 pclk 
+subblock: n_n3328 0 1 2 open 4 5 
+
+.clb n_n3988  # Both LUT and LATCH used.
+pinlist: [1752] [1753] [1754] open n_n3988 pclk 
+subblock: n_n3988 0 1 2 open 4 5 
+
+.clb n_n3348  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3348 nrq1_3 n_n3348 pclk 
+subblock: n_n3348 0 1 2 3 4 5 
+
+.clb n_n3544  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3544 nrq1_3 n_n3544 pclk 
+subblock: n_n3544 0 1 2 3 4 5 
+
+.clb n_n3101  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3101 nrq1_3 n_n3101 pclk 
+subblock: n_n3101 0 1 2 3 4 5 
+
+.clb n_n4279  # Both LUT and LATCH used.
+pinlist: n_n4334 n_n3830 [1745] [6252] n_n4279 pclk 
+subblock: n_n4279 0 1 2 3 4 5 
+
+.clb n_n3896  # Both LUT and LATCH used.
+pinlist: n_n3556 n_n4122 [894] [1742] n_n3896 pclk 
+subblock: n_n3896 0 1 2 3 4 5 
+
+.clb n_n3736  # Both LUT and LATCH used.
+pinlist: n_n3495 [894] [1740] open n_n3736 pclk 
+subblock: n_n3736 0 1 2 open 4 5 
+
+.clb n_n4251  # Both LUT and LATCH used.
+pinlist: pv4_6_6_ [997] [1736] open n_n4251 pclk 
+subblock: n_n4251 0 1 2 open 4 5 
+
+.clb n_n3650  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3650 nrq1_3 n_n3650 pclk 
+subblock: n_n3650 0 1 2 3 4 5 
+
+.clb n_n3307  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3307 nrq1_3 n_n3307 pclk 
+subblock: n_n3307 0 1 2 3 4 5 
+
+.clb n_n4294  # Both LUT and LATCH used.
+pinlist: pv1_3_3_ [994] [1728] open n_n4294 pclk 
+subblock: n_n4294 0 1 2 open 4 5 
+
+.clb n_n4334  # Both LUT and LATCH used.
+pinlist: n_n4334 [1014] [982] [1724] n_n4334 pclk 
+subblock: n_n4334 0 1 2 3 4 5 
+
+.clb n_n3955  # Both LUT and LATCH used.
+pinlist: [1006] [1716] [1719] [6332] n_n3955 pclk 
+subblock: n_n3955 0 1 2 3 4 5 
+
+.clb n_n4164  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4164 nrq1_3 n_n4164 pclk 
+subblock: n_n4164 0 1 2 3 4 5 
+
+.clb n_n3155  # Both LUT and LATCH used.
+pinlist: n_n4145 [894] [1711] open n_n3155 pclk 
+subblock: n_n3155 0 1 2 open 4 5 
+
+.clb n_n3749  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3749 nrq1_3 n_n3749 pclk 
+subblock: n_n3749 0 1 2 3 4 5 
+
+.clb n_n4233  # Both LUT and LATCH used.
+pinlist: [1707] [1708] open open n_n4233 pclk 
+subblock: n_n4233 0 1 open open 4 5 
+
+.clb n_n4347  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4347 nrq1_3 n_n4347 pclk 
+subblock: n_n4347 0 1 2 3 4 5 
+
+.clb n_n3826  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3826 nrq1_3 n_n3826 pclk 
+subblock: n_n3826 0 1 2 3 4 5 
+
+.clb n_n3360  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3360 nrq1_3 n_n3360 pclk 
+subblock: n_n3360 0 1 2 3 4 5 
+
+.clb n_n3458  # Both LUT and LATCH used.
+pinlist: [1002] n_n4345 [1122] [1699] n_n3458 pclk 
+subblock: n_n3458 0 1 2 3 4 5 
+
+.clb n_n3093  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3093 nrq1_3 n_n3093 pclk 
+subblock: n_n3093 0 1 2 3 4 5 
+
+.clb n_n3157  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3157 nrq1_3 n_n3157 pclk 
+subblock: n_n3157 0 1 2 3 4 5 
+
+.clb n_n3506  # Both LUT and LATCH used.
+pinlist: n_n4349 [894] [1693] open n_n3506 pclk 
+subblock: n_n3506 0 1 2 open 4 5 
+
+.clb n_n3161  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3161 nrq1_3 n_n3161 pclk 
+subblock: n_n3161 0 1 2 3 4 5 
+
+.clb n_n3319  # Both LUT and LATCH used.
+pinlist: n_n4233 [894] [1689] open n_n3319 pclk 
+subblock: n_n3319 0 1 2 open 4 5 
+
+.clb n_n3429  # Both LUT and LATCH used.
+pinlist: n_n3892 [894] [1687] open n_n3429 pclk 
+subblock: n_n3429 0 1 2 open 4 5 
+
+.clb n_n3971  # Both LUT and LATCH used.
+pinlist: n_n4125 [894] n_n4367 [1686] n_n3971 pclk 
+subblock: n_n3971 0 1 2 3 4 5 
+
+.clb n_n3449  # Both LUT and LATCH used.
+pinlist: n_n3242 n_n3170 [894] [1683] n_n3449 pclk 
+subblock: n_n3449 0 1 2 3 4 5 
+
+.clb n_n4270  # Both LUT and LATCH used.
+pinlist: pv4_7_7_ [997] [1679] open n_n4270 pclk 
+subblock: n_n4270 0 1 2 open 4 5 
+
+.clb n_n4288  # Both LUT and LATCH used.
+pinlist: [1002] n_n4158 [1673] open n_n4288 pclk 
+subblock: n_n4288 0 1 2 open 4 5 
+
+.clb n_n3183  # Both LUT and LATCH used.
+pinlist: n_n3936 n_n3099 [894] [1671] n_n3183 pclk 
+subblock: n_n3183 0 1 2 3 4 5 
+
+.clb n_n3130  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3130 nrq1_3 n_n3130 pclk 
+subblock: n_n3130 0 1 2 3 4 5 
+
+.clb nlak4_2  # Both LUT and LATCH used.
+pinlist: preset nsr4_2 [973] open nlak4_2 pclk 
+subblock: nlak4_2 0 1 2 open 4 5 
+
+.clb n_n4047  # Both LUT and LATCH used.
+pinlist: preset n_n4047 n_n4126 [1659] n_n4047 pclk 
+subblock: n_n4047 0 1 2 3 4 5 
+
+.clb n_n3978  # Both LUT and LATCH used.
+pinlist: pv2_2_2_ [999] [1655] open n_n3978 pclk 
+subblock: n_n3978 0 1 2 open 4 5 
+
+.clb n_n3239  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3239 nrq1_3 n_n3239 pclk 
+subblock: n_n3239 0 1 2 3 4 5 
+
+.clb n_n4145  # Both LUT and LATCH used.
+pinlist: [1647] [1648] open open n_n4145 pclk 
+subblock: n_n4145 0 1 open open 4 5 
+
+.clb n_n3890  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3890 nrq1_3 n_n3890 pclk 
+subblock: n_n3890 0 1 2 3 4 5 
+
+.clb n_n4003  # Both LUT and LATCH used.
+pinlist: n_n3608 [894] [1642] [6272] n_n4003 pclk 
+subblock: n_n4003 0 1 2 3 4 5 
+
+.clb n_n3091  # Both LUT and LATCH used.
+pinlist: n_n3085 [894] [1640] open n_n3091 pclk 
+subblock: n_n3091 0 1 2 open 4 5 
+
+.clb n_n3985  # Both LUT and LATCH used.
+pinlist: n_n4288 [894] [1638] open n_n3985 pclk 
+subblock: n_n3985 0 1 2 open 4 5 
+
+.clb n_n3326  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3326 nrq1_3 n_n3326 pclk 
+subblock: n_n3326 0 1 2 3 4 5 
+
+.clb n_n4052  # Both LUT and LATCH used.
+pinlist: [1006] [1630] [1633] [6337] n_n4052 pclk 
+subblock: n_n4052 0 1 2 3 4 5 
+
+.clb nsr4_2  # Both LUT and LATCH used.
+pinlist: preset pdn nsr4_2 [973] nsr4_2 pclk 
+subblock: nsr4_2 0 1 2 3 4 5 
+
+.clb n_n4099  # Both LUT and LATCH used.
+pinlist: [1006] [1621] [1623] [6338] n_n4099 pclk 
+subblock: n_n4099 0 1 2 3 4 5 
+
+.clb n_n4375  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4375 nrq1_3 n_n4375 pclk 
+subblock: n_n4375 0 1 2 3 4 5 
+
+.clb n_n4067  # Both LUT and LATCH used.
+pinlist: preset nak3_17 [1041] open n_n4067 pclk 
+subblock: n_n4067 0 1 2 open 4 5 
+
+.clb n_n4290  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4290 nrq1_3 n_n4290 pclk 
+subblock: n_n4290 0 1 2 3 4 5 
+
+.clb n_n3898  # Both LUT and LATCH used.
+pinlist: [1004] n_n4158 [1614] open n_n3898 pclk 
+subblock: n_n3898 0 1 2 open 4 5 
+
+.clb n_n4122  # Both LUT and LATCH used.
+pinlist: [1612] [1613] open open n_n4122 pclk 
+subblock: n_n4122 0 1 open open 4 5 
+
+.clb n_n3774  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3774 nrq1_3 n_n3774 pclk 
+subblock: n_n3774 0 1 2 3 4 5 
+
+.clb n_n3014  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3014 nrq1_3 n_n3014 pclk 
+subblock: n_n3014 0 1 2 3 4 5 
+
+.clb n_n4241  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4241 nrq1_3 n_n4241 pclk 
+subblock: n_n4241 0 1 2 3 4 5 
+
+.clb n_n3952  # Both LUT and LATCH used.
+pinlist: n_n4201 [894] [1604] open n_n3952 pclk 
+subblock: n_n3952 0 1 2 open 4 5 
+
+.clb n_n3237  # Both LUT and LATCH used.
+pinlist: n_n4145 [894] [1075] [1602] n_n3237 pclk 
+subblock: n_n3237 0 1 2 3 4 5 
+
+.clb n_n3968  # Both LUT and LATCH used.
+pinlist: pv6_2_2_ [990] [1598] open n_n3968 pclk 
+subblock: n_n3968 0 1 2 open 4 5 
+
+.clb n_n3922  # Both LUT and LATCH used.
+pinlist: pv6_4_4_ [990] [1594] open n_n3922 pclk 
+subblock: n_n3922 0 1 2 open 4 5 
+
+.clb n_n3551  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3551 nrq1_3 n_n3551 pclk 
+subblock: n_n3551 0 1 2 3 4 5 
+
+.clb n_n3379  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3379 nrq1_3 n_n3379 pclk 
+subblock: n_n3379 0 1 2 3 4 5 
+
+.clb n_n4275  # Both LUT and LATCH used.
+pinlist: n_n4275 [1042] [1580] open n_n4275 pclk 
+subblock: n_n4275 0 1 2 open 4 5 
+
+.clb n_n3570  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3570 nrq1_3 n_n3570 pclk 
+subblock: n_n3570 0 1 2 3 4 5 
+
+.clb n_n3854  # Both LUT and LATCH used.
+pinlist: pv2_5_5_ [999] [1574] open n_n3854 pclk 
+subblock: n_n3854 0 1 2 open 4 5 
+
+.clb n_n4057  # Both LUT and LATCH used.
+pinlist: [1565] [6350] open open n_n4057 pclk 
+subblock: n_n4057 0 1 open open 4 5 
+
+.clb n_n3451  # Both LUT and LATCH used.
+pinlist: pv2_7_7_ [999] [1561] open n_n3451 pclk 
+subblock: n_n3451 0 1 2 open 4 5 
+
+.clb n_n4037  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4037 nrq1_3 n_n4037 pclk 
+subblock: n_n4037 0 1 2 3 4 5 
+
+.clb n_n3408  # Both LUT and LATCH used.
+pinlist: n_n3898 [894] [1076] [1557] n_n3408 pclk 
+subblock: n_n3408 0 1 2 3 4 5 
+
+.clb n_n4229  # Both LUT and LATCH used.
+pinlist: [1551] [1552] open open n_n4229 pclk 
+subblock: n_n4229 0 1 open open 4 5 
+
+.clb n_n4201  # Both LUT and LATCH used.
+pinlist: pv6_1_1_ [990] [1547] open n_n4201 pclk 
+subblock: n_n4201 0 1 2 open 4 5 
+
+.clb n_n3339  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3339 nrq1_3 n_n3339 pclk 
+subblock: n_n3339 0 1 2 3 4 5 
+
+.clb n_n4362  # Both LUT and LATCH used.
+pinlist: pv10_5_5_ [992] [1541] open n_n4362 pclk 
+subblock: n_n4362 0 1 2 open 4 5 
+
+.clb n_n3483  # Both LUT and LATCH used.
+pinlist: n_n4334 n_n3483 [1014] [1538] n_n3483 pclk 
+subblock: n_n3483 0 1 2 3 4 5 
+
+.clb n_n3557  # Both LUT and LATCH used.
+pinlist: preset n_n4099 [1119] [6349] n_n3557 pclk 
+subblock: n_n3557 0 1 2 3 4 5 
+
+.clb n_n4185  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4185 nrq1_3 n_n4185 pclk 
+subblock: n_n4185 0 1 2 3 4 5 
+
+.clb n_n3069  # Both LUT and LATCH used.
+pinlist: n_n3934 [894] n_n4367 [1534] n_n3069 pclk 
+subblock: n_n3069 0 1 2 3 4 5 
+
+.clb n_n3643  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3643 nrq1_3 n_n3643 pclk 
+subblock: n_n3643 0 1 2 3 4 5 
+
+.clb n_n3404  # Both LUT and LATCH used.
+pinlist: n_n4229 [894] [1529] open n_n3404 pclk 
+subblock: n_n3404 0 1 2 open 4 5 
+
+.clb n_n3057  # Both LUT and LATCH used.
+pinlist: n_n4145 [894] [1527] open n_n3057 pclk 
+subblock: n_n3057 0 1 2 open 4 5 
+
+.clb n_n3020  # Both LUT and LATCH used.
+pinlist: n_n4095 [894] [1524] [6321] n_n3020 pclk 
+subblock: n_n3020 0 1 2 3 4 5 
+
+.clb n_n3828  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3828 nrq1_3 n_n3828 pclk 
+subblock: n_n3828 0 1 2 3 4 5 
+
+.clb n_n3631  # Both LUT and LATCH used.
+pinlist: n_n3085 n_n3250 [894] [1520] n_n3631 pclk 
+subblock: n_n3631 0 1 2 3 4 5 
+
+.clb n_n3138  # Both LUT and LATCH used.
+pinlist: n_n3968 [894] [1518] open n_n3138 pclk 
+subblock: n_n3138 0 1 2 open 4 5 
+
+.clb nsr1_2  # Both LUT and LATCH used.
+pinlist: preset pdn ngfdn_3 nrq1_3 nsr1_2 pclk 
+subblock: nsr1_2 0 1 2 3 4 5 
+
+.clb n_n4065  # Both LUT and LATCH used.
+pinlist: n_n3922 [894] [1514] open n_n4065 pclk 
+subblock: n_n4065 0 1 2 open 4 5 
+
+.clb n_n3679  # Both LUT and LATCH used.
+pinlist: n_n4366 [894] n_n4367 [1513] n_n3679 pclk 
+subblock: n_n3679 0 1 2 3 4 5 
+
+.clb n_n3287  # Both LUT and LATCH used.
+pinlist: [894] n_n3741 [1510] open n_n3287 pclk 
+subblock: n_n3287 0 1 2 open 4 5 
+
+.clb n_n4351  # Both LUT and LATCH used.
+pinlist: [1508] [1509] open open n_n4351 pclk 
+subblock: n_n4351 0 1 open open 4 5 
+
+.clb n_n4059  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4059 nrq1_3 n_n4059 pclk 
+subblock: n_n4059 0 1 2 3 4 5 
+
+.clb n_n3436  # Both LUT and LATCH used.
+pinlist: n_n3898 [894] [1504] open n_n3436 pclk 
+subblock: n_n3436 0 1 2 open 4 5 
+
+.clb nen3_10  # Both LUT and LATCH used.
+pinlist: preset nen3_10 ndn3_9 ngfdn_3 nen3_10 pclk 
+subblock: nen3_10 0 1 2 3 4 5 
+
+.clb n_n3461  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3461 nrq1_3 n_n3461 pclk 
+subblock: n_n3461 0 1 2 3 4 5 
+
+.clb n_n4012  # Both LUT and LATCH used.
+pinlist: n_n4012 [982] [1500] open n_n4012 pclk 
+subblock: n_n4012 0 1 2 open 4 5 
+
+.clb n_n3051  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3051 nrq1_3 n_n3051 pclk 
+subblock: n_n3051 0 1 2 3 4 5 
+
+.clb n_n3073  # Both LUT and LATCH used.
+pinlist: n_n4047 [894] n_n4367 [1497] n_n3073 pclk 
+subblock: n_n3073 0 1 2 3 4 5 
+
+.clb n_n3777  # Both LUT and LATCH used.
+pinlist: n_n3898 [894] [1494] open n_n3777 pclk 
+subblock: n_n3777 0 1 2 open 4 5 
+
+.clb n_n3709  # Both LUT and LATCH used.
+pinlist: n_n3832 [1492] [6255] [6354] n_n3709 pclk 
+subblock: n_n3709 0 1 2 3 4 5 
+
+.clb n_n3946  # Both LUT and LATCH used.
+pinlist: pv10_2_2_ [992] [1488] open n_n3946 pclk 
+subblock: n_n3946 0 1 2 open 4 5 
+
+.clb n_n3085  # Both LUT and LATCH used.
+pinlist: [1486] [1487] open open n_n3085 pclk 
+subblock: n_n3085 0 1 open open 4 5 
+
+.clb n_n3259  # Both LUT and LATCH used.
+pinlist: pv1_7_7_ [994] [1482] open n_n3259 pclk 
+subblock: n_n3259 0 1 2 open 4 5 
+
+.clb n_n3504  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3504 nrq1_3 n_n3504 pclk 
+subblock: n_n3504 0 1 2 3 4 5 
+
+.clb n_n4045  # Both LUT and LATCH used.
+pinlist: n_n4045 [1477] [6356] [6357] n_n4045 pclk 
+subblock: n_n4045 0 1 2 3 4 5 
+
+.clb n_n3954  # Both LUT and LATCH used.
+pinlist: [1006] [1470] [1472] [6358] n_n3954 pclk 
+subblock: n_n3954 0 1 2 3 4 5 
+
+.clb n_n3136  # Both LUT and LATCH used.
+pinlist: n_n4324 [894] n_n4367 [1468] n_n3136 pclk 
+subblock: n_n3136 0 1 2 3 4 5 
+
+.clb n_n4372  # Both LUT and LATCH used.
+pinlist: n_n4383 [894] [1465] open n_n4372 pclk 
+subblock: n_n4372 0 1 2 open 4 5 
+
+.clb n_n4236  # Both LUT and LATCH used.
+pinlist: n_n4229 [894] [1079] [1463] n_n4236 pclk 
+subblock: n_n4236 0 1 2 3 4 5 
+
+.clb n_n3040  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3040 nrq1_3 n_n3040 pclk 
+subblock: n_n3040 0 1 2 3 4 5 
+
+.clb n_n3874  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3874 nrq1_3 n_n3874 pclk 
+subblock: n_n3874 0 1 2 3 4 5 
+
+.clb n_n3999  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3999 nrq1_3 n_n3999 pclk 
+subblock: n_n3999 0 1 2 3 4 5 
+
+.clb n_n3223  # Both LUT and LATCH used.
+pinlist: n_n4122 [894] [1455] open n_n3223 pclk 
+subblock: n_n3223 0 1 2 open 4 5 
+
+.clb ndn1_34  # Both LUT and LATCH used.
+pinlist: preset pdn ndn1_34 open ndn1_34 pclk 
+subblock: ndn1_34 0 1 2 open 4 5 
+
+.clb n_n3743  # Both LUT and LATCH used.
+pinlist: pv10_1_1_ [992] [1451] open n_n3743 pclk 
+subblock: n_n3743 0 1 2 open 4 5 
+
+.clb n_n3657  # Both LUT and LATCH used.
+pinlist: n_n3810 n_n4015 [1449] open n_n3657 pclk 
+subblock: n_n3657 0 1 2 open 4 5 
+
+.clb n_n3213  # Both LUT and LATCH used.
+pinlist: n_n4258 [894] [1447] open n_n3213 pclk 
+subblock: n_n3213 0 1 2 open 4 5 
+
+.clb n_n3095  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3095 nrq1_3 n_n3095 pclk 
+subblock: n_n3095 0 1 2 3 4 5 
+
+.clb n_n3663  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3663 nrq1_3 n_n3663 pclk 
+subblock: n_n3663 0 1 2 3 4 5 
+
+.clb n_n3724  # Both LUT and LATCH used.
+pinlist: n_n3724 n_n3814 [896] [947] n_n3724 pclk 
+subblock: n_n3724 0 1 2 3 4 5 
+
+.clb n_n3038  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3038 nrq1_3 n_n3038 pclk 
+subblock: n_n3038 0 1 2 3 4 5 
+
+.clb n_n3370  # Both LUT and LATCH used.
+pinlist: n_n4337 [894] [1437] open n_n3370 pclk 
+subblock: n_n3370 0 1 2 open 4 5 
+
+.clb n_n3624  # Both LUT and LATCH used.
+pinlist: pv11_0_0_ [988] [1433] open n_n3624 pclk 
+subblock: n_n3624 0 1 2 open 4 5 
+
+.clb n_n3578  # Both LUT and LATCH used.
+pinlist: pv11_4_4_ [988] [1429] open n_n3578 pclk 
+subblock: n_n3578 0 1 2 open 4 5 
+
+.clb n_n3713  # Both LUT and LATCH used.
+pinlist: n_n3556 n_n4122 [894] [1427] n_n3713 pclk 
+subblock: n_n3713 0 1 2 3 4 5 
+
+.clb n_n3089  # Both LUT and LATCH used.
+pinlist: n_n4074 n_n3578 [894] [1425] n_n3089 pclk 
+subblock: n_n3089 0 1 2 3 4 5 
+
+.clb n_n3211  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3211 nrq1_3 n_n3211 pclk 
+subblock: n_n3211 0 1 2 3 4 5 
+
+.clb n_n3367  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3367 nrq1_3 n_n3367 pclk 
+subblock: n_n3367 0 1 2 3 4 5 
+
+.clb n_n3434  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3434 nrq1_3 n_n3434 pclk 
+subblock: n_n3434 0 1 2 3 4 5 
+
+.clb n_n3126  # Both LUT and LATCH used.
+pinlist: n_n4233 [894] [1416] [6303] n_n3126 pclk 
+subblock: n_n3126 0 1 2 3 4 5 
+
+.clb n_n4192  # Both LUT and LATCH used.
+pinlist: n_n3688 n_n3624 [894] [1414] n_n4192 pclk 
+subblock: n_n4192 0 1 2 3 4 5 
+
+.clb n_n4136  # Both LUT and LATCH used.
+pinlist: n_n3876 [894] [1412] open n_n4136 pclk 
+subblock: n_n4136 0 1 2 open 4 5 
+
+.clb n_n3053  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3053 nrq1_3 n_n3053 pclk 
+subblock: n_n3053 0 1 2 3 4 5 
+
+.clb n_n3938  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3938 nrq1_3 n_n3938 pclk 
+subblock: n_n3938 0 1 2 3 4 5 
+
+.clb n_n3769  # Both LUT and LATCH used.
+pinlist: preset n_n3769 n_n4126 [1402] n_n3769 pclk 
+subblock: n_n3769 0 1 2 3 4 5 
+
+.clb n_n4390  # Both LUT and LATCH used.
+pinlist: n_n3936 n_n3099 [894] [1400] n_n4390 pclk 
+subblock: n_n4390 0 1 2 3 4 5 
+
+.clb nsr3_17  # Both LUT and LATCH used.
+pinlist: nen3_10 nsr3_17 nak3_17 [944] nsr3_17 pclk 
+subblock: nsr3_17 0 1 2 3 4 5 
+
+.clb n_n3903  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3903 nrq1_3 n_n3903 pclk 
+subblock: n_n3903 0 1 2 3 4 5 
+
+.clb n_n3658  # Both LUT and LATCH used.
+pinlist: n_n3658 n_n4367 [6268] [6361] n_n3658 pclk 
+subblock: n_n3658 0 1 2 3 4 5 
+
+.clb nrq3_11  # Both LUT and LATCH used.
+pinlist: preset nrq3_11 nsr3_14 ngfdn_3 nrq3_11 pclk 
+subblock: nrq3_11 0 1 2 3 4 5 
+
+.clb n_n3818  # Both LUT and LATCH used.
+pinlist: [1391] [1392] [1393] open n_n3818 pclk 
+subblock: n_n3818 0 1 2 open 4 5 
+
+.clb n_n3533  # Both LUT and LATCH used.
+pinlist: pv6_3_3_ [990] [1387] open n_n3533 pclk 
+subblock: n_n3533 0 1 2 open 4 5 
+
+.clb n_n3463  # Both LUT and LATCH used.
+pinlist: n_n4316 [894] [1385] open n_n3463 pclk 
+subblock: n_n3463 0 1 2 open 4 5 
+
+.clb n_n3175  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3175 nrq1_3 n_n3175 pclk 
+subblock: n_n3175 0 1 2 3 4 5 
+
+.clb n_n3055  # Both LUT and LATCH used.
+pinlist: n_n3657 [894] [1381] open n_n3055 pclk 
+subblock: n_n3055 0 1 2 open 4 5 
+
+.clb n_n3202  # Both LUT and LATCH used.
+pinlist: n_n3495 [894] [1378] [6310] n_n3202 pclk 
+subblock: n_n3202 0 1 2 3 4 5 
+
+.clb n_n3385  # Both LUT and LATCH used.
+pinlist: n_n4095 [894] [1375] [6321] n_n3385 pclk 
+subblock: n_n3385 0 1 2 3 4 5 
+
+.clb n_n4077  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4077 nrq1_3 n_n4077 pclk 
+subblock: n_n4077 0 1 2 3 4 5 
+
+.clb n_n3142  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3142 nrq1_3 n_n3142 pclk 
+subblock: n_n3142 0 1 2 3 4 5 
+
+.clb n_n3901  # Both LUT and LATCH used.
+pinlist: preset n_n3901 n_n4126 [1365] n_n3901 pclk 
+subblock: n_n3901 0 1 2 3 4 5 
+
+.clb n_n3934  # Both LUT and LATCH used.
+pinlist: n_n3934 n_n3976 [916] [1362] n_n3934 pclk 
+subblock: n_n3934 0 1 2 3 4 5 
+
+.clb n_n3823  # Both LUT and LATCH used.
+pinlist: n_n4227 n_n3830 [1360] [6252] n_n3823 pclk 
+subblock: n_n3823 0 1 2 3 4 5 
+
+.clb n_n3722  # Both LUT and LATCH used.
+pinlist: n_n4160 [894] [1357] open n_n3722 pclk 
+subblock: n_n3722 0 1 2 open 4 5 
+
+.clb n_n4309  # Both LUT and LATCH used.
+pinlist: n_n4182 [894] [1355] open n_n4309 pclk 
+subblock: n_n4309 0 1 2 open 4 5 
+
+.clb n_n4159  # Both LUT and LATCH used.
+pinlist: pv4_0_0_ [997] [1351] open n_n4159 pclk 
+subblock: n_n4159 0 1 2 open 4 5 
+
+.clb n_n4330  # Both LUT and LATCH used.
+pinlist: pv4_4_4_ [997] [1347] open n_n4330 pclk 
+subblock: n_n4330 0 1 2 open 4 5 
+
+.clb n_n3836  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3836 nrq1_3 n_n3836 pclk 
+subblock: n_n3836 0 1 2 3 4 5 
+
+.clb n_n3470  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3470 nrq1_3 n_n3470 pclk 
+subblock: n_n3470 0 1 2 3 4 5 
+
+.clb n_n3331  # Both LUT and LATCH used.
+pinlist: n_n4157 [894] [1341] open n_n3331 pclk 
+subblock: n_n3331 0 1 2 open 4 5 
+
+.clb n_n3883  # Both LUT and LATCH used.
+pinlist: n_n3099 [894] [1339] open n_n3883 pclk 
+subblock: n_n3883 0 1 2 open 4 5 
+
+.clb n_n4299  # Both LUT and LATCH used.
+pinlist: pv10_6_6_ [992] [1335] open n_n4299 pclk 
+subblock: n_n4299 0 1 2 open 4 5 
+
+.clb n_n4157  # Both LUT and LATCH used.
+pinlist: n_n3810 n_n4158 [1333] open n_n4157 pclk 
+subblock: n_n4157 0 1 2 open 4 5 
+
+.clb ndn3_9  # Both LUT and LATCH used.
+pinlist: preset ndn3_8 ndn3_9 ngfdn_3 ndn3_9 pclk 
+subblock: ndn3_9 0 1 2 3 4 5 
+
+.clb n_n3208  # Both LUT and LATCH used.
+pinlist: pv1_1_1_ [994] [1329] open n_n3208 pclk 
+subblock: n_n3208 0 1 2 open 4 5 
+
+.clb n_n3190  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3190 nrq1_3 n_n3190 pclk 
+subblock: n_n3190 0 1 2 3 4 5 
+
+.clb n_n4029  # Both LUT and LATCH used.
+pinlist: [1006] [1323] [1325] [6366] n_n4029 pclk 
+subblock: n_n4029 0 1 2 3 4 5 
+
+.clb n_n3042  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3042 nrq1_3 n_n3042 pclk 
+subblock: n_n3042 0 1 2 3 4 5 
+
+.clb nsr3_14  # Both LUT and LATCH used.
+pinlist: preset pdn [1318] open nsr3_14 pclk 
+subblock: nsr3_14 0 1 2 open 4 5 
+
+.clb n_n4151  # Both LUT and LATCH used.
+pinlist: preset [1315] [1316] open n_n4151 pclk 
+subblock: n_n4151 0 1 2 open 4 5 
+
+.clb n_n3188  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3188 nrq1_3 n_n3188 pclk 
+subblock: n_n3188 0 1 2 3 4 5 
+
+.clb n_n4303  # Both LUT and LATCH used.
+pinlist: n_n3769 [894] n_n4367 [1312] n_n4303 pclk 
+subblock: n_n4303 0 1 2 3 4 5 
+
+.clb n_n3250  # Both LUT and LATCH used.
+pinlist: pv11_3_3_ [988] [1307] open n_n3250 pclk 
+subblock: n_n3250 0 1 2 open 4 5 
+
+.clb n_n3170  # Both LUT and LATCH used.
+pinlist: pv11_7_7_ [988] [1303] open n_n3170 pclk 
+subblock: n_n3170 0 1 2 open 4 5 
+
+.clb n_n3758  # Both LUT and LATCH used.
+pinlist: n_n3916 [894] [1301] open n_n3758 pclk 
+subblock: n_n3758 0 1 2 open 4 5 
+
+.clb n_n3910  # Both LUT and LATCH used.
+pinlist: n_n3608 [894] [1298] [6272] n_n3910 pclk 
+subblock: n_n3910 0 1 2 3 4 5 
+
+.clb n_n3108  # Both LUT and LATCH used.
+pinlist: n_n4392 [894] [1295] [6306] n_n3108 pclk 
+subblock: n_n3108 0 1 2 3 4 5 
+
+.clb n_n3150  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3150 nrq1_3 n_n3150 pclk 
+subblock: n_n3150 0 1 2 3 4 5 
+
+.clb n_n4320  # Both LUT and LATCH used.
+pinlist: n_n3688 [894] [1291] open n_n4320 pclk 
+subblock: n_n4320 0 1 2 open 4 5 
+
+.clb n_n4360  # Both LUT and LATCH used.
+pinlist: pv10_7_7_ [992] [1287] open n_n4360 pclk 
+subblock: n_n4360 0 1 2 open 4 5 
+
+.clb n_n4247  # Both LUT and LATCH used.
+pinlist: n_n4362 [894] [1285] open n_n4247 pclk 
+subblock: n_n4247 0 1 2 open 4 5 
+
+.clb n_n4199  # Both LUT and LATCH used.
+pinlist: n_n3242 n_n3170 [894] [1283] n_n4199 pclk 
+subblock: n_n4199 0 1 2 3 4 5 
+
+.clb n_n3966  # Both LUT and LATCH used.
+pinlist: n_n4275 n_n3830 [1282] [6252] n_n3966 pclk 
+subblock: n_n3966 0 1 2 3 4 5 
+
+.clb n_n3766  # Both LUT and LATCH used.
+pinlist: [896] [1280] [6370] open n_n3766 pclk 
+subblock: n_n3766 0 1 2 open 4 5 
+
+.clb n_n4021  # Both LUT and LATCH used.
+pinlist: pv2_4_4_ [999] [1275] open n_n4021 pclk 
+subblock: n_n4021 0 1 2 open 4 5 
+
+.clb n_n4062  # Both LUT and LATCH used.
+pinlist: pv2_6_6_ [999] [1271] open n_n4062 pclk 
+subblock: n_n4062 0 1 2 open 4 5 
+
+.clb n_n3514  # Both LUT and LATCH used.
+pinlist: n_n3814 n_n3830 [1270] [6252] n_n3514 pclk 
+subblock: n_n3514 0 1 2 3 4 5 
+
+.clb n_n3572  # Both LUT and LATCH used.
+pinlist: n_n4159 n_n3976 [894] [1267] n_n3572 pclk 
+subblock: n_n3572 0 1 2 3 4 5 
+
+.clb n_n4166  # Both LUT and LATCH used.
+pinlist: n_n4270 [894] [1265] open n_n4166 pclk 
+subblock: n_n4166 0 1 2 open 4 5 
+
+.clb n_n3976  # Both LUT and LATCH used.
+pinlist: [1004] n_n3975 n_n3974 [1263] n_n3976 pclk 
+subblock: n_n3976 0 1 2 3 4 5 
+
+.clb n_n3394  # Both LUT and LATCH used.
+pinlist: n_n3841 [894] [1261] open n_n3394 pclk 
+subblock: n_n3394 0 1 2 open 4 5 
+
+.clb n_n4095  # Both LUT and LATCH used.
+pinlist: [1259] [1260] open open n_n4095 pclk 
+subblock: n_n4095 0 1 open open 4 5 
+
+.clb n_n3863  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3863 nrq1_3 n_n3863 pclk 
+subblock: n_n3863 0 1 2 3 4 5 
+
+.clb n_n3720  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3720 nrq1_3 n_n3720 pclk 
+subblock: n_n3720 0 1 2 3 4 5 
+
+.clb n_n3810  # Only LUT used.
+pinlist: preset nrq3_11 ngfdn_3 open n_n3810 open 
+subblock: n_n3810 0 1 2 open 4 open 
+
+.clb n_n3756  # Both LUT and LATCH used.
+pinlist: pv10_0_0_ [992] [1251] open n_n3756 pclk 
+subblock: n_n3756 0 1 2 open 4 5 
+
+.clb n_n3667  # Both LUT and LATCH used.
+pinlist: n_n3458 [894] [1248] [6291] n_n3667 pclk 
+subblock: n_n3667 0 1 2 3 4 5 
+
+.clb n_n3342  # Both LUT and LATCH used.
+pinlist: n_n4299 [894] [1246] open n_n3342 pclk 
+subblock: n_n3342 0 1 2 open 4 5 
+
+.clb n_n3529  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3529 nrq1_3 n_n3529 pclk 
+subblock: n_n3529 0 1 2 3 4 5 
+
+.clb n_n4209  # Both LUT and LATCH used.
+pinlist: n_n3756 [894] [1242] open n_n4209 pclk 
+subblock: n_n4209 0 1 2 open 4 5 
+
+.clb n_n4324  # Both LUT and LATCH used.
+pinlist: n_n4324 [916] [934] [1062] n_n4324 pclk 
+subblock: n_n4324 0 1 2 3 4 5 
+
+.clb n_n3337  # Both LUT and LATCH used.
+pinlist: n_n3035 n_n4157 [894] [1232] n_n3337 pclk 
+subblock: n_n3337 0 1 2 3 4 5 
+
+.clb n_n4227  # Both LUT and LATCH used.
+pinlist: n_n4227 [947] [1230] [1586] n_n4227 pclk 
+subblock: n_n4227 0 1 2 3 4 5 
+
+.clb n_n4153  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4153 nrq1_3 n_n4153 pclk 
+subblock: n_n4153 0 1 2 3 4 5 
+
+.clb n_n3831  # Both LUT and LATCH used.
+pinlist: [1225] [6376] open open n_n3831 pclk 
+subblock: n_n3831 0 1 open open 4 5 
+
+.clb n_n3233  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3233 nrq1_3 n_n3233 pclk 
+subblock: n_n3233 0 1 2 3 4 5 
+
+.clb n_n4263  # Both LUT and LATCH used.
+pinlist: preset [1064] open open n_n4263 pclk 
+subblock: n_n4263 0 1 open open 4 5 
+
+.clb n_n3413  # Both LUT and LATCH used.
+pinlist: n_n4251 [894] [1218] open n_n3413 pclk 
+subblock: n_n3413 0 1 2 open 4 5 
+
+.clb n_n4182  # Both LUT and LATCH used.
+pinlist: pv4_3_3_ [997] [1214] open n_n4182 pclk 
+subblock: n_n4182 0 1 2 open 4 5 
+
+.clb n_n3841  # Both LUT and LATCH used.
+pinlist: [1212] [1213] open open n_n3841 pclk 
+subblock: n_n3841 0 1 open open 4 5 
+
+.clb n_n3441  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3441 nrq1_3 n_n3441 pclk 
+subblock: n_n3441 0 1 2 3 4 5 
+
+.clb n_n4026  # Both LUT and LATCH used.
+pinlist: preset n_n4026 nak3_17 [1208] n_n4026 pclk 
+subblock: n_n4026 0 1 2 3 4 5 
+
+.clb n_n4342  # Both LUT and LATCH used.
+pinlist: n_n4229 [894] [1206] open n_n4342 pclk 
+subblock: n_n4342 0 1 2 open 4 5 
+
+.clb n_n4102  # Both LUT and LATCH used.
+pinlist: n_n3841 [894] [1204] open n_n4102 pclk 
+subblock: n_n4102 0 1 2 open 4 5 
+
+.clb n_n3277  # Both LUT and LATCH used.
+pinlist: n_n4288 [894] [1201] [6259] n_n3277 pclk 
+subblock: n_n3277 0 1 2 3 4 5 
+
+.clb n_n4180  # Both LUT and LATCH used.
+pinlist: n_n3085 n_n3250 [894] [1199] n_n4180 pclk 
+subblock: n_n4180 0 1 2 3 4 5 
+
+.clb n_n3878  # Both LUT and LATCH used.
+pinlist: pv1_0_0_ [994] [1195] open n_n3878 pclk 
+subblock: n_n3878 0 1 2 open 4 5 
+
+.clb n_n3931  # Both LUT and LATCH used.
+pinlist: pv2_0_0_ [999] [1191] open n_n3931 pclk 
+subblock: n_n3931 0 1 2 open 4 5 
+
+.clb n_n3845  # Both LUT and LATCH used.
+pinlist: [1006] [1187] [1189] [6379] n_n3845 pclk 
+subblock: n_n3845 0 1 2 3 4 5 
+
+.clb n_n3865  # Both LUT and LATCH used.
+pinlist: [1006] [1182] [1184] [6380] n_n3865 pclk 
+subblock: n_n3865 0 1 2 3 4 5 
+
+.clb n_n3486  # Both LUT and LATCH used.
+pinlist: n_n3533 [894] [1179] open n_n3486 pclk 
+subblock: n_n3486 0 1 2 open 4 5 
+
+.clb n_n4056  # Both LUT and LATCH used.
+pinlist: preset n_n4057 [1068] open n_n4056 pclk 
+subblock: n_n4056 0 1 2 open 4 5 
+
+.clb n_n3674  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3674 nrq1_3 n_n3674 pclk 
+subblock: n_n3674 0 1 2 3 4 5 
+
+.clb n_n3959  # Both LUT and LATCH used.
+pinlist: n_n3959 [1069] [1171] [1172] n_n3959 pclk 
+subblock: n_n3959 0 1 2 3 4 5 
+
+.clb n_n3608  # Both LUT and LATCH used.
+pinlist: [1002] n_n3975 n_n3974 [1168] n_n3608 pclk 
+subblock: n_n3608 0 1 2 3 4 5 
+
+.clb n_n4080  # Both LUT and LATCH used.
+pinlist: [1165] [1166] [1167] open n_n4080 pclk 
+subblock: n_n4080 0 1 2 open 4 5 
+
+.clb n_n4018  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4018 nrq1_3 n_n4018 pclk 
+subblock: n_n4018 0 1 2 3 4 5 
+
+.clb n_n4354  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4354 nrq1_3 n_n4354 pclk 
+subblock: n_n4354 0 1 2 3 4 5 
+
+.clb n_n3797  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3797 nrq1_3 n_n3797 pclk 
+subblock: n_n3797 0 1 2 3 4 5 
+
+.clb n_n3739  # Both LUT and LATCH used.
+pinlist: n_n4316 [894] [983] open n_n3739 pclk 
+subblock: n_n3739 0 1 2 open 4 5 
+
+.clb n_n3646  # Both LUT and LATCH used.
+pinlist: n_n4392 [894] [978] [6306] n_n3646 pclk 
+subblock: n_n3646 0 1 2 3 4 5 
+
+.clb n_n3099  # Both LUT and LATCH used.
+pinlist: n_n3810 n_n3363 [1128] [976] n_n3099 pclk 
+subblock: n_n3099 0 1 2 3 4 5 
+
+.clb n_n3537  # Both LUT and LATCH used.
+pinlist: n_n4211 n_n3657 [894] [974] n_n3537 pclk 
+subblock: n_n3537 0 1 2 3 4 5 
+
+.clb n_n3806  # Both LUT and LATCH used.
+pinlist: n_n4074 n_n3578 [894] [971] n_n3806 pclk 
+subblock: n_n3806 0 1 2 3 4 5 
+
+.clb n_n3087  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3087 nrq1_3 n_n3087 pclk 
+subblock: n_n3087 0 1 2 3 4 5 
+
+.clb n_n4105  # Both LUT and LATCH used.
+pinlist: preset pdn n_n4105 nrq1_3 n_n4105 pclk 
+subblock: n_n4105 0 1 2 3 4 5 
+
+.clb n_n3262  # Both LUT and LATCH used.
+pinlist: preset pdn n_n3262 nrq1_3 n_n3262 pclk 
+subblock: n_n3262 0 1 2 3 4 5 
+
+.clb n_n4125  # Both LUT and LATCH used.
+pinlist: preset n_n4125 n_n4126 [6385] n_n4125 pclk 
+subblock: n_n4125 0 1 2 3 4 5 
+
+.clb n_n3814  # Both LUT and LATCH used.
+pinlist: n_n3814 [896] [946] open n_n3814 pclk 
+subblock: n_n3814 0 1 2 open 4 5 
+
+.clb n_n4093  # Both LUT and LATCH used.
+pinlist: n_n3832 [921] [6386] [6389] n_n4093 pclk 
+subblock: n_n4093 0 1 2 3 4 5 
+
+.clb nsr3_3  # Both LUT and LATCH used.
+pinlist: nsr3_3 [944] nrq3_2 [911] nsr3_3 pclk 
+subblock: nsr3_3 0 1 2 3 4 5 
+
+.clb [988]  # Only LUT used.
+pinlist: preset ndn3_8 ndn3_9 open [988] open 
+subblock: [988] 0 1 2 open 4 open 
+
+.clb [896]  # Only LUT used.
+pinlist: preset n_n3198 n_n3707 n_n3709 [896] open 
+subblock: [896] 0 1 2 3 4 open 
+
+.clb [1016]  # Only LUT used.
+pinlist: n_n3604 n_n3658 n_n4335 [6268] [1016] open 
+subblock: [1016] 0 1 2 3 4 open 
+
+.clb [992]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 open [992] open 
+subblock: [992] 0 1 2 open 4 open 
+
+.clb [894]  # Only LUT used.
+pinlist: preset pdn nsr1_2 n_n3765 [894] open 
+subblock: [894] 0 1 2 3 4 open 
+
+.clb [916]  # Only LUT used.
+pinlist: preset n_n4057 n_n3557 n_n4056 [916] open 
+subblock: [916] 0 1 2 3 4 open 
+
+.clb [934]  # Only LUT used.
+pinlist: preset n_n4126 open open [934] open 
+subblock: [934] 0 1 open open 4 open 
+
+.clb [1020]  # Only LUT used.
+pinlist: pdn n_n4108 ndn1_34 nrq1_3 [1020] open 
+subblock: [1020] 0 1 2 3 4 open 
+
+.clb n_n4069  # Only LUT used.
+pinlist: n_n3916 [1096] open open n_n4069 open 
+subblock: n_n4069 0 1 open open 4 open 
+
+.clb n_n4015  # Only LUT used.
+pinlist: n_n3363 n_n3362 [941] [1129] n_n4015 open 
+subblock: n_n4015 0 1 2 3 4 open 
+
+.clb [1004]  # Only LUT used.
+pinlist: preset ndn3_10 nen3_10 open [1004] open 
+subblock: [1004] 0 1 2 open 4 open 
+
+.clb [990]  # Only LUT used.
+pinlist: preset ndn3_6 ndn3_7 open [990] open 
+subblock: [990] 0 1 2 open 4 open 
+
+.clb [1021]  # Only LUT used.
+pinlist: pready_0_0_ ndn3_4 nsr3_3 nrq3_2 [1021] open 
+subblock: [1021] 0 1 2 3 4 open 
+
+.clb [994]  # Only LUT used.
+pinlist: pready_0_0_ nsr3_3 nrq3_2 [6284] [994] open 
+subblock: [994] 0 1 2 3 4 open 
+
+.clb n_n3563  # Only LUT used.
+pinlist: n_n4360 n_n3653 [905] [906] n_n3563 open 
+subblock: n_n3563 0 1 2 3 4 open 
+
+.clb [1022]  # Only LUT used.
+pinlist: n_n4067 n_n3788 n_n3830 [6254] [1022] open 
+subblock: [1022] 0 1 2 3 4 open 
+
+.clb [1002]  # Only LUT used.
+pinlist: preset ndn3_15 ngfdn_3 open [1002] open 
+subblock: [1002] 0 1 2 open 4 open 
+
+.clb [997]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 open [997] open 
+subblock: [997] 0 1 2 open 4 open 
+
+.clb [1006]  # Only LUT used.
+pinlist: preset n_n4126 n_n3500 open [1006] open 
+subblock: [1006] 0 1 2 open 4 open 
+
+.clb [999]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 open [999] open 
+subblock: [999] 0 1 2 open 4 open 
+
+.clb nak3_17  # Only LUT used.
+pinlist: n_n4093 n_n3788 [1013] [2264] nak3_17 open 
+subblock: nak3_17 0 1 2 3 4 open 
+
+.clb n_n4038  # Only LUT used.
+pinlist: n_n3916 n_n4040 n_n4039 [1096] n_n4038 open 
+subblock: n_n4038 0 1 2 3 4 open 
+
+.clb n_n3653  # Only LUT used.
+pinlist: n_n3841 [1078] open open n_n3653 open 
+subblock: n_n3653 0 1 open open 4 open 
+
+.clb [944]  # Only LUT used.
+pinlist: preset pdn open open [944] open 
+subblock: [944] 0 1 open open 4 open 
+
+.clb [1028]  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 nsr1_2 n_n4151 [1028] open 
+subblock: [1028] 0 1 2 3 4 open 
+
+.clb n_n4116  # Only LUT used.
+pinlist: n_n4316 n_n4315 n_n4155 open n_n4116 open 
+subblock: n_n4116 0 1 2 open 4 open 
+
+.clb n_n3689  # Only LUT used.
+pinlist: n_n3988 n_n3898 [1076] n_n3622 n_n3689 open 
+subblock: n_n3689 0 1 2 3 4 open 
+
+.clb [1014]  # Only LUT used.
+pinlist: n_n4012 [896] [1012] [6330] [1014] open 
+subblock: [1014] 0 1 2 3 4 open 
+
+.clb n_n4158  # Only LUT used.
+pinlist: n_n4345 n_n4019 n_n3884 [1086] n_n4158 open 
+subblock: n_n4158 0 1 2 3 4 open 
+
+.clb [973]  # Only LUT used.
+pinlist: pready_0_0_ nsr3_3 nrq3_2 [6333] [973] open 
+subblock: [973] 0 1 2 3 4 open 
+
+.clb [1041]  # Only LUT used.
+pinlist: n_n4067 n_n3788 n_n3830 [6254] [1041] open 
+subblock: [1041] 0 1 2 3 4 open 
+
+.clb n_n4079  # Only LUT used.
+pinlist: n_n4145 [1075] open open n_n4079 open 
+subblock: n_n4079 0 1 open open 4 open 
+
+.clb [1012]  # Only LUT used.
+pinlist: n_n3724 n_n4227 n_n3814 open [1012] open 
+subblock: [1012] 0 1 2 open 4 open 
+
+.clb [1042]  # Only LUT used.
+pinlist: [947] [1582] [1584] [1586] [1042] open 
+subblock: [1042] 0 1 2 3 4 open 
+
+.clb n_n3745  # Only LUT used.
+pinlist: n_n3898 [1076] open open n_n3745 open 
+subblock: n_n3745 0 1 open open 4 open 
+
+.clb nrq1_3  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 nsr1_2 n_n4151 nrq1_3 open 
+subblock: nrq1_3 0 1 2 3 4 open 
+
+.clb n_n3741  # Only LUT used.
+pinlist: n_n4160 n_n4222 n_n4159 n_n3976 n_n3741 open 
+subblock: n_n3741 0 1 2 3 4 open 
+
+.clb [982]  # Only LUT used.
+pinlist: n_n3832 [1726] [6255] [6257] [982] open 
+subblock: [982] 0 1 2 3 4 open 
+
+.clb n_n4256  # Only LUT used.
+pinlist: n_n4229 [1079] open open n_n4256 open 
+subblock: n_n4256 0 1 open open 4 open 
+
+.clb [947]  # Only LUT used.
+pinlist: n_n3832 [1588] [6255] [6257] [947] open 
+subblock: [947] 0 1 2 3 4 open 
+
+.clb n_n4084  # Only LUT used.
+pinlist: n_n4229 n_n3818 [1079] n_n3595 n_n4084 open 
+subblock: n_n4084 0 1 2 3 4 open 
+
+.clb n_n4133  # Only LUT used.
+pinlist: n_n4159 n_n3976 open open n_n4133 open 
+subblock: n_n4133 0 1 open open 4 open 
+
+.clb nrq3_12  # Only LUT used.
+pinlist: nrq3_11 ngfdn_3 open open nrq3_12 open 
+subblock: nrq3_12 0 1 open open 4 open 
+
+.clb n_n3832  # Only LUT used.
+pinlist: n_n3788 [2264] [6254] open n_n3832 open 
+subblock: n_n3832 0 1 2 open 4 open 
+
+.clb [1015]  # Only LUT used.
+pinlist: n_n3851 n_n3831 n_n4026 n_n3852 [1015] open 
+subblock: [1015] 0 1 2 3 4 open 
+
+.clb [1063]  # Only LUT used.
+pinlist: n_n3709 [1137] [1136] [6290] [1063] open 
+subblock: [1063] 0 1 2 3 4 open 
+
+.clb [1064]  # Only LUT used.
+pinlist: nlc3_3 n_n4263 nrq3_2 [6324] [1064] open 
+subblock: [1064] 0 1 2 3 4 open 
+
+.clb [1068]  # Only LUT used.
+pinlist: n_n4056 n_n3656 n_n4098 [6349] [1068] open 
+subblock: [1068] 0 1 2 3 4 open 
+
+.clb [923]  # Only LUT used.
+pinlist: n_n4159 n_n3976 n_n3959 open [923] open 
+subblock: [923] 0 1 2 open 4 open 
+
+.clb [1069]  # Only LUT used.
+pinlist: n_n3832 [1173] [6255] [6257] [1069] open 
+subblock: [1069] 0 1 2 3 4 open 
+
+.clb n_n4297  # Only LUT used.
+pinlist: n_n4145 n_n4080 [1075] n_n4078 n_n4297 open 
+subblock: n_n4297 0 1 2 3 4 open 
+
+.clb n_n4126  # Only LUT used.
+pinlist: n_n4056 n_n4367 [6268] [6270] n_n4126 open 
+subblock: n_n4126 0 1 2 3 4 open 
+
+.clb [1070]  # Only LUT used.
+pinlist: n_n4222 n_n3934 n_n3976 n_n4125 [1070] open 
+subblock: [1070] 0 1 2 3 4 open 
+
+.clb [935]  # Only LUT used.
+pinlist: n_n4160 n_n4383 n_n4159 open [935] open 
+subblock: [935] 0 1 2 open 4 open 
+
+.clb n_n3765  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 n_n4151 open n_n3765 open 
+subblock: n_n3765 0 1 2 open 4 open 
+
+.clb n_n4367  # Only LUT used.
+pinlist: n_n3604 n_n3658 [6265] [6266] n_n4367 open 
+subblock: n_n4367 0 1 2 3 4 open 
+
+.clb [984]  # Only LUT used.
+pinlist: n_n3955 n_n3954 n_n4029 n_n3845 [984] open 
+subblock: [984] 0 1 2 3 4 open 
+
+.clb n_n4335  # Only LUT used.
+pinlist: [6265] [6266] open open n_n4335 open 
+subblock: n_n4335 0 1 open open 4 open 
+
+.clb [899]  # Only LUT used.
+pinlist: n_n4069 n_n4038 n_n3986 n_n4082 [899] open 
+subblock: [899] 0 1 2 3 4 open 
+
+.clb n_n3786  # Only LUT used.
+pinlist: n_n3689 n_n3745 [899] [900] n_n3786 open 
+subblock: n_n3786 0 1 2 3 4 open 
+
+.clb [1075]  # Only LUT used.
+pinlist: n_n3898 n_n4144 n_n4223 n_n4034 [1075] open 
+subblock: [1075] 0 1 2 3 4 open 
+
+.clb [1076]  # Only LUT used.
+pinlist: n_n3916 n_n4223 n_n3420 n_n4267 [1076] open 
+subblock: [1076] 0 1 2 3 4 open 
+
+.clb n_n3788  # Only LUT used.
+pinlist: n_n3833 n_n4067 n_n3563 open n_n3788 open 
+subblock: n_n3788 0 1 2 open 4 open 
+
+.clb n_n4305  # Only LUT used.
+pinlist: n_n4057 n_n3557 n_n4056 open n_n4305 open 
+subblock: n_n4305 0 1 2 open 4 open 
+
+.clb n_n3656  # Only LUT used.
+pinlist: n_n4056 n_n4367 [6268] open n_n3656 open 
+subblock: n_n3656 0 1 2 open 4 open 
+
+.clb n_n3500  # Only LUT used.
+pinlist: n_n3493 n_n4045 n_n4367 [6299] n_n3500 open 
+subblock: n_n3500 0 1 2 3 4 open 
+
+.clb [1078]  # Only LUT used.
+pinlist: n_n4145 n_n4144 n_n4259 n_n4268 [1078] open 
+subblock: [1078] 0 1 2 3 4 open 
+
+.clb [1079]  # Only LUT used.
+pinlist: n_n4316 n_n4181 n_n4315 n_n4155 [1079] open 
+subblock: [1079] 0 1 2 3 4 open 
+
+.clb [1013]  # Only LUT used.
+pinlist: nen3_10 nsr3_17 open open [1013] open 
+subblock: [1013] 0 1 open open 4 open 
+
+.clb nrq3_15  # Only LUT used.
+pinlist: ndn3_15 ngfdn_3 open open nrq3_15 open 
+subblock: nrq3_15 0 1 open open 4 open 
+
+.clb n_n3363  # Only LUT used.
+pinlist: [2189] [2190] [2191] open n_n3363 open 
+subblock: n_n3363 0 1 2 open 4 open 
+
+.clb n_n3362  # Only LUT used.
+pinlist: nrq3_11 ngfdn_3 n_n3741 [6275] n_n3362 open 
+subblock: n_n3362 0 1 2 3 4 open 
+
+.clb n_n4078  # Only LUT used.
+pinlist: n_n3988 n_n3898 [1076] n_n3622 n_n4078 open 
+subblock: n_n4078 0 1 2 3 4 open 
+
+.clb n_n3888  # Only LUT used.
+pinlist: n_n4145 n_n4080 [1075] n_n4078 n_n3888 open 
+subblock: n_n3888 0 1 2 3 4 open 
+
+.clb n_n4345  # Only LUT used.
+pinlist: n_n4169 n_n4168 [2049] [2050] n_n4345 open 
+subblock: n_n4345 0 1 2 3 4 open 
+
+.clb n_n4019  # Only LUT used.
+pinlist: n_n3916 nrq3_12 [1096] [6296] n_n4019 open 
+subblock: n_n4019 0 1 2 3 4 open 
+
+.clb n_n3884  # Only LUT used.
+pinlist: [2035] [2036] [2037] open n_n3884 open 
+subblock: n_n3884 0 1 2 open 4 open 
+
+.clb [1086]  # Only LUT used.
+pinlist: n_n3334 [1903] [1904] [1905] [1086] open 
+subblock: [1086] 0 1 2 3 4 open 
+
+.clb n_n4039  # Only LUT used.
+pinlist: n_n4229 n_n3818 [1079] n_n3595 n_n4039 open 
+subblock: n_n4039 0 1 2 3 4 open 
+
+.clb n_n3622  # Only LUT used.
+pinlist: n_n3916 n_n4040 n_n4039 [1096] n_n3622 open 
+subblock: n_n3622 0 1 2 3 4 open 
+
+.clb n_n3981  # Only LUT used.
+pinlist: [2175] [2176] [2177] open n_n3981 open 
+subblock: n_n3981 0 1 2 open 4 open 
+
+.clb [1088]  # Only LUT used.
+pinlist: n_n3981 [2174] [6281] open [1088] open 
+subblock: [1088] 0 1 2 open 4 open 
+
+.clb n_n3294  # Only LUT used.
+pinlist: n_n3865 [984] open open n_n3294 open 
+subblock: n_n3294 0 1 open open 4 open 
+
+.clb n_n3334  # Only LUT used.
+pinlist: n_n3898 nrq3_12 [1076] [6317] n_n3334 open 
+subblock: n_n3334 0 1 2 3 4 open 
+
+.clb n_n4296  # Only LUT used.
+pinlist: n_n3198 n_n3707 n_n3709 open n_n4296 open 
+subblock: n_n4296 0 1 2 open 4 open 
+
+.clb n_n3324  # Only LUT used.
+pinlist: n_n3841 nrq3_12 [1078] [6312] n_n3324 open 
+subblock: n_n3324 0 1 2 3 4 open 
+
+.clb n_n3243  # Only LUT used.
+pinlist: [1908] [1909] [1910] open n_n3243 open 
+subblock: n_n3243 0 1 2 open 4 open 
+
+.clb n_n3830  # Only LUT used.
+pinlist: n_n3851 n_n4026 n_n3852 open n_n3830 open 
+subblock: n_n3830 0 1 2 open 4 open 
+
+.clb n_n3869  # Only LUT used.
+pinlist: n_n3916 n_n4047 n_n3870 open n_n3869 open 
+subblock: n_n3869 0 1 2 open 4 open 
+
+.clb n_n3205  # Only LUT used.
+pinlist: n_n4366 n_n3898 n_n3869 open n_n3205 open 
+subblock: n_n3205 0 1 2 open 4 open 
+
+.clb [901]  # Only LUT used.
+pinlist: n_n3876 n_n4069 n_n4231 n_n4254 [901] open 
+subblock: [901] 0 1 2 3 4 open 
+
+.clb n_n3240  # Only LUT used.
+pinlist: n_n4362 n_n3745 [901] [907] n_n3240 open 
+subblock: n_n3240 0 1 2 3 4 open 
+
+.clb n_n4181  # Only LUT used.
+pinlist: n_n4160 n_n4383 n_n4159 n_n4182 n_n4181 open 
+subblock: n_n4181 0 1 2 3 4 open 
+
+.clb [1094]  # Only LUT used.
+pinlist: n_n4096 [1892] [1893] [1894] [1094] open 
+subblock: [1094] 0 1 2 3 4 open 
+
+.clb n_n3870  # Only LUT used.
+pinlist: n_n4229 n_n3769 n_n3899 open n_n3870 open 
+subblock: n_n3870 0 1 2 open 4 open 
+
+.clb [1096]  # Only LUT used.
+pinlist: n_n4229 n_n4181 n_n3420 n_n3923 [1096] open 
+subblock: [1096] 0 1 2 3 4 open 
+
+.clb n_n4144  # Only LUT used.
+pinlist: n_n4224 n_n4251 [935] [6251] n_n4144 open 
+subblock: n_n4144 0 1 2 3 4 open 
+
+.clb n_n4223  # Only LUT used.
+pinlist: n_n4224 n_n4330 n_n4182 [935] n_n4223 open 
+subblock: n_n4223 0 1 2 3 4 open 
+
+.clb n_n4034  # Only LUT used.
+pinlist: n_n3916 n_n4330 [1116] n_n4267 n_n4034 open 
+subblock: n_n4034 0 1 2 3 4 open 
+
+.clb n_n4259  # Only LUT used.
+pinlist: n_n3898 n_n4223 n_n4034 open n_n4259 open 
+subblock: n_n4259 0 1 2 open 4 open 
+
+.clb n_n3900  # Only LUT used.
+pinlist: n_n4222 n_n3934 n_n3976 n_n4125 n_n3900 open 
+subblock: n_n3900 0 1 2 3 4 open 
+
+.clb n_n3124  # Only LUT used.
+pinlist: n_n3574 n_n3959 n_n3741 n_n4133 n_n3124 open 
+subblock: n_n3124 0 1 2 3 4 open 
+
+.clb n_n135  # Only LUT used.
+pinlist: n_n3726 n_n3653 n_n3888 [1137] n_n135 open 
+subblock: n_n135 0 1 2 3 4 open 
+
+.clb n_n4315  # Only LUT used.
+pinlist: n_n4160 n_n4383 n_n4159 open n_n4315 open 
+subblock: n_n4315 0 1 2 open 4 open 
+
+.clb [1104]  # Only LUT used.
+pinlist: n_n3334 [1903] [1904] [1905] [1104] open 
+subblock: [1104] 0 1 2 3 4 open 
+
+.clb n_n4096  # Only LUT used.
+pinlist: n_n4145 nrq3_12 [1075] [6318] n_n4096 open 
+subblock: n_n4096 0 1 2 3 4 open 
+
+.clb [904]  # Only LUT used.
+pinlist: n_n3995 n_n4116 n_n3124 n_n3994 [904] open 
+subblock: [904] 0 1 2 3 4 open 
+
+.clb n_n3986  # Only LUT used.
+pinlist: n_n4256 n_n4084 [904] [903] n_n3986 open 
+subblock: n_n3986 0 1 2 3 4 open 
+
+.clb n_n3994  # Only LUT used.
+pinlist: n_n3574 n_n3741 [923] open n_n3994 open 
+subblock: n_n3994 0 1 2 open 4 open 
+
+.clb n_n3595  # Only LUT used.
+pinlist: n_n3995 n_n4116 n_n3994 open n_n3595 open 
+subblock: n_n3595 0 1 2 open 4 open 
+
+.clb n_n4357  # Only LUT used.
+pinlist: n_n4381 n_n4052 n_n3865 [984] n_n4357 open 
+subblock: n_n4357 0 1 2 3 4 open 
+
+.clb [1109]  # Only LUT used.
+pinlist: n_n4224 n_n4251 [935] [6251] [1109] open 
+subblock: [1109] 0 1 2 3 4 open 
+
+.clb n_n4268  # Only LUT used.
+pinlist: n_n4270 [1109] open open n_n4268 open 
+subblock: n_n4268 0 1 open open 4 open 
+
+.clb n_n4006  # Only LUT used.
+pinlist: n_n3955 n_n3954 n_n4029 n_n3845 n_n4006 open 
+subblock: n_n4006 0 1 2 3 4 open 
+
+.clb n_n3848  # Only LUT used.
+pinlist: n_n3955 n_n3954 n_n3845 open n_n3848 open 
+subblock: n_n3848 0 1 2 open 4 open 
+
+.clb n_n4098  # Only LUT used.
+pinlist: n_n4099 [1119] open open n_n4098 open 
+subblock: n_n4098 0 1 open open 4 open 
+
+.clb [942]  # Only LUT used.
+pinlist: n_n4052 n_n3865 [984] open [942] open 
+subblock: [942] 0 1 2 open 4 open 
+
+.clb [1110]  # Only LUT used.
+pinlist: n_n4169 [2045] [6295] open [1110] open 
+subblock: [1110] 0 1 2 open 4 open 
+
+.clb n_n3852  # Only LUT used.
+pinlist: n_n4360 n_n3653 [905] [906] n_n3852 open 
+subblock: n_n3852 0 1 2 3 4 open 
+
+.clb [903]  # Only LUT used.
+pinlist: n_n3995 n_n4116 n_n3124 n_n3994 [903] open 
+subblock: [903] 0 1 2 3 4 open 
+
+.clb n_n4082  # Only LUT used.
+pinlist: n_n4256 n_n4084 [904] [903] n_n4082 open 
+subblock: n_n4082 0 1 2 3 4 open 
+
+.clb nrq3_2  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 nsr1_2 n_n4151 nrq3_2 open 
+subblock: nrq3_2 0 1 2 3 4 open 
+
+.clb n_n4169  # Only LUT used.
+pinlist: [2046] [2047] [2048] open n_n4169 open 
+subblock: n_n4169 0 1 2 open 4 open 
+
+.clb n_n4168  # Only LUT used.
+pinlist: n_n4229 nrq3_12 [1079] [6295] n_n4168 open 
+subblock: n_n4168 0 1 2 3 4 open 
+
+.clb n_n4155  # Only LUT used.
+pinlist: n_n4160 n_n4222 n_n4159 n_n3976 n_n4155 open 
+subblock: n_n4155 0 1 2 3 4 open 
+
+.clb [905]  # Only LUT used.
+pinlist: n_n4299 n_n4079 n_n3240 n_n3253 [905] open 
+subblock: [905] 0 1 2 3 4 open 
+
+.clb [1116]  # Only LUT used.
+pinlist: n_n4160 n_n4383 n_n4159 n_n4182 [1116] open 
+subblock: [1116] 0 1 2 3 4 open 
+
+.clb n_n3420  # Only LUT used.
+pinlist: n_n4330 [1116] open open n_n3420 open 
+subblock: n_n3420 0 1 open open 4 open 
+
+.clb [902]  # Only LUT used.
+pinlist: n_n3946 n_n4116 n_n3927 open [902] open 
+subblock: [902] 0 1 2 open 4 open 
+
+.clb n_n4231  # Only LUT used.
+pinlist: n_n4258 n_n4256 [902] [908] n_n4231 open 
+subblock: n_n4231 0 1 2 3 4 open 
+
+.clb [907]  # Only LUT used.
+pinlist: n_n3876 n_n4069 n_n4231 n_n4254 [907] open 
+subblock: [907] 0 1 2 3 4 open 
+
+.clb n_n3253  # Only LUT used.
+pinlist: n_n4362 n_n3745 [901] [907] n_n3253 open 
+subblock: n_n3253 0 1 2 3 4 open 
+
+.clb [1119]  # Only LUT used.
+pinlist: n_n4381 n_n4052 n_n3865 [984] [1119] open 
+subblock: [1119] 0 1 2 3 4 open 
+
+.clb [900]  # Only LUT used.
+pinlist: n_n4069 n_n4038 n_n3986 n_n4082 [900] open 
+subblock: [900] 0 1 2 3 4 open 
+
+.clb n_n3785  # Only LUT used.
+pinlist: n_n3689 n_n3745 [899] [900] n_n3785 open 
+subblock: n_n3785 0 1 2 3 4 open 
+
+.clb n_n4097  # Only LUT used.
+pinlist: [1892] [1893] [1894] open n_n4097 open 
+subblock: n_n4097 0 1 2 open 4 open 
+
+.clb [941]  # Only LUT used.
+pinlist: n_n3974 [2183] [2184] [2185] [941] open 
+subblock: [941] 0 1 2 3 4 open 
+
+.clb n_n3975  # Only LUT used.
+pinlist: [2183] [2184] [2185] open n_n3975 open 
+subblock: n_n3975 0 1 2 open 4 open 
+
+.clb n_n3974  # Only LUT used.
+pinlist: n_n3934 n_n4367 nrq3_15 [6278] n_n3974 open 
+subblock: n_n3974 0 1 2 3 4 open 
+
+.clb [1122]  # Only LUT used.
+pinlist: n_n4019 [2035] [2036] [2037] [1122] open 
+subblock: [1122] 0 1 2 3 4 open 
+
+.clb n_n4267  # Only LUT used.
+pinlist: n_n4229 n_n4181 n_n3923 open n_n4267 open 
+subblock: n_n4267 0 1 2 open 4 open 
+
+.clb n_n3899  # Only LUT used.
+pinlist: n_n4316 n_n3901 n_n3900 open n_n3899 open 
+subblock: n_n3899 0 1 2 open 4 open 
+
+.clb [906]  # Only LUT used.
+pinlist: n_n4299 n_n4079 n_n3240 n_n3253 [906] open 
+subblock: [906] 0 1 2 3 4 open 
+
+.clb [1128]  # Only LUT used.
+pinlist: n_n3975 n_n3974 [2188] [6275] [1128] open 
+subblock: [1128] 0 1 2 3 4 open 
+
+.clb [1129]  # Only LUT used.
+pinlist: n_n3981 [2174] [6281] open [1129] open 
+subblock: [1129] 0 1 2 open 4 open 
+
+.clb [908]  # Only LUT used.
+pinlist: n_n3946 n_n4116 n_n3927 open [908] open 
+subblock: [908] 0 1 2 open 4 open 
+
+.clb n_n4254  # Only LUT used.
+pinlist: n_n4258 n_n4256 [902] [908] n_n4254 open 
+subblock: n_n4254 0 1 2 3 4 open 
+
+.clb n_n3923  # Only LUT used.
+pinlist: n_n4316 n_n4315 n_n4155 open n_n3923 open 
+subblock: n_n3923 0 1 2 open 4 open 
+
+.clb [1137]  # Only LUT used.
+pinlist: n_n4079 n_n4297 n_n3786 n_n3785 [1137] open 
+subblock: [1137] 0 1 2 3 4 open 
+
+.clb [1136]  # Only LUT used.
+pinlist: n_n3726 n_n3841 [1078] n_n3888 [1136] open 
+subblock: [1136] 0 1 2 3 4 open 
+
+.clb n_n3927  # Only LUT used.
+pinlist: n_n3743 n_n3741 [6250] open n_n3927 open 
+subblock: n_n3927 0 1 2 open 4 open 
+
+.clb [914]  # Only LUT used.
+pinlist: n_n4096 n_n4097 [1898] [1899] [914] open 
+subblock: [914] 0 1 2 3 4 open 
+
+.clb [936]  # Only LUT used.
+pinlist: n_n3788 [2264] [6254] [6309] [936] open 
+subblock: [936] 0 1 2 3 4 open 
+
+.clb [1155]  # Only LUT used.
+pinlist: pready_0_0_ ndn3_4 nsr3_3 nrq3_2 [1155] open 
+subblock: [1155] 0 1 2 3 4 open 
+
+.clb [1008]  # Only LUT used.
+pinlist: n_n3493 n_n4045 n_n4367 open [1008] open 
+subblock: [1008] 0 1 2 open 4 open 
+
+.clb [1019]  # Only LUT used.
+pinlist: n_n4366 n_n4145 n_n3898 n_n3869 [1019] open 
+subblock: [1019] 0 1 2 3 4 open 
+
+.clb [1034]  # Only LUT used.
+pinlist: n_n3916 n_n4047 n_n3898 n_n3870 [1034] open 
+subblock: [1034] 0 1 2 3 4 open 
+
+.clb [1038]  # Only LUT used.
+pinlist: n_n4047 n_n4229 n_n3769 n_n3899 [1038] open 
+subblock: [1038] 0 1 2 3 4 open 
+
+.clb [1051]  # Only LUT used.
+pinlist: n_n4316 n_n3769 n_n3901 n_n3900 [1051] open 
+subblock: [1051] 0 1 2 3 4 open 
+
+.clb [1062]  # Only LUT used.
+pinlist: n_n3475 n_n4145 n_n3841 n_n3205 [1062] open 
+subblock: [1062] 0 1 2 3 4 open 
+
+.clb [1082]  # Only LUT used.
+pinlist: n_n3707 n_n3851 n_n4026 n_n3852 [1082] open 
+subblock: [1082] 0 1 2 3 4 open 
+
+.clb [911]  # Only LUT used.
+pinlist: tin_pready_0_0_ n_n4108 n_n3354 nsr4_2 [911] open 
+subblock: [911] 0 1 2 3 4 open 
+
+.clb [921]  # Only LUT used.
+pinlist: preset n_n3831 [922] [937] [921] open 
+subblock: [921] 0 1 2 3 4 open 
+
+.clb [922]  # Only LUT used.
+pinlist: n_n3788 [2264] [6254] [6387] [922] open 
+subblock: [922] 0 1 2 3 4 open 
+
+.clb [937]  # Only LUT used.
+pinlist: n_n3788 [1082] [2264] [6254] [937] open 
+subblock: [937] 0 1 2 3 4 open 
+
+.clb [946]  # Only LUT used.
+pinlist: n_n3814 n_n3832 [6255] [6257] [946] open 
+subblock: [946] 0 1 2 3 4 open 
+
+.clb [971]  # Only LUT used.
+pinlist: preset pdn n_n3806 nrq1_3 [971] open 
+subblock: [971] 0 1 2 3 4 open 
+
+.clb [974]  # Only LUT used.
+pinlist: preset pdn n_n3537 nrq1_3 [974] open 
+subblock: [974] 0 1 2 3 4 open 
+
+.clb [976]  # Only LUT used.
+pinlist: preset nrq3_11 ngfdn_3 n_n3099 [976] open 
+subblock: [976] 0 1 2 3 4 open 
+
+.clb [978]  # Only LUT used.
+pinlist: preset pdn n_n3646 nrq1_3 [978] open 
+subblock: [978] 0 1 2 3 4 open 
+
+.clb [983]  # Only LUT used.
+pinlist: preset pdn n_n3739 nrq1_3 [983] open 
+subblock: [983] 0 1 2 3 4 open 
+
+.clb [1165]  # Only LUT used.
+pinlist: preset n_n4299 n_n3832 [6255] [1165] open 
+subblock: [1165] 0 1 2 3 4 open 
+
+.clb [1166]  # Only LUT used.
+pinlist: n_n4080 n_n3832 [6255] [6257] [1166] open 
+subblock: [1166] 0 1 2 3 4 open 
+
+.clb [1167]  # Only LUT used.
+pinlist: n_n4080 [896] n_n4079 n_n4078 [1167] open 
+subblock: [1167] 0 1 2 3 4 open 
+
+.clb [1168]  # Only LUT used.
+pinlist: preset ndn3_15 ngfdn_3 n_n3608 [1168] open 
+subblock: [1168] 0 1 2 3 4 open 
+
+.clb [1171]  # Only LUT used.
+pinlist: preset n_n3756 n_n3832 [6255] [1171] open 
+subblock: [1171] 0 1 2 3 4 open 
+
+.clb [1172]  # Only LUT used.
+pinlist: n_n4159 n_n3976 n_n3959 [896] [1172] open 
+subblock: [1172] 0 1 2 3 4 open 
+
+.clb [1173]  # Only LUT used.
+pinlist: n_n4159 n_n3976 [896] open [1173] open 
+subblock: [1173] 0 1 2 open 4 open 
+
+.clb [1179]  # Only LUT used.
+pinlist: preset pdn n_n3486 nrq1_3 [1179] open 
+subblock: [1179] 0 1 2 3 4 open 
+
+.clb [1182]  # Only LUT used.
+pinlist: preset n_n3865 n_n4126 n_n3500 [1182] open 
+subblock: [1182] 0 1 2 3 4 open 
+
+.clb [1184]  # Only LUT used.
+pinlist: n_n3922 n_n3656 [2011] open [1184] open 
+subblock: [1184] 0 1 2 open 4 open 
+
+.clb [1187]  # Only LUT used.
+pinlist: preset n_n3845 n_n4126 n_n3500 [1187] open 
+subblock: [1187] 0 1 2 3 4 open 
+
+.clb [1189]  # Only LUT used.
+pinlist: n_n3968 n_n3656 [2011] open [1189] open 
+subblock: [1189] 0 1 2 open 4 open 
+
+.clb [1191]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3931 [1191] open 
+subblock: [1191] 0 1 2 3 4 open 
+
+.clb [1195]  # Only LUT used.
+pinlist: preset n_n3878 [1155] open [1195] open 
+subblock: [1195] 0 1 2 open 4 open 
+
+.clb [1199]  # Only LUT used.
+pinlist: preset pdn n_n4180 nrq1_3 [1199] open 
+subblock: [1199] 0 1 2 3 4 open 
+
+.clb [1201]  # Only LUT used.
+pinlist: preset pdn n_n3277 nrq1_3 [1201] open 
+subblock: [1201] 0 1 2 3 4 open 
+
+.clb [1204]  # Only LUT used.
+pinlist: preset pdn n_n4102 nrq1_3 [1204] open 
+subblock: [1204] 0 1 2 3 4 open 
+
+.clb [1206]  # Only LUT used.
+pinlist: preset pdn n_n4342 nrq1_3 [1206] open 
+subblock: [1206] 0 1 2 3 4 open 
+
+.clb [1208]  # Only LUT used.
+pinlist: [1015] n_n3788 [2264] [6254] [1208] open 
+subblock: [1208] 0 1 2 3 4 open 
+
+.clb [1212]  # Only LUT used.
+pinlist: preset ndn3_10 nen3_10 n_n3841 [1212] open 
+subblock: [1212] 0 1 2 3 4 open 
+
+.clb [1213]  # Only LUT used.
+pinlist: [1004] n_n3324 n_n3243 [914] [1213] open 
+subblock: [1213] 0 1 2 3 4 open 
+
+.clb [1214]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 n_n4182 [1214] open 
+subblock: [1214] 0 1 2 3 4 open 
+
+.clb [1218]  # Only LUT used.
+pinlist: preset pdn n_n3413 nrq1_3 [1218] open 
+subblock: [1218] 0 1 2 3 4 open 
+
+.clb [1225]  # Only LUT used.
+pinlist: n_n3831 n_n3788 [2264] [6254] [1225] open 
+subblock: [1225] 0 1 2 3 4 open 
+
+.clb [1230]  # Only LUT used.
+pinlist: n_n3724 n_n4227 n_n3814 [896] [1230] open 
+subblock: [1230] 0 1 2 3 4 open 
+
+.clb [1232]  # Only LUT used.
+pinlist: preset pdn n_n3337 nrq1_3 [1232] open 
+subblock: [1232] 0 1 2 3 4 open 
+
+.clb [1242]  # Only LUT used.
+pinlist: preset pdn n_n4209 nrq1_3 [1242] open 
+subblock: [1242] 0 1 2 3 4 open 
+
+.clb [1246]  # Only LUT used.
+pinlist: preset pdn n_n3342 nrq1_3 [1246] open 
+subblock: [1246] 0 1 2 3 4 open 
+
+.clb [1248]  # Only LUT used.
+pinlist: preset pdn n_n3667 nrq1_3 [1248] open 
+subblock: [1248] 0 1 2 3 4 open 
+
+.clb [1251]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n3756 [1251] open 
+subblock: [1251] 0 1 2 3 4 open 
+
+.clb [1259]  # Only LUT used.
+pinlist: preset ndn3_15 n_n4095 ngfdn_3 [1259] open 
+subblock: [1259] 0 1 2 3 4 open 
+
+.clb [1260]  # Only LUT used.
+pinlist: [1002] [1094] [1898] [1899] [1260] open 
+subblock: [1260] 0 1 2 3 4 open 
+
+.clb [1261]  # Only LUT used.
+pinlist: preset pdn n_n3394 nrq1_3 [1261] open 
+subblock: [1261] 0 1 2 3 4 open 
+
+.clb [1263]  # Only LUT used.
+pinlist: preset ndn3_10 nen3_10 n_n3976 [1263] open 
+subblock: [1263] 0 1 2 3 4 open 
+
+.clb [1265]  # Only LUT used.
+pinlist: preset pdn n_n4166 nrq1_3 [1265] open 
+subblock: [1265] 0 1 2 3 4 open 
+
+.clb [1267]  # Only LUT used.
+pinlist: preset pdn n_n3572 nrq1_3 [1267] open 
+subblock: [1267] 0 1 2 3 4 open 
+
+.clb [1270]  # Only LUT used.
+pinlist: preset pdn n_n3514 nrq1_3 [1270] open 
+subblock: [1270] 0 1 2 3 4 open 
+
+.clb [1271]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n4062 [1271] open 
+subblock: [1271] 0 1 2 3 4 open 
+
+.clb [1275]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n4021 [1275] open 
+subblock: [1275] 0 1 2 3 4 open 
+
+.clb [1280]  # Only LUT used.
+pinlist: n_n3766 [947] [1584] [1586] [1280] open 
+subblock: [1280] 0 1 2 3 4 open 
+
+.clb [1282]  # Only LUT used.
+pinlist: preset pdn n_n3966 nrq1_3 [1282] open 
+subblock: [1282] 0 1 2 3 4 open 
+
+.clb [1283]  # Only LUT used.
+pinlist: preset pdn n_n4199 nrq1_3 [1283] open 
+subblock: [1283] 0 1 2 3 4 open 
+
+.clb [1285]  # Only LUT used.
+pinlist: preset pdn n_n4247 nrq1_3 [1285] open 
+subblock: [1285] 0 1 2 3 4 open 
+
+.clb [1287]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n4360 [1287] open 
+subblock: [1287] 0 1 2 3 4 open 
+
+.clb [1291]  # Only LUT used.
+pinlist: preset pdn n_n4320 nrq1_3 [1291] open 
+subblock: [1291] 0 1 2 3 4 open 
+
+.clb [1295]  # Only LUT used.
+pinlist: preset pdn n_n3108 nrq1_3 [1295] open 
+subblock: [1295] 0 1 2 3 4 open 
+
+.clb [1298]  # Only LUT used.
+pinlist: preset pdn n_n3910 nrq1_3 [1298] open 
+subblock: [1298] 0 1 2 3 4 open 
+
+.clb [1301]  # Only LUT used.
+pinlist: preset pdn n_n3758 nrq1_3 [1301] open 
+subblock: [1301] 0 1 2 3 4 open 
+
+.clb [1303]  # Only LUT used.
+pinlist: preset ndn3_8 ndn3_9 n_n3170 [1303] open 
+subblock: [1303] 0 1 2 3 4 open 
+
+.clb [1307]  # Only LUT used.
+pinlist: preset ndn3_8 ndn3_9 n_n3250 [1307] open 
+subblock: [1307] 0 1 2 3 4 open 
+
+.clb [1312]  # Only LUT used.
+pinlist: preset pdn n_n4303 nrq1_3 [1312] open 
+subblock: [1312] 0 1 2 3 4 open 
+
+.clb [1315]  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 nsr1_2 open [1315] open 
+subblock: [1315] 0 1 2 open 4 open 
+
+.clb [1316]  # Only LUT used.
+pinlist: preset_0_0_ nlc1_2 nsr1_2 n_n4151 [1316] open 
+subblock: [1316] 0 1 2 3 4 open 
+
+.clb [1318]  # Only LUT used.
+pinlist: n_n4045 nsr3_17 nsr3_14 n_n4367 [1318] open 
+subblock: [1318] 0 1 2 3 4 open 
+
+.clb [1323]  # Only LUT used.
+pinlist: preset n_n4029 n_n4126 n_n3500 [1323] open 
+subblock: [1323] 0 1 2 3 4 open 
+
+.clb [1325]  # Only LUT used.
+pinlist: n_n3533 n_n3656 [2011] open [1325] open 
+subblock: [1325] 0 1 2 open 4 open 
+
+.clb [1329]  # Only LUT used.
+pinlist: preset n_n3208 [1155] open [1329] open 
+subblock: [1329] 0 1 2 open 4 open 
+
+.clb [1333]  # Only LUT used.
+pinlist: preset nrq3_11 n_n4157 ngfdn_3 [1333] open 
+subblock: [1333] 0 1 2 3 4 open 
+
+.clb [1335]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n4299 [1335] open 
+subblock: [1335] 0 1 2 3 4 open 
+
+.clb [1339]  # Only LUT used.
+pinlist: preset pdn n_n3883 nrq1_3 [1339] open 
+subblock: [1339] 0 1 2 3 4 open 
+
+.clb [1341]  # Only LUT used.
+pinlist: preset pdn n_n3331 nrq1_3 [1341] open 
+subblock: [1341] 0 1 2 3 4 open 
+
+.clb [1347]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 n_n4330 [1347] open 
+subblock: [1347] 0 1 2 3 4 open 
+
+.clb [1351]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 n_n4159 [1351] open 
+subblock: [1351] 0 1 2 3 4 open 
+
+.clb [1355]  # Only LUT used.
+pinlist: preset pdn n_n4309 nrq1_3 [1355] open 
+subblock: [1355] 0 1 2 3 4 open 
+
+.clb [1357]  # Only LUT used.
+pinlist: preset pdn n_n3722 nrq1_3 [1357] open 
+subblock: [1357] 0 1 2 3 4 open 
+
+.clb [1360]  # Only LUT used.
+pinlist: preset pdn n_n3823 nrq1_3 [1360] open 
+subblock: [1360] 0 1 2 3 4 open 
+
+.clb [1362]  # Only LUT used.
+pinlist: preset n_n3934 n_n4126 [1363] [1362] open 
+subblock: [1362] 0 1 2 3 4 open 
+
+.clb [1363]  # Only LUT used.
+pinlist: n_n3976 [916] open open [1363] open 
+subblock: [1363] 0 1 open open 4 open 
+
+.clb [1365]  # Only LUT used.
+pinlist: n_n4316 n_n3901 [916] n_n3900 [1365] open 
+subblock: [1365] 0 1 2 3 4 open 
+
+.clb [1375]  # Only LUT used.
+pinlist: preset pdn n_n3385 nrq1_3 [1375] open 
+subblock: [1375] 0 1 2 3 4 open 
+
+.clb [1378]  # Only LUT used.
+pinlist: preset pdn n_n3202 nrq1_3 [1378] open 
+subblock: [1378] 0 1 2 3 4 open 
+
+.clb [1381]  # Only LUT used.
+pinlist: preset pdn n_n3055 nrq1_3 [1381] open 
+subblock: [1381] 0 1 2 3 4 open 
+
+.clb [1385]  # Only LUT used.
+pinlist: preset pdn n_n3463 nrq1_3 [1385] open 
+subblock: [1385] 0 1 2 3 4 open 
+
+.clb [1387]  # Only LUT used.
+pinlist: preset ndn3_6 ndn3_7 n_n3533 [1387] open 
+subblock: [1387] 0 1 2 3 4 open 
+
+.clb [1391]  # Only LUT used.
+pinlist: preset n_n4258 n_n3832 [6255] [1391] open 
+subblock: [1391] 0 1 2 3 4 open 
+
+.clb [1392]  # Only LUT used.
+pinlist: n_n3818 n_n3832 [6255] [6257] [1392] open 
+subblock: [1392] 0 1 2 3 4 open 
+
+.clb [1393]  # Only LUT used.
+pinlist: n_n3818 [896] n_n4256 n_n3595 [1393] open 
+subblock: [1393] 0 1 2 3 4 open 
+
+.clb [1400]  # Only LUT used.
+pinlist: preset pdn n_n4390 nrq1_3 [1400] open 
+subblock: [1400] 0 1 2 3 4 open 
+
+.clb [1402]  # Only LUT used.
+pinlist: n_n4229 [916] [1051] open [1402] open 
+subblock: [1402] 0 1 2 open 4 open 
+
+.clb [1412]  # Only LUT used.
+pinlist: preset pdn n_n4136 nrq1_3 [1412] open 
+subblock: [1412] 0 1 2 3 4 open 
+
+.clb [1414]  # Only LUT used.
+pinlist: preset pdn n_n4192 nrq1_3 [1414] open 
+subblock: [1414] 0 1 2 3 4 open 
+
+.clb [1416]  # Only LUT used.
+pinlist: preset pdn n_n3126 nrq1_3 [1416] open 
+subblock: [1416] 0 1 2 3 4 open 
+
+.clb [1425]  # Only LUT used.
+pinlist: preset pdn n_n3089 nrq1_3 [1425] open 
+subblock: [1425] 0 1 2 3 4 open 
+
+.clb [1427]  # Only LUT used.
+pinlist: preset pdn n_n3713 nrq1_3 [1427] open 
+subblock: [1427] 0 1 2 3 4 open 
+
+.clb [1429]  # Only LUT used.
+pinlist: preset ndn3_8 n_n3578 ndn3_9 [1429] open 
+subblock: [1429] 0 1 2 3 4 open 
+
+.clb [1433]  # Only LUT used.
+pinlist: preset ndn3_8 n_n3624 ndn3_9 [1433] open 
+subblock: [1433] 0 1 2 3 4 open 
+
+.clb [1437]  # Only LUT used.
+pinlist: preset pdn n_n3370 nrq1_3 [1437] open 
+subblock: [1437] 0 1 2 3 4 open 
+
+.clb [1447]  # Only LUT used.
+pinlist: preset pdn n_n3213 nrq1_3 [1447] open 
+subblock: [1447] 0 1 2 3 4 open 
+
+.clb [1449]  # Only LUT used.
+pinlist: preset n_n3657 nrq3_11 ngfdn_3 [1449] open 
+subblock: [1449] 0 1 2 3 4 open 
+
+.clb [1451]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n3743 [1451] open 
+subblock: [1451] 0 1 2 3 4 open 
+
+.clb [1455]  # Only LUT used.
+pinlist: preset pdn n_n3223 nrq1_3 [1455] open 
+subblock: [1455] 0 1 2 3 4 open 
+
+.clb [1463]  # Only LUT used.
+pinlist: preset pdn n_n4236 nrq1_3 [1463] open 
+subblock: [1463] 0 1 2 3 4 open 
+
+.clb [1465]  # Only LUT used.
+pinlist: preset pdn n_n4372 nrq1_3 [1465] open 
+subblock: [1465] 0 1 2 3 4 open 
+
+.clb [1468]  # Only LUT used.
+pinlist: preset pdn n_n3136 nrq1_3 [1468] open 
+subblock: [1468] 0 1 2 3 4 open 
+
+.clb [1470]  # Only LUT used.
+pinlist: preset n_n3954 n_n4126 n_n3500 [1470] open 
+subblock: [1470] 0 1 2 3 4 open 
+
+.clb [1472]  # Only LUT used.
+pinlist: n_n4349 n_n3656 [2011] open [1472] open 
+subblock: [1472] 0 1 2 open 4 open 
+
+.clb [1477]  # Only LUT used.
+pinlist: n_n4056 n_n4098 [6349] [6355] [1477] open 
+subblock: [1477] 0 1 2 3 4 open 
+
+.clb [1482]  # Only LUT used.
+pinlist: preset n_n3259 [1155] open [1482] open 
+subblock: [1482] 0 1 2 open 4 open 
+
+.clb [1486]  # Only LUT used.
+pinlist: preset n_n3085 nrq3_11 ngfdn_3 [1486] open 
+subblock: [1486] 0 1 2 3 4 open 
+
+.clb [1487]  # Only LUT used.
+pinlist: n_n3810 [1110] [2049] [2050] [1487] open 
+subblock: [1487] 0 1 2 3 4 open 
+
+.clb [1488]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n3946 [1488] open 
+subblock: [1488] 0 1 2 3 4 open 
+
+.clb [1492]  # Only LUT used.
+pinlist: n_n3709 [1137] [1136] [6290] [1492] open 
+subblock: [1492] 0 1 2 3 4 open 
+
+.clb [1494]  # Only LUT used.
+pinlist: preset pdn n_n3777 nrq1_3 [1494] open 
+subblock: [1494] 0 1 2 3 4 open 
+
+.clb [1497]  # Only LUT used.
+pinlist: preset pdn n_n3073 nrq1_3 [1497] open 
+subblock: [1497] 0 1 2 3 4 open 
+
+.clb [1500]  # Only LUT used.
+pinlist: n_n4012 [896] [1012] [6330] [1500] open 
+subblock: [1500] 0 1 2 3 4 open 
+
+.clb [1504]  # Only LUT used.
+pinlist: preset pdn n_n3436 nrq1_3 [1504] open 
+subblock: [1504] 0 1 2 3 4 open 
+
+.clb [1508]  # Only LUT used.
+pinlist: preset ndn3_15 n_n4351 ngfdn_3 [1508] open 
+subblock: [1508] 0 1 2 3 4 open 
+
+.clb [1509]  # Only LUT used.
+pinlist: [1002] [1110] [2049] [2050] [1509] open 
+subblock: [1509] 0 1 2 3 4 open 
+
+.clb [1510]  # Only LUT used.
+pinlist: preset pdn n_n3287 nrq1_3 [1510] open 
+subblock: [1510] 0 1 2 3 4 open 
+
+.clb [1513]  # Only LUT used.
+pinlist: preset pdn n_n3679 nrq1_3 [1513] open 
+subblock: [1513] 0 1 2 3 4 open 
+
+.clb [1514]  # Only LUT used.
+pinlist: preset pdn n_n4065 nrq1_3 [1514] open 
+subblock: [1514] 0 1 2 3 4 open 
+
+.clb [1518]  # Only LUT used.
+pinlist: preset pdn n_n3138 nrq1_3 [1518] open 
+subblock: [1518] 0 1 2 3 4 open 
+
+.clb [1520]  # Only LUT used.
+pinlist: preset pdn n_n3631 nrq1_3 [1520] open 
+subblock: [1520] 0 1 2 3 4 open 
+
+.clb [1524]  # Only LUT used.
+pinlist: preset pdn n_n3020 nrq1_3 [1524] open 
+subblock: [1524] 0 1 2 3 4 open 
+
+.clb [1527]  # Only LUT used.
+pinlist: preset pdn n_n3057 nrq1_3 [1527] open 
+subblock: [1527] 0 1 2 3 4 open 
+
+.clb [1529]  # Only LUT used.
+pinlist: preset pdn n_n3404 nrq1_3 [1529] open 
+subblock: [1529] 0 1 2 3 4 open 
+
+.clb [1534]  # Only LUT used.
+pinlist: preset pdn n_n3069 nrq1_3 [1534] open 
+subblock: [1534] 0 1 2 3 4 open 
+
+.clb [1538]  # Only LUT used.
+pinlist: n_n3483 [982] [1539] [1724] [1538] open 
+subblock: [1538] 0 1 2 3 4 open 
+
+.clb [1539]  # Only LUT used.
+pinlist: n_n4334 [896] open open [1539] open 
+subblock: [1539] 0 1 open open 4 open 
+
+.clb [1541]  # Only LUT used.
+pinlist: preset ndn3_7 ndn3_8 n_n4362 [1541] open 
+subblock: [1541] 0 1 2 3 4 open 
+
+.clb [1547]  # Only LUT used.
+pinlist: preset ndn3_6 ndn3_7 n_n4201 [1547] open 
+subblock: [1547] 0 1 2 3 4 open 
+
+.clb [1551]  # Only LUT used.
+pinlist: preset ndn3_10 n_n4229 nen3_10 [1551] open 
+subblock: [1551] 0 1 2 3 4 open 
+
+.clb [1552]  # Only LUT used.
+pinlist: [1004] [1110] [2049] [2050] [1552] open 
+subblock: [1552] 0 1 2 3 4 open 
+
+.clb [1557]  # Only LUT used.
+pinlist: preset pdn n_n3408 nrq1_3 [1557] open 
+subblock: [1557] 0 1 2 3 4 open 
+
+.clb [1561]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3451 [1561] open 
+subblock: [1561] 0 1 2 3 4 open 
+
+.clb [1565]  # Only LUT used.
+pinlist: n_n4057 n_n4056 n_n4098 [6349] [1565] open 
+subblock: [1565] 0 1 2 3 4 open 
+
+.clb [1574]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3854 [1574] open 
+subblock: [1574] 0 1 2 3 4 open 
+
+.clb [1580]  # Only LUT used.
+pinlist: n_n3832 n_n4296 [6255] [6342] [1580] open 
+subblock: [1580] 0 1 2 3 4 open 
+
+.clb [1582]  # Only LUT used.
+pinlist: n_n3766 [896] open open [1582] open 
+subblock: [1582] 0 1 open open 4 open 
+
+.clb [1584]  # Only LUT used.
+pinlist: n_n4227 [896] open open [1584] open 
+subblock: [1584] 0 1 open open 4 open 
+
+.clb [1586]  # Only LUT used.
+pinlist: n_n3724 [896] open open [1586] open 
+subblock: [1586] 0 1 open open 4 open 
+
+.clb [1588]  # Only LUT used.
+pinlist: n_n3814 [896] open open [1588] open 
+subblock: [1588] 0 1 open open 4 open 
+
+.clb [1594]  # Only LUT used.
+pinlist: preset ndn3_6 ndn3_7 n_n3922 [1594] open 
+subblock: [1594] 0 1 2 3 4 open 
+
+.clb [1598]  # Only LUT used.
+pinlist: preset ndn3_6 ndn3_7 n_n3968 [1598] open 
+subblock: [1598] 0 1 2 3 4 open 
+
+.clb [1602]  # Only LUT used.
+pinlist: preset pdn n_n3237 nrq1_3 [1602] open 
+subblock: [1602] 0 1 2 3 4 open 
+
+.clb [1604]  # Only LUT used.
+pinlist: preset pdn n_n3952 nrq1_3 [1604] open 
+subblock: [1604] 0 1 2 3 4 open 
+
+.clb [1612]  # Only LUT used.
+pinlist: preset n_n4122 nrq3_11 ngfdn_3 [1612] open 
+subblock: [1612] 0 1 2 3 4 open 
+
+.clb [1613]  # Only LUT used.
+pinlist: n_n3810 [1094] [1898] [1899] [1613] open 
+subblock: [1613] 0 1 2 3 4 open 
+
+.clb [1614]  # Only LUT used.
+pinlist: preset ndn3_10 n_n3898 nen3_10 [1614] open 
+subblock: [1614] 0 1 2 3 4 open 
+
+.clb [1621]  # Only LUT used.
+pinlist: preset n_n4099 n_n4126 n_n3500 [1621] open 
+subblock: [1621] 0 1 2 3 4 open 
+
+.clb [1623]  # Only LUT used.
+pinlist: n_n4337 n_n3656 [2011] open [1623] open 
+subblock: [1623] 0 1 2 open 4 open 
+
+.clb [1630]  # Only LUT used.
+pinlist: preset n_n4052 n_n4126 n_n3500 [1630] open 
+subblock: [1630] 0 1 2 3 4 open 
+
+.clb [1632]  # Only LUT used.
+pinlist: n_n4052 n_n3865 [984] n_n4305 [1632] open 
+subblock: [1632] 0 1 2 3 4 open 
+
+.clb [1633]  # Only LUT used.
+pinlist: n_n4071 n_n3656 [2011] open [1633] open 
+subblock: [1633] 0 1 2 open 4 open 
+
+.clb [1638]  # Only LUT used.
+pinlist: preset pdn n_n3985 nrq1_3 [1638] open 
+subblock: [1638] 0 1 2 3 4 open 
+
+.clb [1640]  # Only LUT used.
+pinlist: preset pdn n_n3091 nrq1_3 [1640] open 
+subblock: [1640] 0 1 2 3 4 open 
+
+.clb [1642]  # Only LUT used.
+pinlist: preset pdn n_n4003 nrq1_3 [1642] open 
+subblock: [1642] 0 1 2 3 4 open 
+
+.clb [1647]  # Only LUT used.
+pinlist: preset ndn3_10 n_n4145 nen3_10 [1647] open 
+subblock: [1647] 0 1 2 3 4 open 
+
+.clb [1648]  # Only LUT used.
+pinlist: [1004] [1094] [1898] [1899] [1648] open 
+subblock: [1648] 0 1 2 3 4 open 
+
+.clb [1655]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3978 [1655] open 
+subblock: [1655] 0 1 2 3 4 open 
+
+.clb [1659]  # Only LUT used.
+pinlist: n_n3916 [916] [1038] open [1659] open 
+subblock: [1659] 0 1 2 open 4 open 
+
+.clb [1671]  # Only LUT used.
+pinlist: preset pdn n_n3183 nrq1_3 [1671] open 
+subblock: [1671] 0 1 2 3 4 open 
+
+.clb [1673]  # Only LUT used.
+pinlist: preset ndn3_15 n_n4288 ngfdn_3 [1673] open 
+subblock: [1673] 0 1 2 3 4 open 
+
+.clb [1679]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 n_n4270 [1679] open 
+subblock: [1679] 0 1 2 3 4 open 
+
+.clb [1683]  # Only LUT used.
+pinlist: preset pdn n_n3449 nrq1_3 [1683] open 
+subblock: [1683] 0 1 2 3 4 open 
+
+.clb [1686]  # Only LUT used.
+pinlist: preset pdn n_n3971 nrq1_3 [1686] open 
+subblock: [1686] 0 1 2 3 4 open 
+
+.clb [1687]  # Only LUT used.
+pinlist: preset pdn n_n3429 nrq1_3 [1687] open 
+subblock: [1687] 0 1 2 3 4 open 
+
+.clb [1689]  # Only LUT used.
+pinlist: preset pdn n_n3319 nrq1_3 [1689] open 
+subblock: [1689] 0 1 2 3 4 open 
+
+.clb [1693]  # Only LUT used.
+pinlist: preset pdn n_n3506 nrq1_3 [1693] open 
+subblock: [1693] 0 1 2 3 4 open 
+
+.clb [1699]  # Only LUT used.
+pinlist: preset ndn3_15 n_n3458 ngfdn_3 [1699] open 
+subblock: [1699] 0 1 2 3 4 open 
+
+.clb [1707]  # Only LUT used.
+pinlist: preset ndn3_15 n_n4233 ngfdn_3 [1707] open 
+subblock: [1707] 0 1 2 3 4 open 
+
+.clb [1708]  # Only LUT used.
+pinlist: [1002] n_n3324 n_n3243 [914] [1708] open 
+subblock: [1708] 0 1 2 3 4 open 
+
+.clb [1711]  # Only LUT used.
+pinlist: preset pdn n_n3155 nrq1_3 [1711] open 
+subblock: [1711] 0 1 2 3 4 open 
+
+.clb [1716]  # Only LUT used.
+pinlist: preset n_n3955 n_n4126 n_n3500 [1716] open 
+subblock: [1716] 0 1 2 3 4 open 
+
+.clb [1719]  # Only LUT used.
+pinlist: n_n4201 n_n3656 [2011] open [1719] open 
+subblock: [1719] 0 1 2 open 4 open 
+
+.clb [1724]  # Only LUT used.
+pinlist: n_n4012 [896] open open [1724] open 
+subblock: [1724] 0 1 open open 4 open 
+
+.clb [1726]  # Only LUT used.
+pinlist: n_n4275 n_n3766 [896] [1012] [1726] open 
+subblock: [1726] 0 1 2 3 4 open 
+
+.clb [1728]  # Only LUT used.
+pinlist: preset n_n4294 [1155] open [1728] open 
+subblock: [1728] 0 1 2 open 4 open 
+
+.clb [1736]  # Only LUT used.
+pinlist: preset ndn3_5 ndn3_6 n_n4251 [1736] open 
+subblock: [1736] 0 1 2 3 4 open 
+
+.clb [1740]  # Only LUT used.
+pinlist: preset pdn n_n3736 nrq1_3 [1740] open 
+subblock: [1740] 0 1 2 3 4 open 
+
+.clb [1742]  # Only LUT used.
+pinlist: preset pdn n_n3896 nrq1_3 [1742] open 
+subblock: [1742] 0 1 2 3 4 open 
+
+.clb [1745]  # Only LUT used.
+pinlist: preset pdn n_n4279 nrq1_3 [1745] open 
+subblock: [1745] 0 1 2 3 4 open 
+
+.clb [1752]  # Only LUT used.
+pinlist: preset n_n4362 n_n3832 [6255] [1752] open 
+subblock: [1752] 0 1 2 3 4 open 
+
+.clb [1753]  # Only LUT used.
+pinlist: n_n3988 n_n3832 [6255] [6257] [1753] open 
+subblock: [1753] 0 1 2 3 4 open 
+
+.clb [1754]  # Only LUT used.
+pinlist: n_n3988 [896] n_n3745 n_n3622 [1754] open 
+subblock: [1754] 0 1 2 3 4 open 
+
+.clb [1755]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3328 [1755] open 
+subblock: [1755] 0 1 2 3 4 open 
+
+.clb [1767]  # Only LUT used.
+pinlist: preset pdn n_n3761 nrq1_3 [1767] open 
+subblock: [1767] 0 1 2 3 4 open 
+
+.clb [1771]  # Only LUT used.
+pinlist: preset n_n3946 n_n3832 [6255] [1771] open 
+subblock: [1771] 0 1 2 3 4 open 
+
+.clb [1772]  # Only LUT used.
+pinlist: n_n3995 n_n3832 [6255] [6257] [1772] open 
+subblock: [1772] 0 1 2 3 4 open 
+
+.clb [1773]  # Only LUT used.
+pinlist: n_n3995 [896] n_n4116 n_n3994 [1773] open 
+subblock: [1773] 0 1 2 3 4 open 
+
+.clb [1774]  # Only LUT used.
+pinlist: preset pdn n_n3128 nrq1_3 [1774] open 
+subblock: [1774] 0 1 2 3 4 open 
+
+.clb [1776]  # Only LUT used.
+pinlist: preset n_n3919 [1155] open [1776] open 
+subblock: [1776] 0 1 2 open 4 open 
+
+.clb [1780]  # Only LUT used.
+pinlist: preset n_n3886 [1155] open [1780] open 
+subblock: [1780] 0 1 2 open 4 open 
+
+.clb [1784]  # Only LUT used.
+pinlist: preset pdn n_n3048 nrq1_3 [1784] open 
+subblock: [1784] 0 1 2 3 4 open 
+
+.clb [1786]  # Only LUT used.
+pinlist: preset pdn n_n3061 nrq1_3 [1786] open 
+subblock: [1786] 0 1 2 3 4 open 
+
+.clb [1788]  # Only LUT used.
+pinlist: preset pdn n_n3316 nrq1_3 [1788] open 
+subblock: [1788] 0 1 2 3 4 open 
+
+.clb [1792]  # Only LUT used.
+pinlist: preset pdn n_n3906 nrq1_3 [1792] open 
+subblock: [1792] 0 1 2 3 4 open 
+
+.clb [1795]  # Only LUT used.
+pinlist: preset pdn n_n3583 nrq1_3 [1795] open 
+subblock: [1795] 0 1 2 3 4 open 
+
+.clb [1800]  # Only LUT used.
+pinlist: preset pdn n_n3358 nrq1_3 [1800] open 
+subblock: [1800] 0 1 2 3 4 open 
+
+.clb [1806]  # Only LUT used.
+pinlist: preset pdn n_n4243 nrq1_3 [1806] open 
+subblock: [1806] 0 1 2 3 4 open 
+
+.clb [1812]  # Only LUT used.
+pinlist: preset ndn3_6 n_n4337 ndn3_7 [1812] open 
+subblock: [1812] 0 1 2 3 4 open 
+
+.clb [1825]  # Only LUT used.
+pinlist: preset pdn n_n3207 nrq1_3 [1825] open 
+subblock: [1825] 0 1 2 3 4 open 
+
+.clb [1830]  # Only LUT used.
+pinlist: preset pdn n_n3465 nrq1_3 [1830] open 
+subblock: [1830] 0 1 2 3 4 open 
+
+.clb [1833]  # Only LUT used.
+pinlist: pdn ndn1_34 nrq1_3 [6325] [1833] open 
+subblock: [1833] 0 1 2 3 4 open 
+
+.clb [1837]  # Only LUT used.
+pinlist: preset n_n3892 ndn3_6 ndn3_7 [1837] open 
+subblock: [1837] 0 1 2 3 4 open 
+
+.clb [1843]  # Only LUT used.
+pinlist: preset ndn3_5 n_n4383 ndn3_6 [1843] open 
+subblock: [1843] 0 1 2 3 4 open 
+
+.clb [1847]  # Only LUT used.
+pinlist: preset pdn n_n4286 nrq1_3 [1847] open 
+subblock: [1847] 0 1 2 3 4 open 
+
+.clb [1849]  # Only LUT used.
+pinlist: preset pdn n_n4189 nrq1_3 [1849] open 
+subblock: [1849] 0 1 2 3 4 open 
+
+.clb [1853]  # Only LUT used.
+pinlist: preset pdn n_n3576 nrq1_3 [1853] open 
+subblock: [1853] 0 1 2 3 4 open 
+
+.clb [1859]  # Only LUT used.
+pinlist: preset pdn n_n4172 nrq1_3 [1859] open 
+subblock: [1859] 0 1 2 3 4 open 
+
+.clb [1868]  # Only LUT used.
+pinlist: preset pdn n_n3111 nrq1_3 [1868] open 
+subblock: [1868] 0 1 2 3 4 open 
+
+.clb [1870]  # Only LUT used.
+pinlist: preset n_n3035 ndn3_8 ndn3_9 [1870] open 
+subblock: [1870] 0 1 2 3 4 open 
+
+.clb [1874]  # Only LUT used.
+pinlist: preset pdn n_n3627 nrq1_3 [1874] open 
+subblock: [1874] 0 1 2 3 4 open 
+
+.clb [1876]  # Only LUT used.
+pinlist: preset pdn n_n3044 nrq1_3 [1876] open 
+subblock: [1876] 0 1 2 3 4 open 
+
+.clb [1881]  # Only LUT used.
+pinlist: preset pdn n_n3376 nrq1_3 [1881] open 
+subblock: [1881] 0 1 2 3 4 open 
+
+.clb [1882]  # Only LUT used.
+pinlist: preset pdn n_n3118 nrq1_3 [1882] open 
+subblock: [1882] 0 1 2 3 4 open 
+
+.clb [1884]  # Only LUT used.
+pinlist: preset n_n3242 nrq3_11 ngfdn_3 [1884] open 
+subblock: [1884] 0 1 2 3 4 open 
+
+.clb [1885]  # Only LUT used.
+pinlist: n_n3810 n_n3324 n_n3243 [914] [1885] open 
+subblock: [1885] 0 1 2 3 4 open 
+
+.clb [1892]  # Only LUT used.
+pinlist: ndn3_15 n_n3556 n_n4122 ngfdn_3 [1892] open 
+subblock: [1892] 0 1 2 3 4 open 
+
+.clb [1893]  # Only LUT used.
+pinlist: ndn3_10 n_n3919 nen3_10 open [1893] open 
+subblock: [1893] 0 1 2 open 4 open 
+
+.clb [1894]  # Only LUT used.
+pinlist: n_n4145 nrq3_11 ngfdn_3 open [1894] open 
+subblock: [1894] 0 1 2 open 4 open 
+
+.clb [1896]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n4062 open [1896] open 
+subblock: [1896] 0 1 2 open 4 open 
+
+.clb [1898]  # Only LUT used.
+pinlist: n_n4345 n_n4019 n_n3884 [1104] [1898] open 
+subblock: [1898] 0 1 2 3 4 open 
+
+.clb [1899]  # Only LUT used.
+pinlist: n_n3334 [1903] [1904] [1905] [1899] open 
+subblock: [1899] 0 1 2 3 4 open 
+
+.clb [1901]  # Only LUT used.
+pinlist: ndn3_10 n_n3854 nen3_10 open [1901] open 
+subblock: [1901] 0 1 2 open 4 open 
+
+.clb [1903]  # Only LUT used.
+pinlist: ndn3_15 n_n3035 n_n4157 ngfdn_3 [1903] open 
+subblock: [1903] 0 1 2 3 4 open 
+
+.clb [1904]  # Only LUT used.
+pinlist: n_n3511 ndn3_10 nen3_10 open [1904] open 
+subblock: [1904] 0 1 2 open 4 open 
+
+.clb [1905]  # Only LUT used.
+pinlist: n_n3898 nrq3_11 ngfdn_3 open [1905] open 
+subblock: [1905] 0 1 2 open 4 open 
+
+.clb [1908]  # Only LUT used.
+pinlist: ndn3_15 n_n3242 n_n3170 ngfdn_3 [1908] open 
+subblock: [1908] 0 1 2 3 4 open 
+
+.clb [1909]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n3259 open [1909] open 
+subblock: [1909] 0 1 2 open 4 open 
+
+.clb [1910]  # Only LUT used.
+pinlist: nrq3_11 ngfdn_3 n_n3841 open [1910] open 
+subblock: [1910] 0 1 2 open 4 open 
+
+.clb [1912]  # Only LUT used.
+pinlist: ndn3_10 n_n3451 nen3_10 open [1912] open 
+subblock: [1912] 0 1 2 open 4 open 
+
+.clb [1914]  # Only LUT used.
+pinlist: preset pdn n_n3113 nrq1_3 [1914] open 
+subblock: [1914] 0 1 2 3 4 open 
+
+.clb [1919]  # Only LUT used.
+pinlist: preset pdn n_n3173 nrq1_3 [1919] open 
+subblock: [1919] 0 1 2 3 4 open 
+
+.clb [1921]  # Only LUT used.
+pinlist: preset pdn n_n3221 nrq1_3 [1921] open 
+subblock: [1921] 0 1 2 3 4 open 
+
+.clb [1925]  # Only LUT used.
+pinlist: preset n_n3876 n_n3832 [6255] [1925] open 
+subblock: [1925] 0 1 2 3 4 open 
+
+.clb [1926]  # Only LUT used.
+pinlist: n_n4040 n_n3832 [6255] [6257] [1926] open 
+subblock: [1926] 0 1 2 3 4 open 
+
+.clb [1927]  # Only LUT used.
+pinlist: n_n4040 [896] n_n4069 n_n4039 [1927] open 
+subblock: [1927] 0 1 2 3 4 open 
+
+.clb [1928]  # Only LUT used.
+pinlist: preset n_n3556 ndn3_8 ndn3_9 [1928] open 
+subblock: [1928] 0 1 2 3 4 open 
+
+.clb [1932]  # Only LUT used.
+pinlist: preset pdn n_n3733 nrq1_3 [1932] open 
+subblock: [1932] 0 1 2 3 4 open 
+
+.clb [1940]  # Only LUT used.
+pinlist: preset pdn n_n3231 nrq1_3 [1940] open 
+subblock: [1940] 0 1 2 3 4 open 
+
+.clb [1944]  # Only LUT used.
+pinlist: preset pdn n_n3313 nrq1_3 [1944] open 
+subblock: [1944] 0 1 2 3 4 open 
+
+.clb [1946]  # Only LUT used.
+pinlist: preset pdn n_n3079 nrq1_3 [1946] open 
+subblock: [1946] 0 1 2 3 4 open 
+
+.clb [1949]  # Only LUT used.
+pinlist: preset n_n3688 nrq3_11 ngfdn_3 [1949] open 
+subblock: [1949] 0 1 2 3 4 open 
+
+.clb [1953]  # Only LUT used.
+pinlist: preset pdn n_n3344 nrq1_3 [1953] open 
+subblock: [1953] 0 1 2 3 4 open 
+
+.clb [1957]  # Only LUT used.
+pinlist: preset n_n4071 ndn3_6 ndn3_7 [1957] open 
+subblock: [1957] 0 1 2 3 4 open 
+
+.clb [1961]  # Only LUT used.
+pinlist: preset pdn n_n3012 nrq1_3 [1961] open 
+subblock: [1961] 0 1 2 3 4 open 
+
+.clb [1963]  # Only LUT used.
+pinlist: preset n_n4222 ndn3_10 nen3_10 [1963] open 
+subblock: [1963] 0 1 2 3 4 open 
+
+.clb [1965]  # Only LUT used.
+pinlist: preset ndn3_5 n_n4160 ndn3_6 [1965] open 
+subblock: [1965] 0 1 2 3 4 open 
+
+.clb [1969]  # Only LUT used.
+pinlist: preset pdn n_n3517 nrq1_3 [1969] open 
+subblock: [1969] 0 1 2 3 4 open 
+
+.clb [1971]  # Only LUT used.
+pinlist: n_n3707 n_n3709 n_n135 [6290] [1971] open 
+subblock: [1971] 0 1 2 3 4 open 
+
+.clb [1976]  # Only LUT used.
+pinlist: preset ndn3_4 ndn3_5 n_n3281 [1976] open 
+subblock: [1976] 0 1 2 3 4 open 
+
+.clb [1980]  # Only LUT used.
+pinlist: preset pdn n_n3764 nrq1_3 [1980] open 
+subblock: [1980] 0 1 2 3 4 open 
+
+.clb [1984]  # Only LUT used.
+pinlist: preset pdn n_n3549 nrq1_3 [1984] open 
+subblock: [1984] 0 1 2 3 4 open 
+
+.clb [1986]  # Only LUT used.
+pinlist: preset n_n3876 ndn3_7 ndn3_8 [1986] open 
+subblock: [1986] 0 1 2 3 4 open 
+
+.clb [1990]  # Only LUT used.
+pinlist: preset pdn n_n3729 nrq1_3 [1990] open 
+subblock: [1990] 0 1 2 3 4 open 
+
+.clb [1992]  # Only LUT used.
+pinlist: preset pdn n_n3525 nrq1_3 [1992] open 
+subblock: [1992] 0 1 2 3 4 open 
+
+.clb [1996]  # Only LUT used.
+pinlist: preset n_n3916 ndn3_10 nen3_10 [1996] open 
+subblock: [1996] 0 1 2 3 4 open 
+
+.clb [1998]  # Only LUT used.
+pinlist: preset ndn3_15 n_n3495 ngfdn_3 [1998] open 
+subblock: [1998] 0 1 2 3 4 open 
+
+.clb [2000]  # Only LUT used.
+pinlist: preset n_n4211 ndn3_8 ndn3_9 [2000] open 
+subblock: [2000] 0 1 2 3 4 open 
+
+.clb [2005]  # Only LUT used.
+pinlist: preset pdn n_n3670 nrq1_3 [2005] open 
+subblock: [2005] 0 1 2 3 4 open 
+
+.clb [2007]  # Only LUT used.
+pinlist: preset n_n4381 n_n4126 n_n3500 [2007] open 
+subblock: [2007] 0 1 2 3 4 open 
+
+.clb [2009]  # Only LUT used.
+pinlist: n_n3892 n_n3656 [2011] open [2009] open 
+subblock: [2009] 0 1 2 open 4 open 
+
+.clb [2011]  # Only LUT used.
+pinlist: n_n3493 n_n4045 n_n4367 [6299] [2011] open 
+subblock: [2011] 0 1 2 3 4 open 
+
+.clb [2023]  # Only LUT used.
+pinlist: preset n_n3858 [1155] open [2023] open 
+subblock: [2023] 0 1 2 open 4 open 
+
+.clb [2027]  # Only LUT used.
+pinlist: preset pdn n_n3270 nrq1_3 [2027] open 
+subblock: [2027] 0 1 2 3 4 open 
+
+.clb [2029]  # Only LUT used.
+pinlist: preset n_n4074 nrq3_11 ngfdn_3 [2029] open 
+subblock: [2029] 0 1 2 3 4 open 
+
+.clb [2035]  # Only LUT used.
+pinlist: ndn3_15 n_n4074 n_n3578 ngfdn_3 [2035] open 
+subblock: [2035] 0 1 2 3 4 open 
+
+.clb [2036]  # Only LUT used.
+pinlist: ndn3_10 n_n3886 nen3_10 open [2036] open 
+subblock: [2036] 0 1 2 open 4 open 
+
+.clb [2037]  # Only LUT used.
+pinlist: n_n3916 nrq3_11 ngfdn_3 open [2037] open 
+subblock: [2037] 0 1 2 open 4 open 
+
+.clb [2039]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n4021 open [2039] open 
+subblock: [2039] 0 1 2 open 4 open 
+
+.clb [2044]  # Only LUT used.
+pinlist: n_n3281 ndn3_10 nen3_10 open [2044] open 
+subblock: [2044] 0 1 2 open 4 open 
+
+.clb [2045]  # Only LUT used.
+pinlist: n_n4229 nrq3_11 ngfdn_3 [1079] [2045] open 
+subblock: [2045] 0 1 2 3 4 open 
+
+.clb [2046]  # Only LUT used.
+pinlist: ndn3_15 n_n3085 n_n3250 ngfdn_3 [2046] open 
+subblock: [2046] 0 1 2 3 4 open 
+
+.clb [2047]  # Only LUT used.
+pinlist: ndn3_10 n_n4294 nen3_10 open [2047] open 
+subblock: [2047] 0 1 2 open 4 open 
+
+.clb [2048]  # Only LUT used.
+pinlist: n_n4229 nrq3_11 ngfdn_3 open [2048] open 
+subblock: [2048] 0 1 2 open 4 open 
+
+.clb [2049]  # Only LUT used.
+pinlist: n_n3363 n_n3362 [1088] [941] [2049] open 
+subblock: [2049] 0 1 2 3 4 open 
+
+.clb [2050]  # Only LUT used.
+pinlist: n_n3981 [2174] [6281] open [2050] open 
+subblock: [2050] 0 1 2 open 4 open 
+
+.clb [2051]  # Only LUT used.
+pinlist: preset pdn n_n3133 nrq1_3 [2051] open 
+subblock: [2051] 0 1 2 3 4 open 
+
+.clb [2060]  # Only LUT used.
+pinlist: n_n3786 n_n3785 [6287] open [2060] open 
+subblock: [2060] 0 1 2 open 4 open 
+
+.clb [2061]  # Only LUT used.
+pinlist: n_n4145 n_n4080 [1075] n_n4078 [2061] open 
+subblock: [2061] 0 1 2 3 4 open 
+
+.clb [2122]  # Only LUT used.
+pinlist: preset n_n4224 ndn3_5 ndn3_6 [2122] open 
+subblock: [2122] 0 1 2 3 4 open 
+
+.clb [2126]  # Only LUT used.
+pinlist: preset n_n4392 ndn3_15 ngfdn_3 [2126] open 
+subblock: [2126] 0 1 2 3 4 open 
+
+.clb [2141]  # Only LUT used.
+pinlist: preset n_n3511 [1155] open [2141] open 
+subblock: [2141] 0 1 2 open 4 open 
+
+.clb [2153]  # Only LUT used.
+pinlist: preset pdn n_n3780 nrq1_3 [2153] open 
+subblock: [2153] 0 1 2 3 4 open 
+
+.clb [2162]  # Only LUT used.
+pinlist: preset n_n4349 ndn3_6 ndn3_7 [2162] open 
+subblock: [2162] 0 1 2 3 4 open 
+
+.clb [2166]  # Only LUT used.
+pinlist: preset n_n4316 ndn3_10 nen3_10 [2166] open 
+subblock: [2166] 0 1 2 3 4 open 
+
+.clb [2173]  # Only LUT used.
+pinlist: ndn3_10 n_n3978 nen3_10 open [2173] open 
+subblock: [2173] 0 1 2 open 4 open 
+
+.clb [2174]  # Only LUT used.
+pinlist: n_n4316 nrq3_12 n_n4315 n_n4155 [2174] open 
+subblock: [2174] 0 1 2 3 4 open 
+
+.clb [2175]  # Only LUT used.
+pinlist: ndn3_15 n_n4211 n_n3657 ngfdn_3 [2175] open 
+subblock: [2175] 0 1 2 3 4 open 
+
+.clb [2176]  # Only LUT used.
+pinlist: n_n3858 ndn3_10 nen3_10 open [2176] open 
+subblock: [2176] 0 1 2 open 4 open 
+
+.clb [2177]  # Only LUT used.
+pinlist: n_n4316 nrq3_11 ngfdn_3 open [2177] open 
+subblock: [2177] 0 1 2 open 4 open 
+
+.clb [2182]  # Only LUT used.
+pinlist: nrq3_11 n_n4159 n_n3976 ngfdn_3 [2182] open 
+subblock: [2182] 0 1 2 3 4 open 
+
+.clb [2183]  # Only LUT used.
+pinlist: ndn3_15 n_n3688 n_n3624 ngfdn_3 [2183] open 
+subblock: [2183] 0 1 2 3 4 open 
+
+.clb [2184]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n3878 open [2184] open 
+subblock: [2184] 0 1 2 open 4 open 
+
+.clb [2185]  # Only LUT used.
+pinlist: nrq3_11 n_n3976 ngfdn_3 open [2185] open 
+subblock: [2185] 0 1 2 open 4 open 
+
+.clb [2187]  # Only LUT used.
+pinlist: ndn3_10 n_n3328 nen3_10 open [2187] open 
+subblock: [2187] 0 1 2 open 4 open 
+
+.clb [2188]  # Only LUT used.
+pinlist: nrq3_11 ngfdn_3 n_n3741 open [2188] open 
+subblock: [2188] 0 1 2 open 4 open 
+
+.clb [2189]  # Only LUT used.
+pinlist: n_n3936 ndn3_15 ngfdn_3 n_n3099 [2189] open 
+subblock: [2189] 0 1 2 3 4 open 
+
+.clb [2190]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n3208 open [2190] open 
+subblock: [2190] 0 1 2 open 4 open 
+
+.clb [2191]  # Only LUT used.
+pinlist: n_n4222 nrq3_11 ngfdn_3 open [2191] open 
+subblock: [2191] 0 1 2 open 4 open 
+
+.clb [2192]  # Only LUT used.
+pinlist: preset pdn n_n3793 nrq1_3 [2192] open 
+subblock: [2192] 0 1 2 3 4 open 
+
+.clb [2195]  # Only LUT used.
+pinlist: preset pdn n_n3497 nrq1_3 [2195] open 
+subblock: [2195] 0 1 2 3 4 open 
+
+.clb [2198]  # Only LUT used.
+pinlist: preset pdn n_n3098 nrq1_3 [2198] open 
+subblock: [2198] 0 1 2 3 4 open 
+
+.clb [2202]  # Only LUT used.
+pinlist: preset pdn n_n3687 nrq1_3 [2202] open 
+subblock: [2202] 0 1 2 3 4 open 
+
+.clb [2224]  # Only LUT used.
+pinlist: preset pdn n_n3225 nrq1_3 [2224] open 
+subblock: [2224] 0 1 2 3 4 open 
+
+.clb [2226]  # Only LUT used.
+pinlist: preset n_n4258 ndn3_7 ndn3_8 [2226] open 
+subblock: [2226] 0 1 2 3 4 open 
+
+.clb [2240]  # Only LUT used.
+pinlist: preset n_n4360 n_n3832 [6255] [2240] open 
+subblock: [2240] 0 1 2 3 4 open 
+
+.clb [2241]  # Only LUT used.
+pinlist: n_n3726 n_n3832 [6255] [6257] [2241] open 
+subblock: [2241] 0 1 2 3 4 open 
+
+.clb [2242]  # Only LUT used.
+pinlist: n_n3726 [896] n_n3653 n_n3888 [2242] open 
+subblock: [2242] 0 1 2 3 4 open 
+
+.clb [2259]  # Only LUT used.
+pinlist: preset pdn n_n3008 nrq1_3 [2259] open 
+subblock: [2259] 0 1 2 3 4 open 
+
+.clb [2261]  # Only LUT used.
+pinlist: preset n_n3743 n_n3832 [6255] [2261] open 
+subblock: [2261] 0 1 2 3 4 open 
+
+.clb [2262]  # Only LUT used.
+pinlist: n_n3574 n_n3832 [6255] [6257] [2262] open 
+subblock: [2262] 0 1 2 3 4 open 
+
+.clb [2263]  # Only LUT used.
+pinlist: n_n3574 [896] n_n3741 [923] [2263] open 
+subblock: [2263] 0 1 2 3 4 open 
+
+.clb [2264]  # Only LUT used.
+pinlist: n_n3851 n_n4067 n_n4026 n_n3852 [2264] open 
+subblock: [2264] 0 1 2 3 4 open 
+
+.clb [2270]  # Only LUT used.
+pinlist: preset n_n3936 ndn3_8 ndn3_9 [2270] open 
+subblock: [2270] 0 1 2 3 4 open 
+
+.clb [2275]  # Only LUT used.
+pinlist: preset pdn n_n4142 nrq1_3 [2275] open 
+subblock: [2275] 0 1 2 3 4 open 
+
+.clb [6250]  # Only LUT used.
+pinlist: n_n4159 n_n3976 n_n3756 open [6250] open 
+subblock: [6250] 0 1 2 open 4 open 
+
+.clb [6251]  # Only LUT used.
+pinlist: n_n4182 n_n4330 open open [6251] open 
+subblock: [6251] 0 1 open open 4 open 
+
+.clb [6252]  # Only LUT used.
+pinlist: n_n3833 n_n4067 [894] n_n3563 [6252] open 
+subblock: [6252] 0 1 2 3 4 open 
+
+.clb [6254]  # Only LUT used.
+pinlist: nen3_10 nsr3_17 n_n4093 open [6254] open 
+subblock: [6254] 0 1 2 open 4 open 
+
+.clb [6255]  # Only LUT used.
+pinlist: [1015] n_n3709 open open [6255] open 
+subblock: [6255] 0 1 open open 4 open 
+
+.clb [6257]  # Only LUT used.
+pinlist: preset n_n3198 n_n3707 n_n3709 [6257] open 
+subblock: [6257] 0 1 2 3 4 open 
+
+.clb [6259]  # Only LUT used.
+pinlist: n_n4157 n_n3035 open open [6259] open 
+subblock: [6259] 0 1 open open 4 open 
+
+.clb [6265]  # Only LUT used.
+pinlist: n_n4349 n_n4071 n_n3892 n_n4337 [6265] open 
+subblock: [6265] 0 1 2 3 4 open 
+
+.clb [6266]  # Only LUT used.
+pinlist: n_n3968 n_n3922 n_n4201 n_n3533 [6266] open 
+subblock: [6266] 0 1 2 3 4 open 
+
+.clb [6268]  # Only LUT used.
+pinlist: n_n4045 nsr3_17 nsr3_14 open [6268] open 
+subblock: [6268] 0 1 2 open 4 open 
+
+.clb [6270]  # Only LUT used.
+pinlist: n_n3557 n_n4057 open open [6270] open 
+subblock: [6270] 0 1 open open 4 open 
+
+.clb [6272]  # Only LUT used.
+pinlist: n_n3624 n_n3688 open open [6272] open 
+subblock: [6272] 0 1 open open 4 open 
+
+.clb [6275]  # Only LUT used.
+pinlist: n_n4125 n_n4367 nrq3_15 [2187] [6275] open 
+subblock: [6275] 0 1 2 3 4 open 
+
+.clb [6278]  # Only LUT used.
+pinlist: ndn3_10 nen3_10 n_n3931 [2182] [6278] open 
+subblock: [6278] 0 1 2 3 4 open 
+
+.clb [6281]  # Only LUT used.
+pinlist: n_n3901 n_n4367 nrq3_15 [2173] [6281] open 
+subblock: [6281] 0 1 2 3 4 open 
+
+.clb [6284]  # Only LUT used.
+pinlist: ndn3_4 preset open open [6284] open 
+subblock: [6284] 0 1 open open 4 open 
+
+.clb [6287]  # Only LUT used.
+pinlist: n_n4145 n_n4080 [1075] n_n4078 [6287] open 
+subblock: [6287] 0 1 2 3 4 open 
+
+.clb [6289]  # Only LUT used.
+pinlist: n_n3726 n_n3653 n_n3888 [2061] [6289] open 
+subblock: [6289] 0 1 2 3 4 open 
+
+.clb [6290]  # Only LUT used.
+pinlist: n_n4296 [2060] [6289] open [6290] open 
+subblock: [6290] 0 1 2 open 4 open 
+
+.clb [6291]  # Only LUT used.
+pinlist: n_n3578 n_n4074 open open [6291] open 
+subblock: [6291] 0 1 open open 4 open 
+
+.clb [6295]  # Only LUT used.
+pinlist: n_n3769 n_n4367 nrq3_15 [2044] [6295] open 
+subblock: [6295] 0 1 2 3 4 open 
+
+.clb [6296]  # Only LUT used.
+pinlist: n_n4047 n_n4367 nrq3_15 [2039] [6296] open 
+subblock: [6296] 0 1 2 3 4 open 
+
+.clb [6299]  # Only LUT used.
+pinlist: nsr3_14 nsr3_17 open open [6299] open 
+subblock: [6299] 0 1 open open 4 open 
+
+.clb [6300]  # Only LUT used.
+pinlist: n_n4381 n_n4305 n_n4357 [1008] [6300] open 
+subblock: [6300] 0 1 2 3 4 open 
+
+.clb [6302]  # Only LUT used.
+pinlist: n_n3493 preset open open [6302] open 
+subblock: [6302] 0 1 open open 4 open 
+
+.clb [6303]  # Only LUT used.
+pinlist: n_n3170 n_n3242 open open [6303] open 
+subblock: [6303] 0 1 open open 4 open 
+
+.clb [6306]  # Only LUT used.
+pinlist: n_n3099 n_n3936 open open [6306] open 
+subblock: [6306] 0 1 open open 4 open 
+
+.clb [6309]  # Only LUT used.
+pinlist: n_n3831 n_n4026 n_n3852 open [6309] open 
+subblock: [6309] 0 1 2 open 4 open 
+
+.clb [6310]  # Only LUT used.
+pinlist: n_n3657 n_n4211 open open [6310] open 
+subblock: [6310] 0 1 open open 4 open 
+
+.clb [6312]  # Only LUT used.
+pinlist: n_n4324 n_n4367 nrq3_15 [1912] [6312] open 
+subblock: [6312] 0 1 2 3 4 open 
+
+.clb [6317]  # Only LUT used.
+pinlist: n_n4366 n_n4367 nrq3_15 [1901] [6317] open 
+subblock: [6317] 0 1 2 3 4 open 
+
+.clb [6318]  # Only LUT used.
+pinlist: n_n3475 n_n4367 nrq3_15 [1896] [6318] open 
+subblock: [6318] 0 1 2 3 4 open 
+
+.clb [6321]  # Only LUT used.
+pinlist: n_n4122 n_n3556 open open [6321] open 
+subblock: [6321] 0 1 open open 4 open 
+
+.clb [6322]  # Only LUT used.
+pinlist: n_n3250 n_n3085 open open [6322] open 
+subblock: [6322] 0 1 open open 4 open 
+
+.clb [6324]  # Only LUT used.
+pinlist: tin_pready_0_0_ n_n4108 n_n3354 nsr3_3 [6324] open 
+subblock: [6324] 0 1 2 3 4 open 
+
+.clb [6325]  # Only LUT used.
+pinlist: n_n3354 preset open open [6325] open 
+subblock: [6325] 0 1 open open 4 open 
+
+.clb [6330]  # Only LUT used.
+pinlist: n_n3766 n_n4275 open open [6330] open 
+subblock: [6330] 0 1 open open 4 open 
+
+.clb [6332]  # Only LUT used.
+pinlist: n_n3955 n_n3954 n_n4305 [1008] [6332] open 
+subblock: [6332] 0 1 2 3 4 open 
+
+.clb [6333]  # Only LUT used.
+pinlist: nlc3_3 nlak4_2 n_n4263 open [6333] open 
+subblock: [6333] 0 1 2 open 4 open 
+
+.clb [6337]  # Only LUT used.
+pinlist: n_n4052 [1008] [1632] open [6337] open 
+subblock: [6337] 0 1 2 open 4 open 
+
+.clb [6338]  # Only LUT used.
+pinlist: n_n4099 n_n4305 [1119] [1008] [6338] open 
+subblock: [6338] 0 1 2 3 4 open 
+
+.clb [6342]  # Only LUT used.
+pinlist: n_n4275 n_n3766 [896] [1012] [6342] open 
+subblock: [6342] 0 1 2 3 4 open 
+
+.clb [6343]  # Only LUT used.
+pinlist: n_n3954 n_n3955 open open [6343] open 
+subblock: [6343] 0 1 open open 4 open 
+
+.clb [6346]  # Only LUT used.
+pinlist: n_n4305 n_n4006 n_n3848 [6343] [6346] open 
+subblock: [6346] 0 1 2 3 4 open 
+
+.clb [6349]  # Only LUT used.
+pinlist: n_n3294 n_n4357 [942] [6346] [6349] open 
+subblock: [6349] 0 1 2 3 4 open 
+
+.clb [6350]  # Only LUT used.
+pinlist: preset n_n4045 n_n4367 [6299] [6350] open 
+subblock: [6350] 0 1 2 3 4 open 
+
+.clb [6354]  # Only LUT used.
+pinlist: n_n3707 preset open open [6354] open 
+subblock: [6354] 0 1 open open 4 open 
+
+.clb [6355]  # Only LUT used.
+pinlist: n_n4367 n_n4057 open open [6355] open 
+subblock: [6355] 0 1 open open 4 open 
+
+.clb [6356]  # Only LUT used.
+pinlist: nsr3_14 nsr3_17 open open [6356] open 
+subblock: [6356] 0 1 open open 4 open 
+
+.clb [6357]  # Only LUT used.
+pinlist: preset n_n4045 n_n4367 [6299] [6357] open 
+subblock: [6357] 0 1 2 3 4 open 
+
+.clb [6358]  # Only LUT used.
+pinlist: n_n3954 n_n4305 [1008] open [6358] open 
+subblock: [6358] 0 1 2 open 4 open 
+
+.clb [6361]  # Only LUT used.
+pinlist: preset n_n4045 n_n4367 [6299] [6361] open 
+subblock: [6361] 0 1 2 3 4 open 
+
+.clb [6366]  # Only LUT used.
+pinlist: n_n4029 n_n4305 n_n4006 [1008] [6366] open 
+subblock: [6366] 0 1 2 3 4 open 
+
+.clb [6370]  # Only LUT used.
+pinlist: n_n3724 n_n3766 n_n4227 n_n3814 [6370] open 
+subblock: [6370] 0 1 2 3 4 open 
+
+.clb [6374]  # Only LUT used.
+pinlist: [1015] n_n3707 open open [6374] open 
+subblock: [6374] 0 1 open open 4 open 
+
+.clb [6376]  # Only LUT used.
+pinlist: preset nak3_17 [1063] [6374] [6376] open 
+subblock: [6376] 0 1 2 3 4 open 
+
+.clb [6379]  # Only LUT used.
+pinlist: n_n3845 n_n4305 n_n3848 [1008] [6379] open 
+subblock: [6379] 0 1 2 3 4 open 
+
+.clb [6380]  # Only LUT used.
+pinlist: n_n3865 [984] n_n4305 [1008] [6380] open 
+subblock: [6380] 0 1 2 3 4 open 
+
+.clb [6385]  # Only LUT used.
+pinlist: [1070] [916] open open [6385] open 
+subblock: [6385] 0 1 open open 4 open 
+
+.clb [6386]  # Only LUT used.
+pinlist: preset n_n3709 n_n135 [6290] [6386] open 
+subblock: [6386] 0 1 2 3 4 open 
+
+.clb [6387]  # Only LUT used.
+pinlist: n_n3563 n_n4067 open open [6387] open 
+subblock: [6387] 0 1 open open 4 open 
+
+.clb [6389]  # Only LUT used.
+pinlist: n_n4093 n_n3788 [1013] [2264] [6389] open 
+subblock: [6389] 0 1 2 3 4 open 
+

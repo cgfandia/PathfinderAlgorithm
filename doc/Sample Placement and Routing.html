@@ -1,0 +1,87 @@
+
+<!-- saved from url=(0048)http://www.eecg.toronto.edu/~vaughn/vpr/e64.html -->
+<html><script data-x-lastpass="">(function(){var c=0;if("undefined"!==typeof CustomEvent&&"function"===typeof window.dispatchEvent){var a=function(a){try{if("object"===typeof a&&(a=JSON.stringify(a)),"string"===typeof a)return window.dispatchEvent(new CustomEvent("lprequeststart",{detail:{data:a,requestID:++c}})),c}catch(f){}},b=function(a){try{window.dispatchEvent(new CustomEvent("lprequestend",{detail:a}))}catch(f){}};"undefined"!==typeof XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.send&&(XMLHttpRequest.prototype.send=
+function(c){return function(f){var d=this,e=a(f);e&&d.addEventListener("loadend",function(){b({requestID:e,statusCode:d.status})});return c.apply(d,arguments)}}(XMLHttpRequest.prototype.send));"function"===typeof fetch&&(fetch=function(c){return function(f,d){var e=a(d),g=c.apply(this,arguments);if(e){var h=function(a){b({requestID:e,statusCode:a&&a.status})};g.then(h)["catch"](h)}return g}}(fetch))}})();
+(function(){if("undefined"!==typeof CustomEvent){var c=function(a){if(a.lpsubmit)return a;var b=function(){try{this.dispatchEvent(new CustomEvent("lpsubmit"))}catch(k){}return a.apply(this,arguments)};b.lpsubmit=!0;return b};window.addEventListener("DOMContentLoaded",function(){if(document&&document.forms&&0<document.forms.length)for(var a=0;a<document.forms.length;++a)document.forms[a].submit=c(document.forms[a].submit)},!0);document.createElement=function(a){return function(){var b=a.apply(this,
+arguments);b&&"FORM"===b.nodeName&&b.submit&&(b.submit=c(b.submit));return b}}(document.createElement)}})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Sample Placement and Routing</title>
+<link rev="made" href="mailto:vaughn@eecg.toronto.edu">
+</head>
+
+<body bgcolor="#FFFFFF">
+<h2>Sample Placement and Routing</h2>
+<p>
+These pictures are of the MCNC benchmark circuit e64.  This is one of the 
+smallest circuits I use to benchmark FPGAs -- it contains 230 four-input
+look-up tables.  It is, however, faster to download pictures from a circuit
+this size than from a larger one, and e64 is still large enough to be 
+interesting.
+</p><p>
+
+</p><hr>
+<center>
+<h3>Initial Random Placement</h3>
+<img src="./Sample Placement and Routing_files/unplaced.gif" align="top" alt="[Initial Placement]">
+</center>
+<hr>
+<p>
+
+</p><center>
+<h3>Final Placement</h3>
+<img src="./Sample Placement and Routing_files/placed.gif" align="top" alt="[Final Placement]">
+</center>
+<hr>
+<p>
+
+</p><center>
+<h3>Completely (Detailed) Routed Circuit</h3>
+</center>
+<p>
+The minimum channel width for successful routing was 7; that's the routing 
+shown here.  I've highlighted one block (in green) by clicking on it -- its 
+fanout is shown in red, and its fanin is shown in blue.
+</p><p>
+</p><center>
+<img src="./Sample Placement and Routing_files/routed.gif" align="top" alt="[Final Routing]">
+</center>
+<hr>
+<p>
+
+</p><center>
+<h3>Close-up View of the FPGA Routing Architecture</h3>
+</center>
+<p>
+This picture shows the various wire segments and potential connections between
+wire segments and logic block pins, etc.  I selected the green block; the 
+routing of its fanout is highlighted in red and the routing of its inputs is 
+highlighted in blue.
+</p><p>
+</p><center>
+<img src="./Sample Placement and Routing_files/rr_graph.gif" align="top" alt="[Routing Close-up]">
+</center>
+<hr>
+<p>
+
+</p><center>
+<h3>Globally Routed Circuit</h3>
+</center>
+<p>
+The pictures above show the results when VPR performs combined global and 
+detailed routing of an FPGA, while the picture below shows how VPR can 
+perform only global routing if that's what you want.  Note that global 
+routing required only 6 tracks per channel, while doing a complete (global +
+detailed) routing required 7 tracks per channel.
+</p><p>
+</p><center>
+<img src="./Sample Placement and Routing_files/global_route.gif" align="top" alt="[Routing Close-up]">
+</center>
+<hr>
+
+<a href="http://www.eecg.toronto.edu/~vaughn/vpr/vpr.html">Back to the vpr
+homepage.</a>
+
+
+
+
+</body></html>
