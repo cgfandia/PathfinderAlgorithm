@@ -33,7 +33,7 @@ inline void CHANNEL::setHv(const size_t& Niter){
 	}
 }
 
-inline float CHANNEL::getWeightToThisChannel(const float& baseWeightToChannel){
+inline float CHANNEL::getWeightToThisChannel(const float& baseWeightToChannel) const{
 	return occupancyMult * (baseWeightToChannel + occupancyHistory);
 }
 
@@ -214,7 +214,7 @@ void PATHFINDER::init(const string& placeFile, const string& netsFile){
 	}
 }
 
-vector<unsigned int> PATHFINDER::buildPath(const CHANNEL* finalGraph, const vector<unsigned int>& srcChannels, const unsigned int& dstChannel){
+vector<unsigned int> PATHFINDER::buildPath(const CHANNEL_TEMP* finalGraph, const vector<unsigned int>& srcChannels, const unsigned int& dstChannel){
 	vector<unsigned int> outPath;
 	auto currentID = dstChannel;
 	unsigned int fstSrc = srcChannels[0];
@@ -242,22 +242,13 @@ vector<unsigned int> PATHFINDER::buildPath(const CHANNEL* finalGraph, const vect
 	return outPath;
 }
 
-void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& currentBlock){
+void PATHFINDER::dijkstra(const unsigned int& iterN, const unsigned int& currentBlockIt){
 
-	// Initialization temp graph
-	CHANNEL* tempGraph;
-#ifdef _OPENMP
-#pragma omp critical
-#endif
-{
-	tempGraph = (CHANNEL*)malloc(sizeof(CHANNEL) * (graphSize + 1));
-	if (tempGraph == nullptr){
-		cerr << "Temporary graph memory allocation error" << endl;
-		exit(1);
-	}
-}
-	
-	memcpy(tempGraph, channelsGraph, sizeof(CHANNEL) * (graphSize + 1));;
+	LUT_IO_BLOCK& currentBlock = blocksArray[currentBlockIt];
+
+	CHANNEL_TEMP* currentPoolGraph = channelsTempMemoryPool[currentBlockIt];
+
+	const CHANNEL* mainConstGraph = channelsGraph;
 
 	const vector<unsigned int>& currentChannelDests = currentBlock.channelsConnections.second;
 	//vector<vector<CHANNEL*> >& currentRoutedChannels = &routedPaths[currentConnectionsListIt];
@@ -265,20 +256,20 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 
 	// Set destinations in graph by connections[1...end()]
 
-	for (size_t i = 0; i < currentChannelDests.size(); ++i) tempGraph[currentChannelDests[i]].itsDestination = 1;
+	for (size_t i = 0; i < currentChannelDests.size(); ++i) currentPoolGraph[currentChannelDests[i]].itsDestination = 1;
 
 	// Main algorithm
 
 	unsigned int destinationsCount = currentChannelDests.size();
 	priority_queue<CHANNEL*, vector<CHANNEL*>, channelComp> queueOfChannels;
 
-	tempGraph[initChannel].prevChannel = initChannel;
-	tempGraph[initChannel].minWeight = 0;
+	currentPoolGraph[initChannel].prevChannel = initChannel;
+	currentPoolGraph[initChannel].minWeight = 0;
 	if (currentBlock.type == blockType::CLB)
 	{
 		auto rightPinChannel = currentBlock.channelsConnections.first[0];
-		tempGraph[rightPinChannel].prevChannel = rightPinChannel;
-		tempGraph[rightPinChannel].minWeight = 0;
+		currentPoolGraph[rightPinChannel].prevChannel = rightPinChannel;
+		currentPoolGraph[rightPinChannel].minWeight = 0;
 	}
 
 	do
@@ -287,27 +278,27 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 		{
 			initChannel = queueOfChannels.top()->ID;
 			queueOfChannels.pop();
-			if (tempGraph[initChannel].itsDestination){
+			if (currentPoolGraph[initChannel].itsDestination){
 				destinationsCount--;
-				tempGraph[initChannel].itsDestination = 0;
-				tempGraph[initChannel].minWeight = 0;
+				currentPoolGraph[initChannel].itsDestination = 0;
+				currentPoolGraph[initChannel].minWeight = 0;
 				if (destinationsCount == 0) break;
 			}
 		}
-		tempGraph[initChannel].used = 1;
+		currentPoolGraph[initChannel].used = 1;
 
-		for (size_t i = 0; i < tempGraph[initChannel].baseNeighboursWeights.size(); ++i)
+		for (size_t i = 0; i < mainConstGraph[initChannel].baseNeighboursWeights.size(); ++i)
 		{
-			unsigned int currentNeighborId = tempGraph[initChannel].baseNeighboursWeights[i].first;
-			if (tempGraph[currentNeighborId].used == 0){
-				if (!tempGraph[currentNeighborId].inQueue) queueOfChannels.push(&channelsGraph[currentNeighborId]);				
-				tempGraph[currentNeighborId].inQueue = 1;
+			unsigned int currentNeighborId = mainConstGraph[initChannel].baseNeighboursWeights[i].first;
+			if (currentPoolGraph[currentNeighborId].used == 0){
+				if (!currentPoolGraph[currentNeighborId].inQueue) queueOfChannels.push(&channelsGraph[currentNeighborId]);				
+				currentPoolGraph[currentNeighborId].inQueue = 1;
 
-				float Cn = tempGraph[currentNeighborId].getWeightToThisChannel(tempGraph[initChannel].baseNeighboursWeights[i].second); // tempGraph[initChannel].baseNeighboursWeights[i].second : base graph weight(edge weight)
-				if (tempGraph[currentNeighborId].minWeight > tempGraph[initChannel].minWeight + Cn)
+				float Cn = mainConstGraph[currentNeighborId].getWeightToThisChannel(mainConstGraph[initChannel].baseNeighboursWeights[i].second); // mainConstGraph[initChannel].baseNeighboursWeights[i].second : base graph weight(edge weight)
+				if (currentPoolGraph[currentNeighborId].minWeight > currentPoolGraph[initChannel].minWeight + Cn)
 				{
-					tempGraph[currentNeighborId].minWeight = tempGraph[initChannel].minWeight + Cn;
-					tempGraph[currentNeighborId].prevChannel = initChannel;
+					currentPoolGraph[currentNeighborId].minWeight = currentPoolGraph[initChannel].minWeight + Cn;
+					currentPoolGraph[currentNeighborId].prevChannel = initChannel;
 				}
 			}
 		}
@@ -319,11 +310,9 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 	vector<vector<unsigned int> > tempPath;
 	for (size_t i = 0; i < currentChannelDests.size(); ++i)
 	{
-		tempPath.emplace_back(buildPath(tempGraph, currentBlock.channelsConnections.first, currentChannelDests[i]));
+		tempPath.emplace_back(buildPath(currentPoolGraph, currentBlock.channelsConnections.first, currentChannelDests[i]));
 	}
 	routedChannels[currentBlock.ID] = tempPath;
-
-	free(tempGraph);
 }
 
 void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter){
@@ -333,6 +322,20 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	double fullTime = 0;
 	unsigned int tempMaxOccupancy = 0;
 	currentMaxOccupancy = 0;
+
+	channelsTempMemoryPool = (CHANNEL_TEMP**)malloc(sizeof(CHANNEL_TEMP**) * blocksCount);
+	for (int i = 0; i < blocksCount; i++){
+		channelsTempMemoryPool[i] = (CHANNEL_TEMP*)malloc(sizeof(CHANNEL_TEMP) * graphSize);
+		for (int cIt = 0; cIt < graphSize; cIt++)
+		{
+			channelsTempMemoryPool[i][cIt].itsDestination = 0;
+			channelsTempMemoryPool[i][cIt].minWeight = FLT_MAX;
+			channelsTempMemoryPool[i][cIt].prevChannel = -1;
+			channelsTempMemoryPool[i][cIt].used = 0;
+			channelsTempMemoryPool[i][cIt].inQueue = 0;
+		}
+	}
+
 	for (size_t gIt = 1; gIt <= maxIter; ++gIt)
 	{
 		update = false;
@@ -347,7 +350,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 		for (int blockIt = 0; blockIt < blocksCount; ++blockIt)
 		{
 			if (blocksArray[blockIt].type != blockType::OUTPUT){
-				dijkstra(gIt, blocksArray[blockIt]);
+				dijkstra(gIt, blockIt);
 			}
 		}
 
@@ -381,7 +384,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			for (int blockIt = 0; blockIt < blocksCount; ++blockIt)
 			{
 				if (blocksArray[blockIt].type != blockType::OUTPUT){
-					dijkstra(gIt, blocksArray[blockIt]);
+					dijkstra(gIt, blockIt);
 				}
 			}
 
@@ -421,5 +424,18 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 		cout << fullTime << "s, iteration: " << gIt << ", maxOccupancy: " << currentMaxOccupancy << endl;
 		//updateFPGA();
 		routedChannels.clear();
+
+#pragma omp for
+		for (int i = 0; i < blocksCount; i++){
+			for (int cIt = 0; cIt < graphSize; cIt++)
+			{
+				channelsTempMemoryPool[i][cIt].itsDestination = 0;
+				channelsTempMemoryPool[i][cIt].used = 0;
+				channelsTempMemoryPool[i][cIt].inQueue = 0;
+				channelsTempMemoryPool[i][cIt].prevChannel = -1;
+				channelsTempMemoryPool[i][cIt].minWeight = FLT_MAX;
+			}
+		}
 	}
+	cout << "Average iteration time: " << fullTime / maxIter << "s " << endl;
 }

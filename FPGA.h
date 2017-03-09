@@ -22,7 +22,7 @@ public:
 	CHANNEL();
 	inline void setPv(const size_t&);
 	inline void setHv(const size_t&);
-	inline float getWeightToThisChannel(const float&);
+	inline float getWeightToThisChannel(const float&) const;
 };
 
 struct CHANNEL_TEMP{
@@ -30,7 +30,6 @@ public:
 	bool itsDestination;
 	bool used;
 	bool inQueue;
-	unsigned int ID;
 	int prevChannel;
 	float minWeight;
 };
@@ -82,10 +81,11 @@ public:
 private:
 	size_t graphSize; // Max ID of channels
 	CHANNEL* channelsGraph;
+	CHANNEL_TEMP** channelsTempMemoryPool;
 	vector<vector<vector<unsigned int> > > routedChannels;
 	bool directionalGraph;
-	vector<unsigned int> buildPath(const CHANNEL*, const vector<unsigned int>&, const unsigned int&);
-	void dijkstra(const unsigned int&, const LUT_IO_BLOCK&);
+	vector<unsigned int> buildPath(const CHANNEL_TEMP*, const vector<unsigned int>&, const unsigned int&);
+	void dijkstra(const unsigned int&, const unsigned int&);
 };
 
 class channelComp
