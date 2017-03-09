@@ -47,7 +47,7 @@ public:
 
 class FPGA{
 public:
-	size_t blocksCount;
+	unsigned int blocksCount;
 	size_t blocks2DArrayWH;
 	unsigned int maxWH;
 	unordered_map<string, LUT_IO_BLOCK> LUTsAndIO; // name of LUT or I/O block <-> LUT or I/O block
@@ -64,6 +64,7 @@ private:
 class PATHFINDER : public FPGA
 {
 public:
+	bool update;
 	unsigned int currentMaxOccupancy;
 	size_t channels2DArrayWH;
 	CHANNEL*** channels2DArray;

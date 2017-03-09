@@ -8,6 +8,7 @@
 #include <cfloat>
 #include <climits>
 #include <regex>
+#include <chrono>
 #include <omp.h>
 #include "FPGA.h"
 using namespace std;
@@ -16,6 +17,7 @@ static float Fvp;
 static float Fvh;
 
 void checkFileOpening(const ifstream& file, const string& filename);
+void updateFPGA();
 
 CHANNEL::CHANNEL() : used(0), inQueue(0), itsDestination(0), minWeight(FLT_MAX), channelOccupancy(0), occupancyHistory(1), occupancyMult(1), channelCapacity(INT_MAX), prevChannel(-1) {}
 
@@ -325,10 +327,12 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter){
 	Fvh = FvhParam;
 	Fvp = FvpParam;
-	double fullTime = 0;
+	chrono::time_point<std::chrono::system_clock> start, end;
 	for (size_t i = 1; i <= maxIter; ++i)
 	{
-		currentMaxOccupancy = 0;
+		update = false;
+		start = std::chrono::system_clock::now();
+		unsigned int tempMaxOccupancy = 0;
 		routedChannels.reserve(blocksCount);
 		routedChannels.resize(blocksCount);
 
@@ -359,6 +363,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			for (int j = 0; j < routedChannels[i].size(); ++j){
 				for (int k = 0; k < routedChannels[i][j].size(); ++k){
 					channelsGraph[routedChannels[i][j][k]].channelOccupancy++;
+					tempMaxOccupancy = max(tempMaxOccupancy, channelsGraph[routedChannels[i][j][k]].channelOccupancy);
 				}
 			}
 		}
@@ -373,7 +378,6 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 #ifdef _OPENMP
 #pragma omp parallel
 		{			
-			double A = omp_get_wtime();
 #pragma omp for
 			for (int blockIt = 0; blockIt < blocksCount; ++blockIt)
 			{
@@ -396,7 +400,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 #pragma omp atomic
 						channelsGraph[routedChannels[i][j][k]].channelOccupancy++;
 #pragma omp critical
-						currentMaxOccupancy = max(currentMaxOccupancy, channelsGraph[routedChannels[i][j][k]].channelOccupancy);
+						tempMaxOccupancy = max(tempMaxOccupancy, channelsGraph[routedChannels[i][j][k]].channelOccupancy);
 					}
 				}
 			}
@@ -410,14 +414,14 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 					channelsGraph[i].setPv(i);
 				}
 			}
-
-#pragma omp single
-			{
-				fullTime += omp_get_wtime() - A;
-				cout << fullTime << " " << currentMaxOccupancy << endl;
-			}
 		}
 #endif
+		end = std::chrono::system_clock::now();
+		chrono::duration<double> elapsed_seconds = end-start;
+		currentMaxOccupancy = tempMaxOccupancy;
+		update = true;
+		cout << elapsed_seconds.count() << " " << currentMaxOccupancy << endl;
+		//updateFPGA();
 		routedChannels.clear();
 	}
 }

@@ -1,19 +1,25 @@
 #include <windows.h>
+#include <iostream>
 #include "FPGA.h"
-#include "glut/glut.h"
+#include <GL/glut.h>
 #pragma comment(lib, "glut.lib")
 #pragma comment(lib, "glut32.lib")
 
 extern PATHFINDER fpga;
-
+int mainWindow;
 void initGL() {
 	// Set "clearing" or background color
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black and opaque
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Black and opaque
+}
+void updateFPGA(){
+	glutSetWindow(mainWindow);
+	glutPostRedisplay();
 }
 
 inline void channelsGradient(const float& currentWeight, const float& maxWeight)
 {
-	float ratio = currentWeight / maxWeight;
+	float newMaxWeight = maxWeight;
+	float ratio = currentWeight / newMaxWeight;
 	float RGB[3];
 	if (ratio < 0.25f)
 	{
@@ -33,14 +39,43 @@ inline void channelsGradient(const float& currentWeight, const float& maxWeight)
 		RGB[1] = 1 - ratio;
 		RGB[2] = 0;
 	}
-	else if (ratio >= 0.75f)
+	else if (ratio >= 0.75f && ratio <= 1.0f)
 	{
 		RGB[0] = 1 - ratio;
 		RGB[1] = 4 - 4 * ratio;
 		RGB[2] = 0;
 	}
+	else{
+		RGB[0] = 1;
+		RGB[1] = 0;
+		RGB[2] = 0;
+	}
 	glColor3f(RGB[0], RGB[1], RGB[2]);
 }
+
+/* Handler for window re-size event. Called back when the window first appears and
+whenever the window is re-sized with its new width and height */
+void reshape(GLsizei width, GLsizei height) {  // GLsizei for non-negative integer
+	// Compute aspect ratio of the new window
+	if (height == 0) height = 1;                // To prevent divide by 0
+	GLfloat aspect = (GLfloat)width / (GLfloat)height;
+
+	// Set the viewport to cover the new window
+	glViewport(0, 0, width, height);
+
+	// Set the aspect ratio of the clipping area to match the viewport
+	glMatrixMode(GL_PROJECTION);  // To operate on the Projection matrix
+	glLoadIdentity();             // Reset the projection matrix
+	if (width >= height) {
+		// aspect >= 1, set the height from -1 to 1, with larger width
+		gluOrtho2D(-1.0 * aspect, 1.0 * aspect, -1.0, 1.0);
+	}
+	else {
+		// aspect < 1, set the width to -1 to 1, with larger height
+		gluOrtho2D(-1.0, 1.0, -1.0 / aspect, 1.0 / aspect);
+	}
+}
+
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
@@ -57,10 +92,10 @@ void display() {
 			glColor3f(0.0f, 0.0f, 0.0f);
 		}
 		else if (fpga.blocksArray[i].type == blockType::INPUT){
-			glColor3f(1.0f,1.0f, 1.0f);
+			glColor3f(0.0f,0.0f, 0.0f);
 		}
 		else{
-			glColor3f(1.0f, 1.0f, 1.0f);
+			glColor3f(0.0f, 0.0f, 0.0f);
 		}
 		glVertex2f(currentBlockX - wh, currentBlockY - wh);
 		glVertex2f(currentBlockX + wh, currentBlockY - wh);
@@ -89,39 +124,20 @@ void display() {
 			}
 		}
 	}
-
 	glFlush();  // Render now
 }
 
-/* Handler for window re-size event. Called back when the window first appears and
-whenever the window is re-sized with its new width and height */
-void reshape(GLsizei width, GLsizei height) {  // GLsizei for non-negative integer
-	// Compute aspect ratio of the new window
-	if (height == 0) height = 1;                // To prevent divide by 0
-	GLfloat aspect = (GLfloat)width / (GLfloat)height;
-
-	// Set the viewport to cover the new window
-	glViewport(0, 0, width, height);
-
-	// Set the aspect ratio of the clipping area to match the viewport
-	glMatrixMode(GL_PROJECTION);  // To operate on the Projection matrix
-	glLoadIdentity();             // Reset the projection matrix
-	if (width >= height) {
-		// aspect >= 1, set the height from -1 to 1, with larger width
-		gluOrtho2D(-1.0 * aspect, 1.0 * aspect, -1.0, 1.0);
-	}
-	else {
-		// aspect < 1, set the width to -1 to 1, with larger height
-		gluOrtho2D(-1.0, 1.0, -1.0 / aspect, 1.0 / aspect);
-	}
+void idleDisplay(){
+	if (fpga.update) display();
 }
 
-int runViewer(const PATHFINDER& pathfinder, int argc, char** argv){
+int runViewer(int argc, char** argv){
 	glutInit(&argc, argv);          // Initialize GLUT
 	glutInitWindowSize(800, 800);   // Set the window's initial width & height - non-square
 	glutInitWindowPosition(50, 50); // Position the window's initial top-left corner
-	glutCreateWindow("Viewport Transform");  // Create window with the given title
+	mainWindow = glutCreateWindow("Viewport Transform");  // Create window with the given title
 	glutDisplayFunc(display);       // Register callback handler for window re-paint event
+	glutIdleFunc(idleDisplay);       // Register callback handler for window re-paint event
 	glutReshapeFunc(reshape);       // Register callback handler for window re-size event
 	initGL();                       // Our own OpenGL initialization
 	glutMainLoop();                 // Enter the infinite event-processing loop
