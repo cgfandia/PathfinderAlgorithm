@@ -2,29 +2,37 @@
 #define FPGA_H
 
 #include <vector>
-#include <unordered_set>
 #include <unordered_map>
 using namespace std;
 
 __declspec(align(64)) class CHANNEL{
 public:
+	bool itsDestination;
+	bool used;
+	bool inQueue;
 	unsigned int ID;
-	unsigned int itsDestination;
 	unsigned int channelCapacity;
 	unsigned int channelOccupancy;
-	unsigned int used;
-	unsigned int inQueue;
 	unsigned int coords[2]; // 0 - x, 1 -y
 	long long int prevChannel;
 	float occupancyHistory;
 	float occupancyMult;
 	float minWeight;
-	//unsigned int padding[4];
 	vector<pair<unsigned int, float> > baseNeighboursWeights; // neighbor ID <-> base neighbor weight
 	CHANNEL();
 	inline void setPv(const size_t&);
 	inline void setHv(const size_t&);
 	inline float getWeightToThisChannel(const float&);
+};
+
+struct CHANNEL_TEMP{
+public:
+	bool itsDestination;
+	bool used;
+	bool inQueue;
+	unsigned int ID;
+	int prevChannel;
+	float minWeight;
 };
 
 enum class blockType{ CLB, OUTPUT, INPUT };
@@ -70,7 +78,6 @@ public:
 	CHANNEL*** channels2DArray;
 	void init(const string& placeFile, const string& netsFile);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
-	PATHFINDER();
 	virtual ~PATHFINDER();
 private:
 	size_t graphSize; // Max ID of channels
@@ -79,5 +86,14 @@ private:
 	bool directionalGraph;
 	vector<unsigned int> buildPath(const CHANNEL*, const vector<unsigned int>&, const unsigned int&);
 	void dijkstra(const unsigned int&, const LUT_IO_BLOCK&);
+};
+
+class channelComp
+{
+public:
+	bool operator() (const CHANNEL* lhs, const CHANNEL* rhs) const
+	{
+		return (lhs->minWeight > rhs->minWeight);
+	}
 };
 #endif

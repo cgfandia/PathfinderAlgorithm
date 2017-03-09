@@ -18,37 +18,37 @@ void updateFPGA(){
 
 inline void channelsGradient(const float& currentWeight, const float& maxWeight)
 {
-	float newMaxWeight = maxWeight;
-	float ratio = currentWeight / newMaxWeight;
+	float ratio = currentWeight / maxWeight;
 	float RGB[3];
-	if (ratio < 0.25f)
-	{
+	if (ratio < 0.25f){
 		RGB[0] = 0;
 		RGB[1] = 4 * ratio;
 		RGB[2] = 1 - ratio;
 	}
-	else if (ratio >= 0.25f && ratio < 0.5f)
-	{
+	else if (ratio >= 0.25f && ratio < 0.5f){
 		RGB[0] = 0;
 		RGB[1] = 1 - ratio;
 		RGB[2] = 2 - ratio * 4;
 	}
-	else if (ratio >= 0.5f && ratio < 0.75f)
-	{
+	else if (ratio >= 0.5f && ratio < 0.75f){
 		RGB[0] = 4 * ratio;
 		RGB[1] = 1 - ratio;
 		RGB[2] = 0;
 	}
-	else if (ratio >= 0.75f && ratio <= 1.0f)
-	{
+	else if (ratio >= 0.75f && ratio <= 1.0f){
 		RGB[0] = 1 - ratio;
 		RGB[1] = 4 - 4 * ratio;
 		RGB[2] = 0;
 	}
-	else{
+	else if (ratio > 1.0f){
 		RGB[0] = 1;
 		RGB[1] = 0;
 		RGB[2] = 0;
+	}
+	else{
+		RGB[0] = 0;
+		RGB[1] = 0;
+		RGB[2] = 1;
 	}
 	glColor3f(RGB[0], RGB[1], RGB[2]);
 }
