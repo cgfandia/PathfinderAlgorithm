@@ -3,10 +3,10 @@
 #include "FPGA.h"
 using namespace std;
 PATHFINDER fpga;
-//int runViewer(int, char**);
+int runViewer(int, char**);
 
 void runPathfinderThread(){
-	fpga.pathfinder(0.3, 1.2, 100);
+	fpga.pathfinder(1.2, 0.3, 100);
 }
 
 int main(int argc , char* argv[]){
@@ -14,7 +14,7 @@ int main(int argc , char* argv[]){
 	fpga.init("FPGA_tests/placed/clma.place", "FPGA_tests/net/clma.net");
 	thread pathfinderThread(runPathfinderThread);
 
-	//runViewer(argc, argv);
+	runViewer(argc, argv);
 	pathfinderThread.join();
 	return 0;
 }

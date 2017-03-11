@@ -26,7 +26,7 @@ public:
 };
 
 struct CHANNEL_TEMP{
-public:
+	unsigned int ID;
 	bool itsDestination;
 	bool used;
 	bool inQueue;
@@ -73,6 +73,7 @@ class PATHFINDER : public FPGA
 public:
 	bool update;
 	unsigned int currentMaxOccupancy;
+	unsigned int averageOccupancy;
 	size_t channels2DArrayWH;
 	CHANNEL*** channels2DArray;
 	void init(const string& placeFile, const string& netsFile);
@@ -91,7 +92,7 @@ private:
 class channelComp
 {
 public:
-	bool operator() (const CHANNEL* lhs, const CHANNEL* rhs) const
+	bool operator() (const CHANNEL_TEMP* lhs, const CHANNEL_TEMP* rhs) const
 	{
 		return (lhs->minWeight > rhs->minWeight);
 	}

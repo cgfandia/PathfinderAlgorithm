@@ -1,6 +1,7 @@
 #include <cstring>
 #include <algorithm>
 #include <queue>
+#include <unordered_set>
 #include <iostream>
 #include <cstdlib>
 #include <cfloat>
@@ -20,16 +21,15 @@ void updateFPGA();
 CHANNEL::CHANNEL() : used(0), inQueue(0), itsDestination(0), minWeight(FLT_MAX), channelOccupancy(0), occupancyHistory(1), occupancyMult(1), channelCapacity(INT_MAX), prevChannel(-1) {}
 
 inline void CHANNEL::setPv(const size_t& Niter){
-	occupancyMult = 1 + (Niter - 1) * Fvp * channelOccupancy;
+	occupancyMult = 1 + (Niter - 1) * Fvp * max(0,(int)(channelOccupancy + 1 - channelCapacity));
 }
 
 inline void CHANNEL::setHv(const size_t& Niter){
-	if (Niter <= 1)
-	{
+	if (Niter <= 1){
 		occupancyHistory = 1;
 	}
 	else{
-		occupancyHistory = occupancyHistory + Fvh * channelOccupancy;
+		occupancyHistory = occupancyHistory + Fvh * max(0, (int)(channelOccupancy + 1 - channelCapacity));
 	}
 }
 
@@ -55,7 +55,7 @@ void PATHFINDER::init(const string& placeFile, const string& netsFile){
 	initFPGA(placeFile, netsFile);
 
 	float edgeWeight = 1.0f;
-	unsigned int channelCapacity = 300;
+	unsigned int channelCapacity = 7;
 	
 	channels2DArrayWH = blocks2DArrayWH - 2;
 	graphSize = channels2DArrayWH * channels2DArrayWH;
@@ -261,7 +261,7 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const unsigned int& current
 	// Main algorithm
 
 	unsigned int destinationsCount = currentChannelDests.size();
-	priority_queue<CHANNEL*, vector<CHANNEL*>, channelComp> queueOfChannels;
+	priority_queue<CHANNEL_TEMP*, vector<CHANNEL_TEMP*>, channelComp> queueOfChannels;
 
 	currentPoolGraph[initChannel].prevChannel = initChannel;
 	currentPoolGraph[initChannel].minWeight = 0;
@@ -291,12 +291,15 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const unsigned int& current
 		{
 			unsigned int currentNeighborId = mainConstGraph[initChannel].baseNeighboursWeights[i].first;
 			if (currentPoolGraph[currentNeighborId].used == 0){
-				if (!currentPoolGraph[currentNeighborId].inQueue) queueOfChannels.push(&channelsGraph[currentNeighborId]);				
-				currentPoolGraph[currentNeighborId].inQueue = 1;
 
 				float Cn = mainConstGraph[currentNeighborId].getWeightToThisChannel(mainConstGraph[initChannel].baseNeighboursWeights[i].second); // mainConstGraph[initChannel].baseNeighboursWeights[i].second : base graph weight(edge weight)
 				if (currentPoolGraph[currentNeighborId].minWeight > currentPoolGraph[initChannel].minWeight + Cn)
 				{
+					if (!currentPoolGraph[currentNeighborId].inQueue) 
+						queueOfChannels.push(&currentPoolGraph[currentNeighborId]);
+
+					currentPoolGraph[currentNeighborId].inQueue = 1;
+
 					currentPoolGraph[currentNeighborId].minWeight = currentPoolGraph[initChannel].minWeight + Cn;
 					currentPoolGraph[currentNeighborId].prevChannel = initChannel;
 				}
@@ -321,6 +324,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	chrono::time_point<std::chrono::system_clock> start, end;
 	double fullTime = 0;
 	unsigned int tempMaxOccupancy = 0;
+	unsigned int sumOfOccupancys = 0;
 	currentMaxOccupancy = 0;
 
 	channelsTempMemoryPool = (CHANNEL_TEMP**)malloc(sizeof(CHANNEL_TEMP**) * blocksCount);
@@ -328,6 +332,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 		channelsTempMemoryPool[i] = (CHANNEL_TEMP*)malloc(sizeof(CHANNEL_TEMP) * graphSize);
 		for (int cIt = 0; cIt < graphSize; cIt++)
 		{
+			channelsTempMemoryPool[i][cIt].ID = cIt;
 			channelsTempMemoryPool[i][cIt].itsDestination = 0;
 			channelsTempMemoryPool[i][cIt].minWeight = FLT_MAX;
 			channelsTempMemoryPool[i][cIt].prevChannel = -1;
@@ -335,9 +340,10 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			channelsTempMemoryPool[i][cIt].inQueue = 0;
 		}
 	}
-
+	
 	for (size_t gIt = 1; gIt <= maxIter; ++gIt)
 	{
+		unordered_set<unsigned int> usedUniqueChannels;
 		update = false;
 		start = std::chrono::system_clock::now();
 		routedChannels.reserve(blocksCount);
@@ -390,38 +396,46 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 
 			if (gIt > 1){
 #pragma omp for
-				for (int i = 0; i <= graphSize; ++i){ channelsGraph[i].channelOccupancy = 0; }
+				for (int i = 0; i <= graphSize; ++i)
+					channelsGraph[i].channelOccupancy = 0;
 			}
 
 #pragma omp for
 			for (int i = 0; i < routedChannels.size(); ++i){
 				for (int j = 0; j < routedChannels[i].size(); ++j){
-					for (int k = 0; k < routedChannels[i][j].size(); ++k){
-#pragma omp atomic
-						channelsGraph[routedChannels[i][j][k]].channelOccupancy++;
 #pragma omp critical
-						tempMaxOccupancy = max(tempMaxOccupancy, channelsGraph[routedChannels[i][j][k]].channelOccupancy);
-					}
+					usedUniqueChannels.insert(routedChannels[i][j].begin(), routedChannels[i][j].end());
 				}
+			}
+			
+			for (auto it = usedUniqueChannels.begin(); it != usedUniqueChannels.end(); it++)
+			{
+#pragma omp atomic
+				channelsGraph[*it].channelOccupancy++;
+#pragma omp critical
+				tempMaxOccupancy = max(tempMaxOccupancy, channelsGraph[*it].channelOccupancy);
 			}
 
 #pragma omp for
 			for (int i = 0; i < graphSize; ++i){
 #pragma omp critical
 				{
-					channelsGraph[i].setHv(i);
-					channelsGraph[i].setPv(i);
+					sumOfOccupancys += channelsGraph[i].channelOccupancy;
+					channelsGraph[i].setHv(gIt);
+					channelsGraph[i].setPv(gIt);
 				}
 			}
 		}
 #endif
 		currentMaxOccupancy = tempMaxOccupancy;
 		tempMaxOccupancy = 0;
+		averageOccupancy = sumOfOccupancys / graphSize;
+		sumOfOccupancys = 0;
 		update = true;
 		end = std::chrono::system_clock::now();
 		chrono::duration<double> elapsed_seconds = end-start;
 		fullTime += elapsed_seconds.count();
-		cout << fullTime << "s, iteration: " << gIt << ", maxOccupancy: " << currentMaxOccupancy << endl;
+		cout << fullTime << "s, iteration: " << gIt << " maxOccupancy: " << currentMaxOccupancy << " averageOccupancy: " << averageOccupancy << endl;
 		//updateFPGA();
 		routedChannels.clear();
 
