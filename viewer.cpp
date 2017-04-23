@@ -1,9 +1,11 @@
-#include <windows.h>
 #include <iostream>
 #include "FPGA.h"
 #include <GL/glut.h>
+
+#ifndef __GNUC__
 #pragma comment(lib, "glut.lib")
 #pragma comment(lib, "glut32.lib")
+#endif
 
 extern PATHFINDER fpga;
 int mainWindow;
@@ -16,27 +18,27 @@ void updateFPGA(){
 	glutPostRedisplay();
 }
 
-inline void channelsGradient(const float& currentWeight, const float& maxWeight)
+inline void channelsGradientBtoR(const float& currentWeight, const float& maxWeight)
 {
 	float ratio = currentWeight / maxWeight;
 	float RGB[3];
 	if (ratio < 0.25f){
 		RGB[0] = 0;
 		RGB[1] = 4 * ratio;
-		RGB[2] = 1 - ratio;
+		RGB[2] = 1;
 	}
 	else if (ratio >= 0.25f && ratio < 0.5f){
 		RGB[0] = 0;
-		RGB[1] = 1 - ratio;
+		RGB[1] = 1;
 		RGB[2] = 2 - ratio * 4;
 	}
 	else if (ratio >= 0.5f && ratio < 0.75f){
-		RGB[0] = 4 * ratio;
-		RGB[1] = 1 - ratio;
+		RGB[0] = 1.3333f * ratio;
+		RGB[1] = 1;
 		RGB[2] = 0;
 	}
 	else if (ratio >= 0.75f && ratio <= 1.0f){
-		RGB[0] = 1 - ratio;
+		RGB[0] = 1;
 		RGB[1] = 4 - 4 * ratio;
 		RGB[2] = 0;
 	}
@@ -50,6 +52,40 @@ inline void channelsGradient(const float& currentWeight, const float& maxWeight)
 		RGB[1] = 0;
 		RGB[2] = 1;
 	}
+
+	glColor3f(RGB[0], RGB[1], RGB[2]);
+}
+
+inline void channelsGradientWarm(const float& currentWeight, const float& maxWeight)
+{
+	float ratio = currentWeight / maxWeight;
+	float RGB[3];
+	if (ratio < 1.0f / 3){
+		RGB[0] = 3 * ratio;
+		RGB[1] = 0;
+		RGB[2] = 0;
+	}
+	else if (ratio >= 1.0f / 3 && ratio < 2.0f / 3){
+		RGB[0] = 1;
+		RGB[1] = 3 * ratio;
+		RGB[2] = 0;
+	}
+	else if (ratio >= 2.0f / 3 && ratio < 1){
+		RGB[0] = 1;
+		RGB[1] = 1;
+		RGB[2] = 3 * ratio;
+	}
+	else if (ratio > 1.0f){
+		RGB[0] = 1;
+		RGB[1] = 1;
+		RGB[2] = 1;
+	}
+	else{
+		RGB[0] = 0;
+		RGB[1] = 0;
+		RGB[2] = 0;
+	}
+
 	glColor3f(RGB[0], RGB[1], RGB[2]);
 }
 
@@ -76,8 +112,7 @@ void reshape(GLsizei width, GLsizei height) {  // GLsizei for non-negative integ
 	}
 }
 
-
-void display() {
+void display(){
 	glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer with current clearing color
 
 	for (size_t i = 0; i < fpga.blocksCount; i++)
@@ -92,10 +127,10 @@ void display() {
 			glColor3f(0.0f, 0.0f, 0.0f);
 		}
 		else if (fpga.blocksArray[i].type == blockType::INPUT){
-			glColor3f(0.0f,0.0f, 0.0f);
+			glColor3f(0.0f, 1.0f, 0.0f);
 		}
 		else{
-			glColor3f(0.0f, 0.0f, 0.0f);
+			glColor3f(0.0f, 0.0f, 1.0f);
 		}
 		glVertex2f(currentBlockX - wh, currentBlockY - wh);
 		glVertex2f(currentBlockX + wh, currentBlockY - wh);
@@ -115,7 +150,7 @@ void display() {
 				float currentBlockY = (fpga.channels2DArray[i][j]->coords[1]) / div - 0.9;
 				float wh = 0.5f / div;
 				glBegin(GL_QUADS);
-				channelsGradient(fpga.channels2DArray[i][j]->channelOccupancy, fpga.currentMaxOccupancy);
+				channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.currentMaxOccupancy);
 				glVertex2f(currentBlockX - wh, currentBlockY - wh);
 				glVertex2f(currentBlockX + wh, currentBlockY - wh);
 				glVertex2f(currentBlockX + wh, currentBlockY + wh);

@@ -51,11 +51,11 @@ PATHFINDER::~PATHFINDER(){
 	channels2DArray = nullptr;
 };
 
-void PATHFINDER::init(const string& placeFile, const string& netsFile){
+void PATHFINDER::init(const string& placeFile, const string& netsFile, const float& edgeWeightParam, const float& channelCapacityParam){
 	initFPGA(placeFile, netsFile);
 
-	float edgeWeight = 1.0f;
-	unsigned int channelCapacity = 300;
+	float edgeWeight = edgeWeightParam;
+	unsigned int channelCapacity = channelCapacityParam;
 	
 	channels2DArrayWH = blocks2DArrayWH - 2;
 	graphSize = channels2DArrayWH * channels2DArrayWH;
@@ -248,14 +248,16 @@ void PATHFINDER::dijkstra(const unsigned int& iterN, const LUT_IO_BLOCK& current
 	CHANNEL* tempGraph;
 #ifdef _OPENMP
 #pragma omp critical
-#endif
 {
+#endif
 	tempGraph = (CHANNEL*)malloc(sizeof(CHANNEL) * (graphSize + 1));
 	if (tempGraph == nullptr){
 		cerr << "Temporary graph memory allocation error" << endl;
 		exit(1);
 	}
+#ifdef _OPENMP
 }
+#endif
 	
 	memcpy(tempGraph, channelsGraph, sizeof(CHANNEL) * (graphSize + 1));;
 
@@ -332,6 +334,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	chrono::time_point<std::chrono::system_clock> start, end;
 	double fullTime = 0;
 	unsigned int tempMaxOccupancy = 0;
+	unsigned int sumOfOccupancys = 0;
 	currentMaxOccupancy = 0;
 	for (size_t gIt = 1; gIt <= maxIter; ++gIt)
 	{
@@ -406,6 +409,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			for (int i = 0; i < graphSize; ++i){
 #pragma omp critical
 				{
+					sumOfOccupancys += channelsGraph[i].channelOccupancy;
 					channelsGraph[i].setHv(i);
 					channelsGraph[i].setPv(i);
 				}
@@ -414,11 +418,13 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 #endif
 		currentMaxOccupancy = tempMaxOccupancy;
 		tempMaxOccupancy = 0;
+		averageOccupancy = sumOfOccupancys / graphSize;
+		sumOfOccupancys = 0;
 		update = true;
 		end = std::chrono::system_clock::now();
-		chrono::duration<double> elapsed_seconds = end-start;
+		chrono::duration<double> elapsed_seconds = end - start;
 		fullTime += elapsed_seconds.count();
-		cout << fullTime << "s, iteration: " << gIt << ", maxOccupancy: " << currentMaxOccupancy << endl;
+		cout << fullTime << "s, iteration: " << gIt << " maxOccupancy: " << currentMaxOccupancy << " averageOccupancy: " << averageOccupancy << endl;
 		//updateFPGA();
 		routedChannels.clear();
 	}

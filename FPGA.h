@@ -5,7 +5,7 @@
 #include <unordered_map>
 using namespace std;
 
-__declspec(align(64)) class CHANNEL{
+class CHANNEL{
 public:
 	bool itsDestination;
 	bool used;
@@ -23,16 +23,6 @@ public:
 	inline void setPv(const size_t&);
 	inline void setHv(const size_t&);
 	inline float getWeightToThisChannel(const float&);
-};
-
-struct CHANNEL_TEMP{
-public:
-	bool itsDestination;
-	bool used;
-	bool inQueue;
-	unsigned int ID;
-	int prevChannel;
-	float minWeight;
 };
 
 enum class blockType{ CLB, OUTPUT, INPUT };
@@ -74,9 +64,10 @@ class PATHFINDER : public FPGA
 public:
 	bool update;
 	unsigned int currentMaxOccupancy;
+	unsigned int averageOccupancy;
 	size_t channels2DArrayWH;
 	CHANNEL*** channels2DArray;
-	void init(const string& placeFile, const string& netsFile);
+	void init(const string& placeFile, const string& netsFile, const float& edgeWeightParam, const float& channelCapacityParam);
 	void pathfinder(const float& FvhParam, const float& FvpParam, const size_t& maxIter);
 	virtual ~PATHFINDER();
 private:

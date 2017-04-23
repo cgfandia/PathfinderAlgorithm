@@ -10,9 +10,12 @@ void runPathfinderThread(){
 }
 
 int main(int argc , char* argv[]){
-	fpga.init("FPGA_tests/placed/clma.place", "FPGA_tests/net/clma.net");
+	if (argc <= 1)
+		return 0;
+
+	fpga.init(argv[1], argv[2], 7.0f, 300.0f);
 	thread pathfinderThread(runPathfinderThread);
-	fpga.pathfinder(0.3, 1.2, 1);
+	//fpga.pathfinder(0.3, 1.2, 100);
 	runViewer(argc, argv);
 	pathfinderThread.join();
 	return 0;
