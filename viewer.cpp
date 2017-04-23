@@ -60,6 +60,7 @@ inline void channelsGradientWarm(const float& currentWeight, const float& maxWei
 {
 	float ratio = currentWeight / maxWeight;
 	float RGB[3];
+
 	if (ratio < 1.0f / 3){
 		RGB[0] = 3 * ratio;
 		RGB[1] = 0;
