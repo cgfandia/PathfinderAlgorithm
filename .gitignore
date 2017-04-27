@@ -1,7 +1,6 @@
 #Ignore all except .cpp , .h and .md files
 /*
 !doc
-!FPGA_tests
 !*.gitignore
 !*.cpp
 !*.h

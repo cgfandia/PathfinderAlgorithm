@@ -63,6 +63,7 @@ class PATHFINDER : public FPGA
 {
 public:
 	bool update;
+	size_t maxPathLength;
 	unsigned int currentMaxOccupancy;
 	unsigned int averageOccupancy;
 	size_t channels2DArrayWH;
@@ -76,7 +77,7 @@ private:
 	vector<vector<vector<unsigned int> > > routedChannels;
 	bool directionalGraph;
 	vector<unsigned int> buildPath(const CHANNEL*, const vector<unsigned int>&, const unsigned int&);
-	void dijkstra(const unsigned int&, const LUT_IO_BLOCK&);
+	void dijkstra(const LUT_IO_BLOCK&);
 };
 
 class channelComp

@@ -2,13 +2,10 @@
 #include "FPGA.h"
 #include <GL/glut.h>
 
-#ifndef __GNUC__
-#pragma comment(lib, "glut.lib")
-#pragma comment(lib, "glut32.lib")
-#endif
-
 extern PATHFINDER fpga;
+extern bool exitGL;
 int mainWindow;
+
 void initGL() {
 	// Set "clearing" or background color
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Black and opaque
@@ -76,7 +73,7 @@ inline void channelsGradientWarm(const float& currentWeight, const float& maxWei
 		RGB[1] = 1;
 		RGB[2] = 3 * ratio;
 	}
-	else if (ratio > 1.0f){
+	else if (ratio >= 1.0f){
 		RGB[0] = 1;
 		RGB[1] = 1;
 		RGB[2] = 1;
@@ -152,6 +149,7 @@ void display(){
 				float wh = 0.5f / div;
 				glBegin(GL_QUADS);
 				channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.currentMaxOccupancy);
+				//channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.channels2DArray[i][j]->channelCapacity);
 				glVertex2f(currentBlockX - wh, currentBlockY - wh);
 				glVertex2f(currentBlockX + wh, currentBlockY - wh);
 				glVertex2f(currentBlockX + wh, currentBlockY + wh);
@@ -161,21 +159,13 @@ void display(){
 		}
 	}
 	glFlush();  // Render now
+
+	if (exitGL) //exit from loop when calculations done
+	{
+		//exit(0);
+	}
 }
 
 void idleDisplay(){
 	if (fpga.update) display();
-}
-
-int runViewer(int argc, char** argv){
-	glutInit(&argc, argv);          // Initialize GLUT
-	glutInitWindowSize(800, 800);   // Set the window's initial width & height - non-square
-	glutInitWindowPosition(50, 50); // Position the window's initial top-left corner
-	mainWindow = glutCreateWindow("Viewport Transform");  // Create window with the given title
-	glutDisplayFunc(display);       // Register callback handler for window re-paint event
-	glutIdleFunc(idleDisplay);       // Register callback handler for window re-paint event
-	glutReshapeFunc(reshape);       // Register callback handler for window re-size event
-	initGL();                       // Our own OpenGL initialization
-	glutMainLoop();                 // Enter the infinite event-processing loop
-	return 0;
 }

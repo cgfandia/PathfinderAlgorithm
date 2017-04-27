@@ -39,6 +39,8 @@ FPGA::~FPGA(){
 	}
 	delete[] blocks2DArray;
 	blocks2DArray = nullptr;
+
+	LUTsAndIO.clear();
 }
 
 
@@ -131,16 +133,6 @@ void FPGA::parseNetsFile(const string& filename){
 			auto& currentBlock = LUTsAndIO[matches[1]];
 			currentBlock.type = blockType::INPUT;
 			auto currentBlockID = currentBlock.ID;
-
-			/*getline(file, lineString); // pinlist string
-			if (regex_match(lineString, matches, pinlistIORegEx))
-			{
-				// find in map LUT by its name, which bound with input block, and add to this LUT ID of input block
-				LUTsAndIO[matches[1]].channelsConnections.second.push_back(currentBlockID);
-			}
-			else{
-				throw logic_error(string("Can't find pinlist for ") + currentBlockName);
-			}*/
 		}
 	}
 	file.close();
