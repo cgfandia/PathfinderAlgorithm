@@ -251,20 +251,18 @@ void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
 
 	// Initialization temp graph
 	CHANNEL* tempGraph;
-#ifdef _OPENMP
+
 #pragma omp critical
 {
-#endif
 	tempGraph = (CHANNEL*)malloc(sizeof(CHANNEL) * (graphSize + 1));
 	if (tempGraph == nullptr){
 		cerr << "Temporary graph memory allocation error" << endl;
 		exit(1);
 	}
-#ifdef _OPENMP
+
 }
-#endif
 	
-	memcpy(tempGraph, channelsGraph, sizeof(CHANNEL) * (graphSize + 1));;
+	memcpy(tempGraph, channelsGraph, sizeof(CHANNEL) * (graphSize + 1));
 
 	const vector<unsigned int>& currentChannelDests = currentBlock.channelsConnections.second;
 	unsigned int initChannel = currentBlock.channelsConnections.first[0]; // Source channel = bottom pinout
@@ -306,11 +304,17 @@ void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
 		{
 			unsigned int currentNeighborId = tempGraph[initChannel].baseNeighboursWeights[i].first;
 			if (tempGraph[currentNeighborId].used == 0){
-				if (!tempGraph[currentNeighborId].inQueue) queueOfChannels.push(&channelsGraph[currentNeighborId]);				
-				tempGraph[currentNeighborId].inQueue = 1;
 
-				float Cn = tempGraph[currentNeighborId].getWeightToThisChannel(tempGraph[initChannel].baseNeighboursWeights[i].second); // tempGraph[initChannel].baseNeighboursWeights[i].second : base graph weight(edge weight)
-				if (tempGraph[currentNeighborId].minWeight > tempGraph[initChannel].minWeight + Cn)
+				// tempGraph[initChannel].baseNeighboursWeights[i].second – base graph weight(edge weight)
+				float Cn = tempGraph[currentNeighborId].getWeightToThisChannel(tempGraph[initChannel].baseNeighboursWeights[i].second); 
+
+				if (!tempGraph[currentNeighborId].inQueue) {
+					channelsGraph[currentNeighborId].minWeight = tempGraph[initChannel].minWeight + Cn;
+					queueOfChannels.push(&channelsGraph[currentNeighborId]);
+				}
+				tempGraph[currentNeighborId].inQueue = 1;
+				
+				if (tempGraph[currentNeighborId].minWeight >= tempGraph[initChannel].minWeight + Cn)
 				{
 					tempGraph[currentNeighborId].minWeight = tempGraph[initChannel].minWeight + Cn;
 					tempGraph[currentNeighborId].prevChannel = initChannel;
