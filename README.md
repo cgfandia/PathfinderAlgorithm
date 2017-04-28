@@ -31,7 +31,7 @@ infinity to resources whose capacity is exceeded.
 _Realization_ of algorithm based on _.place_ and _.net_ files from _"FPGA Place-and-Route Challenge"_ from _University of Toronto_. To visualize routing used _OpenGL_. To read more: [docs](/docs) or [here](http://www.eecg.toronto.edu/~vaughn/challenge/challenge.html)
 
 ## How to build
-######In Linux
+In Linux
 Run ```./build.sh```
 
 **_Required_**:
@@ -42,7 +42,7 @@ libxmu-dev libxi-dev
 freeglut3 freeglut3-dev
 ```
 
-######In Windows
+In Windows
 Use _CMake_ application to create _MVS_ project and then compile
 
 ## Usage
