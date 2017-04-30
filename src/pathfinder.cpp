@@ -36,7 +36,8 @@ inline void CHANNEL::setHv(const size_t& Niter){
 }
 
 inline float CHANNEL::getWeightToThisChannel(const float& baseWeightToChannel){
-	return occupancyMult * (baseWeightToChannel + occupancyHistory);
+	//return occupancyMult * (baseWeightToChannel + occupancyHistory);
+	return occupancyMult * baseWeightToChannel * occupancyHistory;
 }
 
 PATHFINDER::~PATHFINDER(){
@@ -60,7 +61,7 @@ void PATHFINDER::init(const string& placeFile, const string& netsFile, const flo
 	initFPGA(placeFile, netsFile);
 
 	float edgeWeight = edgeWeightParam;
-	unsigned int channelCapacity = channelCapacityParam;
+	channelCapacity = channelCapacityParam;
 	
 	channels2DArrayWH = blocks2DArrayWH - 2;
 	graphSize = channels2DArrayWH * channels2DArrayWH;
@@ -235,7 +236,7 @@ vector<unsigned int> PATHFINDER::buildPath(const CHANNEL* finalGraph, const vect
 		auto prevChannelID = finalGraph[currentID].prevChannel;
 		if (prevChannelID == -1)
 		{
-			//std::cerr << "Cant find path\n";
+			std::cerr << "Cant find path\n";
 			break;
 		}
 		outPath.push_back(currentID);
@@ -247,7 +248,7 @@ vector<unsigned int> PATHFINDER::buildPath(const CHANNEL* finalGraph, const vect
 	return outPath;
 }
 
-void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
+void PATHFINDER::dijkstra(const CLB_IO& currentBlock){
 
 	// Initialization temp graph
 	CHANNEL* tempGraph;
@@ -274,7 +275,7 @@ void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
 	// Main algorithm
 
 	unsigned int destinationsCount = currentChannelDests.size();
-	priority_queue<CHANNEL*, vector<CHANNEL*>, channelComp> queueOfChannels;
+	priority_queue<pair<float, CHANNEL*>, vector<pair<float, CHANNEL*> >, channelComp> queueOfChannels;
 
 	tempGraph[initChannel].prevChannel = initChannel;
 	tempGraph[initChannel].minWeight = 0;
@@ -289,7 +290,7 @@ void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
 	{
 		if (queueOfChannels.size() > 0)
 		{
-			initChannel = queueOfChannels.top()->ID;
+			initChannel = queueOfChannels.top().second->ID;
 			queueOfChannels.pop();
 			if (tempGraph[initChannel].itsDestination){
 				destinationsCount--;
@@ -303,21 +304,23 @@ void PATHFINDER::dijkstra(const LUT_IO_BLOCK& currentBlock){
 		for (size_t i = 0; i < tempGraph[initChannel].baseNeighboursWeights.size(); ++i)
 		{
 			unsigned int currentNeighborId = tempGraph[initChannel].baseNeighboursWeights[i].first;
-			if (tempGraph[currentNeighborId].used == 0){
+			auto neighbourChannel = &tempGraph[currentNeighborId];
+			if (neighbourChannel->used == 0){
 
-				// tempGraph[initChannel].baseNeighboursWeights[i].second – base graph weight(edge weight)
-				float Cn = tempGraph[currentNeighborId].getWeightToThisChannel(tempGraph[initChannel].baseNeighboursWeights[i].second); 
+				// neighbourChannel->baseNeighboursWeights[i].second – base graph weight(edge weight)
+				float Cn = neighbourChannel->getWeightToThisChannel(tempGraph[initChannel].baseNeighboursWeights[i].second);
 
-				if (!tempGraph[currentNeighborId].inQueue) {
-					channelsGraph[currentNeighborId].minWeight = tempGraph[initChannel].minWeight + Cn;
-					queueOfChannels.push(&channelsGraph[currentNeighborId]);
+				/*if (!neighbourChannel->inQueue) {
+					neighbourChannel->minWeight = tempGraph[initChannel].minWeight + Cn;
+					queueOfChannels.push(pair<float, CHANNEL*>(neighbourChannel->minWeight, neighbourChannel));
 				}
-				tempGraph[currentNeighborId].inQueue = 1;
+				neighbourChannel->inQueue = 1;*/
 				
-				if (tempGraph[currentNeighborId].minWeight >= tempGraph[initChannel].minWeight + Cn)
+				if (neighbourChannel->minWeight > tempGraph[initChannel].minWeight + Cn)
 				{
-					tempGraph[currentNeighborId].minWeight = tempGraph[initChannel].minWeight + Cn;
-					tempGraph[currentNeighborId].prevChannel = initChannel;
+					neighbourChannel->minWeight = tempGraph[initChannel].minWeight + Cn;
+					queueOfChannels.push(pair<float, CHANNEL*>(neighbourChannel->minWeight, neighbourChannel));
+					neighbourChannel->prevChannel = initChannel;
 				}
 			}
 		}
@@ -342,7 +345,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 	chrono::time_point<std::chrono::system_clock> start, end;
 	double fullTime = 0;
 	unsigned int sumOfOccupancys = 0;
-	//currentMaxOccupancy = 0;
+	currentMaxOccupancy = 0;
 	//cout << "iteration,maxPathLength,maxOccupancy,averagePathLength" << endl;
 	for (size_t gIt = 1; gIt <= maxIter; ++gIt)
 	{
@@ -376,7 +379,25 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			if (gIt > 1){
 #pragma omp for
 				for (int i = 0; i <= graphSize; ++i){ channelsGraph[i].channelOccupancy = 0; }
+				
+				// Update channelCapacity in each channel after first iteration
+
+				/*if (currentMaxOccupancy == channelCapacity){
+					channelCapacity = currentMaxOccupancy - 1;
+					cout << "---------------------------------------------" << channelCapacity << endl;
+
+					for (int i = 0; i < graphSize; i++)
+					{
+						channelsGraph[i].channelCapacity = channelCapacity;
+						if (channelsGraph[i].baseNeighboursWeights.size() > 2){ // Its switchbox
+							channelsGraph[i].channelCapacity = (channelsGraph[i].baseNeighboursWeights.size() - 1) * channelCapacity;
+						}
+					}
+				}*/
 			}
+
+
+
 
 #pragma omp for
 			for (int i = 0; i < routedChannels.size(); ++i){
@@ -422,6 +443,7 @@ void PATHFINDER::pathfinder(const float& FvhParam, const float& FvpParam, const 
 			}
 		}
 
+		MaxOccupancy = max(MaxOccupancy, tempMaxOccupancy);
 		currentMaxOccupancy = tempMaxOccupancy;
 		tempMaxOccupancy = 0;
 		averageOccupancy = sumOfOccupancys / graphSize;

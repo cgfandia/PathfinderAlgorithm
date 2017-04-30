@@ -27,7 +27,7 @@ public:
 
 enum class blockType{ CLB, OUTPUT, INPUT };
 
-class LUT_IO_BLOCK{
+class CLB_IO{
 public:
 	string name;
 	unsigned int ID;
@@ -37,10 +37,10 @@ public:
 	vector<unsigned int>destBlocks;
 	vector<vector<unsigned int> >* channelsPaths;
 	pair<vector<unsigned int>, vector<unsigned int> > channelsConnections; // pair<vector of src, vector of dest>
-	LUT_IO_BLOCK(const string& nameParam, const unsigned int& XParam, const unsigned int& YParam, const unsigned int& IDParam);
-	LUT_IO_BLOCK();
+	CLB_IO(const string& nameParam, const unsigned int& XParam, const unsigned int& YParam, const unsigned int& IDParam);
+	CLB_IO();
 
-	~LUT_IO_BLOCK() = default;
+	~CLB_IO() = default;
 };
 
 class FPGA{
@@ -48,9 +48,9 @@ public:
 	unsigned int blocksCount;
 	size_t blocks2DArrayWH;
 	unsigned int maxWH;
-	unordered_map<string, LUT_IO_BLOCK> LUTsAndIO; // name of LUT or I/O block <-> LUT or I/O block
-	LUT_IO_BLOCK* blocksArray;
-	LUT_IO_BLOCK*** blocks2DArray;
+	unordered_map<string, CLB_IO> LUTsAndIO; // name of CLB or I/O block <-> CLB or I/O block
+	CLB_IO* blocksArray;
+	CLB_IO*** blocks2DArray;
 	virtual ~FPGA();
 	void initFPGA(const string& placeFile, const string& netsFile);
 private:
@@ -64,6 +64,8 @@ class PATHFINDER : public FPGA
 public:
 	bool update;
 	size_t maxPathLength;
+	unsigned int channelCapacity;
+	unsigned int MaxOccupancy;
 	unsigned int currentMaxOccupancy;
 	unsigned int averageOccupancy;
 	size_t channels2DArrayWH;
@@ -77,15 +79,15 @@ private:
 	vector<vector<vector<unsigned int> > > routedChannels;
 	bool directionalGraph;
 	vector<unsigned int> buildPath(const CHANNEL*, const vector<unsigned int>&, const unsigned int&);
-	void dijkstra(const LUT_IO_BLOCK&);
+	void dijkstra(const CLB_IO&);
 };
 
 class channelComp
 {
 public:
-	bool operator() (const CHANNEL* lhs, const CHANNEL* rhs) const
+	bool operator() (const pair<float, CHANNEL*> lhs, const pair<float, CHANNEL*> rhs) const
 	{
-		return (lhs->minWeight > rhs->minWeight);
+		return lhs.first > rhs.first;
 	}
 };
 #endif

@@ -148,7 +148,7 @@ void display(){
 				float currentBlockY = (fpga.channels2DArray[i][j]->coords[1]) / div - 0.9;
 				float wh = 0.5f / div;
 				glBegin(GL_QUADS);
-				channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.currentMaxOccupancy);
+				channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.MaxOccupancy);
 				//channelsGradientBtoR(fpga.channels2DArray[i][j]->channelOccupancy, fpga.channels2DArray[i][j]->channelCapacity);
 				glVertex2f(currentBlockX - wh, currentBlockY - wh);
 				glVertex2f(currentBlockX + wh, currentBlockY - wh);
@@ -162,7 +162,7 @@ void display(){
 
 	if (exitGL) //exit from loop when calculations done
 	{
-		exit(0);
+		//exit(0);
 	}
 }
 

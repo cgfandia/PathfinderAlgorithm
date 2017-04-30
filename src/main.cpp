@@ -35,7 +35,7 @@ int main(int argc , char* argv[]){
 	try{
 #if defined(_debug_mode_) || defined(_DEBUG)
 
-		fpga.init("D:/C++Projects/Pathfinder/FPGA_tests/placed/alu4.place", "D:/C++Projects/Pathfinder/FPGA_tests/net/alu4.net", 100.0f, 7.0f);
+		fpga.init("D:/C++Projects/Pathfinder/FPGA_tests/placed/test.place", "D:/C++Projects/Pathfinder/FPGA_tests/net/test.net", 100.0f, 7.0f);
 		fpga.pathfinder(0.3, 1.2, 100);
 
 #else

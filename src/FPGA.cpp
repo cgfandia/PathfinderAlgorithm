@@ -12,7 +12,7 @@ void checkFileOpening(const ifstream& file, const string& filename){
 	}
 }
 
-LUT_IO_BLOCK::LUT_IO_BLOCK(const string& nameParam, const unsigned int& XParam, const unsigned int& YParam, const unsigned int& IDParam){
+CLB_IO::CLB_IO(const string& nameParam, const unsigned int& XParam, const unsigned int& YParam, const unsigned int& IDParam){
 	name = nameParam;
 	ID = IDParam;
 	coords[0] = XParam;
@@ -20,7 +20,7 @@ LUT_IO_BLOCK::LUT_IO_BLOCK(const string& nameParam, const unsigned int& XParam, 
 	memset(inpBlocks, -1, sizeof(int) * 4);
 }
 
-LUT_IO_BLOCK::LUT_IO_BLOCK(){
+CLB_IO::CLB_IO(){
 	name = "none";
 	ID = 0xFFFFFFFF;
 	coords[0] = 0;
@@ -61,7 +61,7 @@ void FPGA::parsePlaceFile(const string& filename){
 			unsigned int X = stoi(matches[2]) * 2;
 			unsigned int Y = stoi(matches[3]) * 2;
 			unsigned int ID = stoi(matches[5]);
-			LUTsAndIO.insert(pair<string, LUT_IO_BLOCK>(name, LUT_IO_BLOCK(name, X, Y, ID)));
+			LUTsAndIO.insert(pair<string, CLB_IO>(name, CLB_IO(name, X, Y, ID)));
 			blocksCount = max(blocksCount, ID); // find biggest ID
 		}
 		else if (regex_match(lineString, matches, arraySizeRegEx)){
@@ -142,7 +142,7 @@ void FPGA::init2DArrayBlocks(){
 
 	// Init blocksArray from LUTsAndIO unordered_map
 
-	blocksArray = new LUT_IO_BLOCK[blocksCount];
+	blocksArray = new CLB_IO[blocksCount];
 	for (auto blockIt = LUTsAndIO.begin(); blockIt != LUTsAndIO.end(); blockIt++)
 	{
 		blocksArray[blockIt->second.ID] = blockIt->second;
@@ -151,10 +151,10 @@ void FPGA::init2DArrayBlocks(){
 
 	// Init blocks2DArray pointers from blocksArray
 
-	blocks2DArray = new LUT_IO_BLOCK**[blocks2DArrayWH];
+	blocks2DArray = new CLB_IO**[blocks2DArrayWH];
 	for (size_t i = 0; i < blocks2DArrayWH; i++)
 	{
-		blocks2DArray[i] = new LUT_IO_BLOCK*[blocks2DArrayWH];
+		blocks2DArray[i] = new CLB_IO*[blocks2DArrayWH];
 	}
 	for (size_t i = 0; i < blocks2DArrayWH; i++)
 	{
@@ -165,7 +165,7 @@ void FPGA::init2DArrayBlocks(){
 	}
 	for (size_t i = 0; i < blocksCount; i++)
 	{
-		LUT_IO_BLOCK* currentBlock = &blocksArray[i];
+		CLB_IO* currentBlock = &blocksArray[i];
 		blocks2DArray[currentBlock->coords[1]][currentBlock->coords[0]] = currentBlock;
 	}
 
