@@ -319,7 +319,7 @@ void PATHFINDER::dijkstra(const CLB_IO& currentBlock){
 				if (neighbourChannel->minWeight > tempGraph[initChannel].minWeight + Cn)
 				{
 					neighbourChannel->minWeight = tempGraph[initChannel].minWeight + Cn;
-					queueOfChannels.push(pair<float, CHANNEL*>(neighbourChannel->minWeight, neighbourChannel));
+					queueOfChannels.push(make_pair<float, CHANNEL*>(move(neighbourChannel->minWeight), move(neighbourChannel)));
 					neighbourChannel->prevChannel = initChannel;
 				}
 			}

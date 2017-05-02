@@ -10,7 +10,7 @@
 #endif
 
 //#define  _debug_mode_
-#define  _glut_
+//#define  _glut_
 
 using namespace std;
 
