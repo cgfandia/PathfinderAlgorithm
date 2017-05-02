@@ -5,6 +5,7 @@
 !FPGA_tests
 !*.gitignore
 !*.cpp
+!*.txt
 !*.h
 !*.md
 !*.sh
